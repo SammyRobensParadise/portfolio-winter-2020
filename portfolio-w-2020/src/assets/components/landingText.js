@@ -3,8 +3,7 @@ import styled from 'styled-components'
 
 const landingText = 'Designer, Developer, Student of UX'
 const HeaderText = styled.h1`
-&&&{
-  @import url('https://use.typekit.net/ucu5nmz.css');
+&{
   font-family: impact-urw, sans-serif;
   font-weight: 400;
   font-style: normal;
