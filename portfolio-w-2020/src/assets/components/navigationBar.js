@@ -15,7 +15,7 @@ const Nav = styled.div`
   color: ${white};
   line-height: 30px;
   text-shadow: 0px 2px 3px #2b2b2a;
-  position: absolute;
+  position: fixed;
   float: right;
 `
 const NavEl = styled.div`
