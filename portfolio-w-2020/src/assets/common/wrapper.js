@@ -3,10 +3,10 @@ import { backgroundGreen } from '../colors/common-colors'
 
 const WrapperContainer = styled.div`
 background: ${backgroundGreen}
-width: 100%;
-magin-left: 0px;
-height: 100%;
 overflow-x: hidden;
+height: 100%;
+width: 100%;
+position: fixed;
 `
 
 export default WrapperContainer
