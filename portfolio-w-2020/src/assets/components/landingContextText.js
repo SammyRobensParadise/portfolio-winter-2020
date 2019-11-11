@@ -10,7 +10,7 @@ const landingParagraph = (
 const landingParagraphTwo =
   'I have worked with companies like LEGO, Hootsuite,  Kroger, and Lululemon to create beautiful products and experiences.'
 const ParaText = styled.p`
-  @import url("https://use.typekit.net/ucu5nmz.css");
+  &&&{
   font-family: montserrat, sans-serif;
   font-weight: 200;
   font-style: normal;
@@ -25,6 +25,7 @@ const ParaText = styled.p`
   width: 500px;
   right: 60px;
   text-shadow: 0px 2px 6px #2b2b2a;
+  }
 `
 const TextWrapper = styled.div`
   float: right;
