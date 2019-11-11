@@ -20,7 +20,7 @@ const DiamondOne = () => {
           <filter id='Union_2' x='0' y='0' width='1427' height='2178' filterUnits='userSpaceOnUse'>
             <feOffset dy='3' input='SourceAlpha' />
             <feGaussianBlur stdDeviation='3' result='blur' />
-            <feFlood flood-opacity='0.161' />
+            <feFlood floodOpacity='0.161' />
             <feComposite operator='in' in2='blur' />
             <feComposite in='SourceGraphic' />
           </filter>
@@ -34,13 +34,13 @@ const DiamondOne = () => {
           >
             <feOffset dy='3' input='SourceAlpha' />
             <feGaussianBlur stdDeviation='3' result='blur-2' />
-            <feFlood flood-opacity='0.161' />
+            <feFlood floodOpacity='0.161' />
             <feComposite operator='in' in2='blur-2' />
             <feComposite in='SourceGraphic' />
           </filter>
         </defs>
         <g id='Component_1_1' data-name='Component 1 – 1' transform='translate(9 6)'>
-          <g class='cls-4' transform='matrix(1, 0, 0, 1, -9, -6)'>
+          <g className='cls-4' transform='matrix(1, 0, 0, 1, -9, -6)'>
             <path
               id='Union_2-2'
               data-name='Union 2'
@@ -49,7 +49,7 @@ const DiamondOne = () => {
               transform='translate(9 6)'
             />
           </g>
-          <g class='cls-3' transform='matrix(1, 0, 0, 1, -9, -6)'>
+          <g className='cls-3' transform='matrix(1, 0, 0, 1, -9, -6)'>
             <path
               id='Union_1-2'
               data-name='Union 1'
