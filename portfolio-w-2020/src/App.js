@@ -5,6 +5,7 @@ import LandingText from './assets/components/landingText'
 import LandingContextText from './assets/components/landingContextText'
 import NavigationBar from './assets/components/navigationBar'
 import GoButton from './assets/components/goButton'
+import ContributionsSection from './assets/components/contributionsWrapper'
 function App() {
   return (
     <div className='web-App'>
@@ -14,6 +15,7 @@ function App() {
         <LandingText />
         <LandingContextText />
         <GoButton />
+        <ContributionsSection />
       </WrapperContainer>
     </div>
   )
