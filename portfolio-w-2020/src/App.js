@@ -6,6 +6,7 @@ import LandingContextText from './assets/components/landingContextText'
 import NavigationBar from './assets/components/navigationBar'
 import GoButton from './assets/components/goButton'
 import ContributionsSection from './assets/components/contributionsWrapper'
+import ContributionsText from './assets/components/contributionsText'
 function App() {
   return (
     <div className='web-App'>
