@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 const DiamondWrapper = styled.div`
-position: absolute;
+position: fixed;
 z-index: 0;
 `
 
