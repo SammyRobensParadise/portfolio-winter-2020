@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import { isPureish } from '@babel/types'
+import React from 'react'
+import styled, { keyframes, css } from 'styled-components'
 const pos = window.innerHeight + 220
 const ContributionsList = styled.div`
 &{
@@ -10,7 +9,7 @@ const ContributionsList = styled.div`
     font-size: 100px;
     width 600px;
     text-align: left;
-    z-index: 90;
+    z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
     color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #fff;
@@ -21,6 +20,24 @@ const ContributionsList = styled.div`
 
   }
 `
+const move = keyframes`
+  0%{
+   transform: translateX(0px);
+  }
+  33% {
+   transform: translateX(600px);
+  }
+  66% {
+    transform: translateX(600px);
+   }
+   100%{
+    transform: translateX(0px);
+   }
+`
+const animation = num =>
+  css`
+    ${move} 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) ${num}s forwards;
+  `
 const ContribListEl = styled.h2`
 font-family: impact-urw, sans-serif;
 font-weight: 400;
@@ -28,15 +45,17 @@ font-style: normal;
 font-size: 100px;
 width 600px;
 text-align: left;
-z-index: 90;
+z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
 color: transparent;
 -webkit-text-stroke-width: 2px;
 -webkit-text-stroke-color: #fff;
 line-height: 30px;
+animation: ${p => (p.hide ? animation(p.num) : 'none')}
 &:hover{
     cursor: pointer;
 }
 `
+
 const HOOTSUITE = 'HOOTSUITE'
 const FINGER_FOOD = 'FINGER FOOD'
 const ENV_CANDADA = 'ENV. CANADA'
@@ -46,34 +65,69 @@ class ContributionsText extends React.PureComponent {
     super()
     this.state = {
       contributonList: [HOOTSUITE, FINGER_FOOD, ENV_CANDADA, GRAPE],
-      clickedel: null
+      hideEl: null
     }
   }
   reOrderList = clickedEl => {
-    let interm = this.state.contributonList
-    if (interm.includes(clickedEl) && interm.indexOf(clickedEl) !== 0) {
-      interm.splice(interm.indexOf(clickedEl), 1)
-      interm.unshift(clickedEl)
-    }
     this.setState({
-      contributonList: interm,
-      clickedel: clickedEl
+      hideEl: true
+    })
+    let slideInSlideOutPromise = new Promise(resolve => {
+      let interm = this.state.contributonList
+      setTimeout(() => {
+        if (interm.includes(clickedEl) && interm.indexOf(clickedEl) !== 0) {
+          interm.splice(interm.indexOf(clickedEl), 1)
+          interm.unshift(clickedEl)
+        }
+        this.setState({
+          contributonList: [...interm]
+        })
+      }, 1000)
+      setTimeout(() => {
+        resolve()
+      }, 2000)
+    })
+    slideInSlideOutPromise.then(() => {
+      this.setState({
+        hideEl: null
+      })
     })
   }
   render() {
-    const { contributonList } = this.state
+    const { contributonList, hideEl } = this.state
+    console.log(hideEl)
     return (
-      <ContributionsList>
-        <ContribListEl onClick={() => this.reOrderList(contributonList[0])}>
+      <ContributionsList hide={hideEl}>
+        <ContribListEl
+          hide={hideEl}
+          num={0.1}
+          className='el-1'
+          onClick={() => this.reOrderList(contributonList[0])}
+        >
           {this.state.contributonList[0]}
         </ContribListEl>
-        <ContribListEl onClick={() => this.reOrderList(contributonList[1])}>
+        <ContribListEl
+          hide={hideEl}
+          num={0.2}
+          className='el-2'
+          onClick={() => this.reOrderList(contributonList[1])}
+        >
           {this.state.contributonList[1]}
         </ContribListEl>
-        <ContribListEl onClick={() => this.reOrderList(contributonList[2])}>
+        <ContribListEl
+          hide={hideEl}
+          num={0.3}
+          className='el-3'
+          onClick={() => this.reOrderList(contributonList[2])}
+        >
           {this.state.contributonList[2]}
         </ContribListEl>
-        <ContribListEl onClick={() => this.reOrderList(contributonList[3])}>
+        <ContribListEl
+          hide={hideEl}
+          num={0.4}
+          className='el-4'
+          onClick={() => this.reOrderList(contributonList[3])}
+        >
           {this.state.contributonList[3]}
         </ContribListEl>
       </ContributionsList>
