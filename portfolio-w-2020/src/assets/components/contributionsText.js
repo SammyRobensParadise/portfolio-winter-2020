@@ -1,5 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import styled, { keyframes, css } from 'styled-components'
+import { tansitionContributionTest } from '../../actions/action'
 const pos = window.innerHeight + 220
 const ContributionsList = styled.div`
 &{
@@ -69,29 +71,31 @@ class ContributionsText extends React.PureComponent {
     }
   }
   reOrderList = clickedEl => {
-    this.setState({
-      hideEl: true
-    })
-    let slideInSlideOutPromise = new Promise(resolve => {
-      let interm = this.state.contributonList
-      setTimeout(() => {
-        if (interm.includes(clickedEl) && interm.indexOf(clickedEl) !== 0) {
-          interm.splice(interm.indexOf(clickedEl), 1)
-          interm.unshift(clickedEl)
-        }
-        this.setState({
-          contributonList: [...interm]
-        })
-      }, 1000)
-      setTimeout(() => {
-        resolve()
-      }, 2000)
-    })
-    slideInSlideOutPromise.then(() => {
+    if (this.state.contributonList.indexOf(clickedEl) !== 0) {
       this.setState({
-        hideEl: null
+        hideEl: true
       })
-    })
+      let slideInSlideOutPromise = new Promise(resolve => {
+        let interm = this.state.contributonList
+        setTimeout(() => {
+          if (interm.includes(clickedEl) && interm.indexOf(clickedEl) !== 0) {
+            interm.splice(interm.indexOf(clickedEl), 1)
+            interm.unshift(clickedEl)
+          }
+          this.setState({
+            contributonList: [...interm]
+          })
+        }, 1000)
+        setTimeout(() => {
+          resolve()
+        }, 2000)
+      })
+      slideInSlideOutPromise.then(() => {
+        this.setState({
+          hideEl: null
+        })
+      })
+    }
   }
   render() {
     const { contributonList, hideEl } = this.state
@@ -134,4 +138,14 @@ class ContributionsText extends React.PureComponent {
     )
   }
 }
-export default ContributionsText
+
+const mapStateToProps = state => ({
+  ...state
+})
+const mapDispatchToProps = dispatch => ({
+  tansitionContributionTest: () => dispatch(tansitionContributionTest())
+})
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContributionsText)
