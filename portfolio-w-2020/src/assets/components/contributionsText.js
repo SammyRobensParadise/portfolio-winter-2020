@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { toggleContributionText } from '../../actions/action'
+
 import styled, { keyframes, css } from 'styled-components'
-// import { tansitionContributionTest } from '../../actions/action'
 const pos = window.innerHeight + 220
 const ContributionsList = styled.div`
 &{
@@ -63,14 +64,16 @@ const FINGER_FOOD = 'FINGER FOOD'
 const ENV_CANDADA = 'ENV. CANADA'
 const GRAPE = 'GRAPE'
 class ContributionsText extends React.PureComponent {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       contributonList: [HOOTSUITE, FINGER_FOOD, ENV_CANDADA, GRAPE],
-      hideEl: null
+      hideEl: null,
+      currentContributionsText: HOOTSUITE
     }
   }
   reOrderList = clickedEl => {
+    this.props.dispatch(toggleContributionText(clickedEl))
     if (this.state.contributonList.indexOf(clickedEl) !== 0) {
       this.setState({
         hideEl: true
@@ -99,6 +102,7 @@ class ContributionsText extends React.PureComponent {
   }
   render() {
     const { contributonList, hideEl } = this.state
+    console.log(this.props)
     return (
       <ContributionsList hide={hideEl}>
         <ContribListEl
@@ -138,13 +142,4 @@ class ContributionsText extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  ...state
-})
-const mapDispatchToProps = dispatch => ({
- // tansitionContributionTest: () => dispatch(tansitionContributionTest())
-})
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ContributionsText)
+export default connect()(ContributionsText)
