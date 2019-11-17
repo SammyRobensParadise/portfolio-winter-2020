@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { simpleAction } from './actions/action'
+//import { simpleAction } from './actions/action'
 import DiamondOne from './assets/common/diamondOne'
 import WrapperContainer from './assets/common/wrapper'
 import LandingText from './assets/components/landingText'
@@ -16,7 +16,7 @@ class App extends React.PureComponent {
   }
   render() {
     return (
-      <div className='web-App' onClick={this.simpleAction}>
+      <div className='web-App'>
         <WrapperContainer>
           <NavigationBar />
           <DiamondOne />
@@ -33,7 +33,7 @@ const mapStateToProps = state => ({
   ...state
 })
 const mapDispatchToProps = dispatch => ({
-  simpleAction: event => dispatch(simpleAction(event))
+  // simpleAction: event => dispatch(simpleAction(event))
 })
 export default connect(
   mapStateToProps,
