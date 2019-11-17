@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { simpleAction } from './actions/action'
 import DiamondOne from './assets/common/diamondOne'
 import WrapperContainer from './assets/common/wrapper'
 import LandingText from './assets/components/landingText'
@@ -8,15 +7,22 @@ import LandingContextText from './assets/components/landingContextText'
 import NavigationBar from './assets/components/navigationBar'
 import GoButton from './assets/components/goButton'
 import ContributionsSection from './assets/components/contributionsWrapper'
+import { toggleTodo } from './actions/action'
 
 class App extends React.PureComponent {
-  simpleAction = event => {
-    this.props.simpleAction(event)
-    console.log(this.props)
+  constructor(props) {
+    super(props)
+    this.state = {
+      default: 'string'
+    }
   }
   render() {
+    console.log(this.state)
     return (
-      <div className='web-App' onClick={this.simpleAction}>
+      <div
+        className='web-App'
+        onClick={() => this.props.dispatch(toggleTodo(this.setState({ default: 'new string' })))}
+      >
         <WrapperContainer>
           <NavigationBar />
           <DiamondOne />
@@ -29,13 +35,12 @@ class App extends React.PureComponent {
     )
   }
 }
-const mapStateToProps = state => ({
+/*const mapStateToProps = state => ({
   ...state
 })
+
 const mapDispatchToProps = dispatch => ({
-  simpleAction: event => dispatch(simpleAction(event))
-})
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+  toggleTodo: id => dispatch(toggleTodo(id))
+}) */
+
+export default connect()(App)

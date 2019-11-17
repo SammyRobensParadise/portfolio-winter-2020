@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled, { keyframes, css } from 'styled-components'
-import { tansitionContributionTest } from '../../actions/action'
+// import { tansitionContributionTest } from '../../actions/action'
 const pos = window.innerHeight + 220
 const ContributionsList = styled.div`
 &{
@@ -99,7 +99,6 @@ class ContributionsText extends React.PureComponent {
   }
   render() {
     const { contributonList, hideEl } = this.state
-    console.log(hideEl)
     return (
       <ContributionsList hide={hideEl}>
         <ContribListEl
@@ -143,7 +142,7 @@ const mapStateToProps = state => ({
   ...state
 })
 const mapDispatchToProps = dispatch => ({
-  tansitionContributionTest: () => dispatch(tansitionContributionTest())
+ // tansitionContributionTest: () => dispatch(tansitionContributionTest())
 })
 export default connect(
   mapStateToProps,
