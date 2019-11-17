@@ -59,21 +59,20 @@ animation: ${p => (p.hide ? animation(p.num) : 'none')}
 }
 `
 
-const HOOTSUITE = 'HOOTSUITE'
-const FINGER_FOOD = 'FINGER FOOD'
-const ENV_CANDADA = 'ENV. CANADA'
-const GRAPE = 'GRAPE'
+export const HOOTSUITE = 'HOOTSUITE'
+export const FINGER_FOOD = 'FINGER FOOD'
+export const ENV_CANADA = 'ENV. CANADA'
+export const GRAPE = 'GRAPE'
 class ContributionsText extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      contributonList: [HOOTSUITE, FINGER_FOOD, ENV_CANDADA, GRAPE],
+      contributonList: [HOOTSUITE, FINGER_FOOD, ENV_CANADA, GRAPE],
       hideEl: null,
       currentContributionsText: HOOTSUITE
     }
   }
   reOrderList = clickedEl => {
-    this.props.dispatch(toggleContributionText(clickedEl))
     if (this.state.contributonList.indexOf(clickedEl) !== 0) {
       this.setState({
         hideEl: true
@@ -88,6 +87,7 @@ class ContributionsText extends React.PureComponent {
           this.setState({
             contributonList: [...interm]
           })
+          this.props.dispatch(toggleContributionText(clickedEl))
         }, 1000)
         setTimeout(() => {
           resolve()
@@ -102,7 +102,6 @@ class ContributionsText extends React.PureComponent {
   }
   render() {
     const { contributonList, hideEl } = this.state
-    console.log(this.props)
     return (
       <ContributionsList hide={hideEl}>
         <ContribListEl
@@ -141,5 +140,9 @@ class ContributionsText extends React.PureComponent {
     )
   }
 }
-
-export default connect()(ContributionsText)
+const mapStateToProps = state => {
+  return {
+    ...state
+  }
+}
+export default connect(mapStateToProps)(ContributionsText)
