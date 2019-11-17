@@ -22,6 +22,24 @@ const FINGER_FOOD_EXTERNAL_LINK = 'https://sammyrp.com/finger-food-atg-projects.
 const ENV_CANADA_EXTERNAL_LINK =
   'https://www.canada.ca/en/environment-climate-change/corporate/mandate.html'
 const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/'
+
+const fadeInOut  = keyframes`
+0%{
+    opacity: 1;
+}
+33%{
+    opacity: 0;
+}
+66%{
+    opacity: 0;
+}
+100%{
+    opacity: 1;
+}
+`
+const detailsAnim = css`
+${fadeInOut} 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s forwards;
+`
 const ContributionDetailsContainer = styled.div`
 &{
     font-family: montserrat, sans-serif;
@@ -48,6 +66,7 @@ width 350px;
 text-align: left;
 letter-spacing: 0;
 text-decoration: underline;
+animation: ${p => (p.show ? detailsAnim : 'none')}
 `
 const ContributionDetailsText = styled.p`
 top: 0px;
@@ -58,6 +77,7 @@ font-size: 25px;
 width 350px;
 text-align: left;
 letter-spacing: 0;
+animation: ${p => (p.show ? detailsAnim : 'none')}
 `
 const ContributionDetailsButton = styled.div`
 text-align: center;
@@ -73,6 +93,7 @@ line-height: 100px;
 position: absolute;
 background: #203F8F;
 transition: letter-spacing 0.5s;
+animation: ${p => (p.show ? detailsAnim : 'none')}
 &:hover,&:active {
     cursor: pointer;
     background: white;
@@ -147,14 +168,19 @@ class ContributionDetails extends React.PureComponent {
     }
   }
   render() {
-    const { curentContributionText } = this.props.Actions
+    const { curentContributionText, currentContributionAnimationState } = this.props.Actions
     const titleText = this.getJobTitle(curentContributionText)
     const detailsText = this.getCurrentContributionDetails(curentContributionText)
     return (
       <ContributionDetailsContainer>
-        <ContributionDetailsHeader>{titleText}</ContributionDetailsHeader>
-        <ContributionDetailsText>{detailsText}</ContributionDetailsText>
+        <ContributionDetailsHeader show={currentContributionAnimationState}>
+          {titleText}
+        </ContributionDetailsHeader>
+        <ContributionDetailsText show={currentContributionAnimationState}>
+          {detailsText}
+        </ContributionDetailsText>
         <ContributionDetailsButton
+          show={currentContributionAnimationState}
           onClick={() => window.open(this.getExternalJobAction(curentContributionText))}
         >
           More —

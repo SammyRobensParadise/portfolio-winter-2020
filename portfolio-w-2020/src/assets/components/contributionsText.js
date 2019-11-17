@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleContributionText } from '../../actions/action'
+import { toggleContributionText, toggleContributionAnimation } from '../../actions/action'
 
 import styled, { keyframes, css } from 'styled-components'
 const pos = window.innerHeight + 220
@@ -77,6 +77,7 @@ class ContributionsText extends React.PureComponent {
       this.setState({
         hideEl: true
       })
+      this.props.dispatch(toggleContributionAnimation(true))
       let slideInSlideOutPromise = new Promise(resolve => {
         let interm = this.state.contributonList
         setTimeout(() => {
@@ -88,6 +89,7 @@ class ContributionsText extends React.PureComponent {
             contributonList: [...interm]
           })
           this.props.dispatch(toggleContributionText(clickedEl))
+          
         }, 1000)
         setTimeout(() => {
           resolve()
@@ -97,6 +99,7 @@ class ContributionsText extends React.PureComponent {
         this.setState({
           hideEl: null
         })
+        this.props.dispatch(toggleContributionAnimation(null))
       })
     }
   }
