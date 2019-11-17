@@ -11,7 +11,6 @@ const Nav = styled.div`
   text-align: right;
   letter-spacing: 0;
   z-index: 99;
-  position: relative;
   color: ${white};
   line-height: 30px;
   text-shadow: 0px 2px 3px #2b2b2a;
