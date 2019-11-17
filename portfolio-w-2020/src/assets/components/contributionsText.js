@@ -99,7 +99,6 @@ class ContributionsText extends React.PureComponent {
   }
   render() {
     const { contributonList, hideEl } = this.state
-    console.log(hideEl)
     return (
       <ContributionsList hide={hideEl}>
         <ContribListEl
