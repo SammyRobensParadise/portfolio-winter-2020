@@ -8,6 +8,7 @@ import NavigationBar from './assets/components/navigationBar'
 import GoButton from './assets/components/goButton'
 import ContributionsSection from './assets/components/contributionsWrapper'
 import ProjectSection from './assets/components/projectsWrapper'
+import DesignAndCodeSection from './assets/components/designAndCodeWrapper'
 
 class App extends React.PureComponent {
   render() {
@@ -21,6 +22,7 @@ class App extends React.PureComponent {
           <GoButton />
           <ContributionsSection />
           <ProjectSection />
+          <DesignAndCodeSection />
         </WrapperContainer>
       </div>
     )
