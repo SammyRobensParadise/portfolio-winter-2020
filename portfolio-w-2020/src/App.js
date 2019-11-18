@@ -7,6 +7,7 @@ import LandingContextText from './assets/components/landingContextText'
 import NavigationBar from './assets/components/navigationBar'
 import GoButton from './assets/components/goButton'
 import ContributionsSection from './assets/components/contributionsWrapper'
+import ProjectSection from './assets/components/projectsWrapper'
 
 class App extends React.PureComponent {
   render() {
@@ -19,6 +20,7 @@ class App extends React.PureComponent {
           <LandingContextText />
           <GoButton />
           <ContributionsSection />
+          <ProjectSection />
         </WrapperContainer>
       </div>
     )

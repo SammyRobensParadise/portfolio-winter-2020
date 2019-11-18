@@ -10,7 +10,7 @@ const HOOTSUITE_DETAILS_TEXT =
 const FINGER_FOOD_DETAILS_TEXT =
   'I developed a system to quantify UX world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects.'
 const ENV_CANADA_DETAILS_TEXT =
-  "working with Environment and Climate Change Canada's Transportation Division to develop software engineering solutions assisting regulatory administration."
+  "Worked with the transportation division to develop software engineering solutions assisting regulatory administration."
 const GRAPE_DETAILS_TEXT =
   'Working to build a platform that will change the way people learn code through interactive, tutorials by humans, for humans'
 const HOOTSUITE_JOB_TITLE = 'Software Developer'
