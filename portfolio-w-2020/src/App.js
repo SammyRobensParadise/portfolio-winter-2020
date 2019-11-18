@@ -9,6 +9,7 @@ import GoButton from './assets/components/goButton'
 import ContributionsSection from './assets/components/contributionsWrapper'
 import ProjectSection from './assets/components/projectsWrapper'
 import DesignAndCodeSection from './assets/components/designAndCodeWrapper'
+import AboutMeWrapper from './assets/components/aboutMeWrapper'
 
 class App extends React.PureComponent {
   render() {
@@ -23,6 +24,7 @@ class App extends React.PureComponent {
           <ContributionsSection />
           <ProjectSection />
           <DesignAndCodeSection />
+          <AboutMeWrapper />
         </WrapperContainer>
       </div>
     )
