@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { darkBlue } from '../colors/common-colors'
 import { connect } from 'react-redux'
 import { toggleCodeAnimation, toggleDribbbleAnimation } from '../../actions/action'
+
 const pos = window.innerHeight + 2000
 const DESIGN_WORK = 'DESIGN WORK'
 const DEVELOPMENT_WORK = 'DEVELOPMENT WORK'
@@ -12,6 +13,10 @@ const CODE_TRRIGGER_TEXT =
   'I code with UX and scalability at the center of my effort. I am constantly exploring new tech to bring the most game-changing experiences.'
 const TRIGGER_TEXT =
   'Check out my design and code — see something that peaks your interest? Let me know!'
+
+const DRIBBLE_LINK = 'https://dribbble.com/sammyrp'
+const GH_LINK = 'https://github.com/SammyRobensParadise'
+
 const DesignAndCodeDetailsText = styled.div`
   & {
     font-family: impact-urw, sans-serif;
@@ -31,9 +36,11 @@ const DesignAndCodeDetailsText = styled.div`
 `
 const DesignAndCodeDetailsEl = styled.div`
   margin-top: ${p => (p.order === 'first' ? '25' : p.order === 'second' ? '315' : '0')}px;
+  transition: letter-spacing 0.5s;
   &:hover {
     color: #fff;
     cursor: pointer;
+    letter-spacing: 4px;
   }
 `
 const UnderlineStyle = styled.div`
@@ -57,6 +64,7 @@ const TriggerText = styled.div`
     position: absolute;
     margin-top: 80px;
     margin-left: 20px;
+    text-shadow: 0px 2px 6px #2b2b2a;
 }
 `
 class DesignCodeAndDetails extends React.PureComponent {
@@ -82,8 +90,9 @@ class DesignCodeAndDetails extends React.PureComponent {
       <DesignAndCodeDetailsText>
         <DesignAndCodeDetailsEl
           onMouseOver={() => this.props.dispatch(toggleDribbbleAnimation(true))}
-          order={'first'}
           onMouseLeave={() => this.props.dispatch(toggleDribbbleAnimation(false))}
+          onClick={() => window.open(DRIBBLE_LINK)}
+          order={'first'}
         >
           {DESIGN_WORK}
         </DesignAndCodeDetailsEl>
@@ -92,6 +101,7 @@ class DesignCodeAndDetails extends React.PureComponent {
         <DesignAndCodeDetailsEl
           onMouseOver={() => this.props.dispatch(toggleCodeAnimation(true))}
           onMouseLeave={() => this.props.dispatch(toggleCodeAnimation(false))}
+          onClick={() => window.open(GH_LINK)}
           order={'second'}
         >
           {DEVELOPMENT_WORK}

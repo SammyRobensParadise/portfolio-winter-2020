@@ -66,6 +66,7 @@ width 350px;
 text-align: left;
 letter-spacing: 0;
 text-decoration: underline;
+text-shadow: 0px 2px 6px #2b2b2a;
 animation: ${p => (p.show ? detailsAnim : 'none')}
 `
 const ContributionDetailsText = styled.p`
@@ -77,6 +78,7 @@ font-size: 25px;
 width 350px;
 text-align: left;
 letter-spacing: 0;
+text-shadow: 0px 2px 6px #2b2b2a;
 animation: ${p => (p.show ? detailsAnim : 'none')}
 `
 const ContributionDetailsButton = styled.div`
