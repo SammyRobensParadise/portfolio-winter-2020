@@ -107,7 +107,6 @@ class ContributionDetails extends React.PureComponent {
     this.state = {
       ...props
     }
-    debugger
   }
   getExternalJobAction = p => {
     switch (p) {

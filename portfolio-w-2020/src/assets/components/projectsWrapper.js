@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ProjectDetails from './projectsDetails'
 const pos = window.innerHeight + 200
 const ProjectWrapper = styled.div`
   z-index: 89;
@@ -49,6 +50,7 @@ const ProjectSection = () => {
           </g>
         </svg>
       </ProjectWrapper>
+      <ProjectDetails />
     </div>
   )
 }
