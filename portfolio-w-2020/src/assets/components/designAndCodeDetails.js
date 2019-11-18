@@ -6,6 +6,12 @@ import { toggleCodeAnimation, toggleDribbbleAnimation } from '../../actions/acti
 const pos = window.innerHeight + 2000
 const DESIGN_WORK = 'DESIGN WORK'
 const DEVELOPMENT_WORK = 'DEVELOPMENT WORK'
+const DESIGN_TRIGGER_TEXT =
+  'I design from the standpoint of both a passionate artist and a developer — mixing beauty with functionality and accessibility.'
+const CODE_TRRIGGER_TEXT =
+  'I code with UX and scalability at the center of my effort. I am constantly exploring new tech to bring the most game-changing experiences.'
+const TRIGGER_TEXT =
+  'Check out my design and code — see something that peaks your interest? Let me know!'
 const DesignAndCodeDetailsText = styled.div`
   & {
     font-family: impact-urw, sans-serif;
@@ -37,6 +43,22 @@ const UnderlineStyle = styled.div`
   left: 180px;
   background: ${darkBlue};
 `
+const TriggerText = styled.div`
+&{
+    font-family: montserrat, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 25px;
+    width 700px;
+    color: #fff
+    line-height: 50px;
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: none;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 20px;
+}
+`
 class DesignCodeAndDetails extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -44,7 +66,18 @@ class DesignCodeAndDetails extends React.PureComponent {
       ...props
     }
   }
+  getTriggerText = () => {
+    const { animateCode, animateDribbble } = this.props.Actions
+    if (animateDribbble) {
+      return DESIGN_TRIGGER_TEXT
+    } else if (animateCode) {
+      return CODE_TRRIGGER_TEXT
+    } else {
+      return TRIGGER_TEXT
+    }
+  }
   render() {
+    const triggerText = this.getTriggerText()
     return (
       <DesignAndCodeDetailsText>
         <DesignAndCodeDetailsEl
@@ -55,6 +88,7 @@ class DesignCodeAndDetails extends React.PureComponent {
           {DESIGN_WORK}
         </DesignAndCodeDetailsEl>
         <UnderlineStyle order={'first'} />
+        <TriggerText>{triggerText}</TriggerText>
         <DesignAndCodeDetailsEl
           onMouseOver={() => this.props.dispatch(toggleCodeAnimation(true))}
           onMouseLeave={() => this.props.dispatch(toggleCodeAnimation(false))}
