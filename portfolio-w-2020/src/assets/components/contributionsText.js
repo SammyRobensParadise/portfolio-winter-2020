@@ -13,7 +13,7 @@ const ContributionsList = styled.div`
     width 600px;
     text-align: left;
     z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
-    color: transparent;
+    color: ${p => (p.active ? '#fff' : 'transparent')};
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #fff;
     line-height: 50px;
@@ -49,7 +49,7 @@ font-size: 100px;
 width 600px;
 text-align: left;
 z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
-color: transparent;
+color: ${p => (p.active ? '#fff' : 'transparent')};
 -webkit-text-stroke-width: 2px;
 -webkit-text-stroke-color: #fff;
 line-height: 30px;
@@ -89,7 +89,6 @@ class ContributionsText extends React.PureComponent {
             contributonList: [...interm]
           })
           this.props.dispatch(toggleContributionText(clickedEl))
-          
         }, 1000)
         setTimeout(() => {
           resolve()
@@ -111,6 +110,7 @@ class ContributionsText extends React.PureComponent {
           hide={hideEl}
           num={0.1}
           className='el-1'
+          active
           onClick={() => this.reOrderList(contributonList[0])}
         >
           {this.state.contributonList[0]}
