@@ -22,7 +22,7 @@ const GoButtonText = styled.h2`
     width: 100%;
     top: ${position}px;
     &:hover{
-        cursor: pointer;
+        cursor: none;
   }
 `
 const GoTriangleWrapper = styled.div`
@@ -43,7 +43,7 @@ const GoTriangleWrapper = styled.div`
   width:  100%;
   top: ${gotrianglePosition}px;
   &:hover{
-    cursor: pointer;
+    cursor: none;
 }
 `
 const GO = 'GO'

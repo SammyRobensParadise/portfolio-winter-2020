@@ -29,7 +29,7 @@ const NavEl = styled.div`
   transition border-width: 0.3 linear 1s;
   transition: letter-spacing 0.5s;
   &:hover,&:active {
-    cursor: pointer;
+    cursor: none;
     border-width: 2px 0px 2px 0px;
     margin-block-start: 18px;
     letter-spacing: 6px;
