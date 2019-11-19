@@ -12,13 +12,14 @@ body {
   pointer-events: none;
 }
 .cursor--small {
-  width: 5px;
-  height: 5px;
-  left: -2.5px;
-  top: -2.5px;
+  width: 8px;
+  height: 8px;
+  left: -4px;
+  top: -4px;
   border-radius: 50%;
   z-index: 11000;
   background: var(--color-text);
+  background: #203f8f;
 }
 .cursor--canvas {
   width: 100vw;

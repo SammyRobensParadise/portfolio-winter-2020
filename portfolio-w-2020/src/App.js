@@ -17,9 +17,7 @@ let clientX = -100
 let clientY = -100
 let lastX = 0
 let lastY = 0
-let isStuck = false
-let showCursor = false
-let group, stuckX, stuckY, fillOuterCursor
+let group
 class App extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -33,7 +31,7 @@ class App extends React.PureComponent {
     })
   }
   initCursor = () => {
-    const innerCursor = document.querySelector('.cursor')
+    const innerCursor = document.querySelector('.cursor--small')
     // add listener to track the current mouse position
     document.addEventListener('mousemove', e => {
       clientX = e.clientX
@@ -61,11 +59,6 @@ class App extends React.PureComponent {
     const segments = 8
     const radius = 17
 
-    // we'll need these later for the noisy circle
-    const noiseScale = 150 // speed
-    const noiseRange = 4 // range of distortion
-    let isNoisy = false // state
-
     // the base shape for the noisy circle
     const polygon = new paper.Path.RegularPolygon(new paper.Point(0, 0), segments, radius)
     polygon.strokeColor = strokeColor
@@ -73,17 +66,12 @@ class App extends React.PureComponent {
     polygon.smooth()
     group = new paper.Group([polygon])
     group.applyMatrix = false
-    let bigCoordinates = []
 
     // function for linear interpolation of values
     const lerp = (a, b, n) => {
       return (1 - n) * a + n * b
     }
 
-    // function to map a value from one range to another range
-    const map = (value, in_min, in_max, out_min, out_max) => {
-      return ((value - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
-    }
 
     // the draw loop of Paper.js
     // (60fps with requestAnimationFrame under the hood)
