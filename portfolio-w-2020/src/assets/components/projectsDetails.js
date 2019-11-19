@@ -56,7 +56,7 @@ const ProjectDetailsEl = styled.h2`
         transition: letter-spacing 0.5s;
         &:hover{
             color: #fff;
-            cursor: pointer;
+            cursor: none;
             letter-spacing: 6px;
         }
   }

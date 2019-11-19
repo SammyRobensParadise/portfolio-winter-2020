@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { white, deepBlue } from '../colors/common-colors'
+import { white} from '../colors/common-colors'
 
 const pos = window.innerHeight + 2900
 const AboutMeText = styled.div`

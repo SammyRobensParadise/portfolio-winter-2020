@@ -97,7 +97,7 @@ background: #203F8F;
 transition: letter-spacing 0.5s;
 animation: ${p => (p.show ? detailsAnim : 'none')}
 &:hover,&:active {
-    cursor: pointer;
+    cursor: none;
     background: white;
     color: #203F8F;
     letter-spacing: 6px;

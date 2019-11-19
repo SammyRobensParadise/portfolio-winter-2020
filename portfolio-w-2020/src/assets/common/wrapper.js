@@ -7,6 +7,7 @@ overflow-x: hidden;
 height: 100%;
 width: 100%;
 position: fixed;
+cursor: none;
 `
 
 export default WrapperContainer

@@ -39,7 +39,7 @@ const DesignAndCodeDetailsEl = styled.div`
   transition: letter-spacing 0.5s;
   &:hover {
     color: #fff;
-    cursor: pointer;
+    cursor: none;
     letter-spacing: 4px;
   }
 `

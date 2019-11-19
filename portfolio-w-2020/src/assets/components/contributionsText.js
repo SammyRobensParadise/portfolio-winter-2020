@@ -55,7 +55,7 @@ color: ${p => (p.active ? '#fff' : 'transparent')};
 line-height: 30px;
 animation: ${p => (p.hide ? animation(p.num) : 'none')}
 &:hover{
-    cursor: pointer;
+    cursor: none;
 }
 `
 

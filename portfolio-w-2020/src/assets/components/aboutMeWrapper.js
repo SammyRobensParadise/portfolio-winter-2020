@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { white, deepBlue } from '../colors/common-colors'
 import AboutMeDetails from './aboutMeDetails'
 const pos = window.innerHeight + 2000
 const setWith = window.innerWidth - 50
