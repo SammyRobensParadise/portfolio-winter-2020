@@ -68,7 +68,6 @@ z-index:  99;
 position: relative;
 color: ${white};
 line-height: 60px;
-text-shadow: 0px 2px 6px #2d2d2a;
 `
 const SAMMY_ROBENS_PARADISE = 'SAMMY ROBENS-PARADISE'
 const WHAT_I_DO = 'I study Systems Design Engineering'
