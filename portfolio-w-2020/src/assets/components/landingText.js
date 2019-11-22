@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import anime from 'animejs/lib/anime.es.js'
-//  const landingText = 'Designer, Developer, Student of UX'
+
 const HeaderText = styled.h1`
 &{
   font-family: impact-urw, sans-serif;
