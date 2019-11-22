@@ -1,17 +1,34 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { connect } from 'react-redux'
-import DiamondOne from './assets/common/diamondOne'
 import WrapperContainer from './assets/common/wrapper'
-import LandingText from './assets/components/landingText'
-import LandingContextText from './assets/components/landingContextText'
-import NavigationBar from './assets/components/navigationBar'
-import GoButton from './assets/components/goButton'
-import ContributionsSection from './assets/components/contributionsWrapper'
-import ProjectSection from './assets/components/projectsWrapper'
-import DesignAndCodeSection from './assets/components/designAndCodeWrapper'
-import AboutMeWrapper from './assets/components/aboutMeWrapper'
 import * as paper from 'paper'
 import './index.css'
+
+const LoadingMesh = () => {
+  return (
+    <div>
+      <div className='mesh-loader'>
+        <div className='set-one'>
+          <div className='circle' />
+          <div className='circle' />
+        </div>
+        <div className='set-two'>
+          <div className='circle' />
+          <div className='circle' />
+        </div>
+      </div>
+    </div>
+  )
+}
+const DiamondOne = lazy(() => import('./assets/common/diamondOne'))
+const LandingText = lazy(() => import('./assets/components/landingText'))
+const LandingContextText = lazy(() => import('./assets/components/landingContextText'))
+const NavigationBar = lazy(() => import('./assets/components/navigationBar'))
+const GoButton = lazy(() => import('./assets/components/goButton'))
+const ContributionsSection = lazy(() => import('./assets/components/contributionsWrapper'))
+const ProjectSection = lazy(() => import('./assets/components/projectsWrapper'))
+const DesignAndCodeSection = lazy(() => import('./assets/components/designAndCodeWrapper'))
+const AboutMeWrapper = lazy(() => import('./assets/components/aboutMeWrapper'))
 
 let clientX = -100
 let clientY = -100
@@ -31,7 +48,7 @@ class App extends React.PureComponent {
     })
   }
   initCursor = () => {
-    const innerCursor = document.querySelector('.cursor--small')
+    const innerCursor = document.querySelector('.cursor.cursor--small')
     // add listener to track the current mouse position
     document.addEventListener('mousemove', e => {
       clientX = e.clientX
@@ -49,10 +66,6 @@ class App extends React.PureComponent {
 
   initCanvas = () => {
     const canvas = document.querySelector('.cursor--canvas')
-    const shapeBounds = {
-      width: 75,
-      height: 75
-    }
     paper.setup(canvas)
     const strokeColor = 'rgba(255, 255, 255, 255)'
     const strokeWidth = 4
@@ -71,7 +84,6 @@ class App extends React.PureComponent {
     const lerp = (a, b, n) => {
       return (1 - n) * a + n * b
     }
-
 
     // the draw loop of Paper.js
     // (60fps with requestAnimationFrame under the hood)
@@ -95,15 +107,33 @@ class App extends React.PureComponent {
         <WrapperContainer>
           <div id='cur' className='cursor cursor--small'></div>
           <canvas className='cursor cursor--canvas' resize></canvas>
-          <NavigationBar />
-          <DiamondOne />
-          <LandingText />
-          <LandingContextText />
-          <GoButton />
-          <ContributionsSection />
-          <ProjectSection />
-          <DesignAndCodeSection />
-          <AboutMeWrapper />
+          <Suspense fallback={<LoadingMesh />}>
+            <NavigationBar />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <DiamondOne />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <LandingText />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <LandingContextText />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <GoButton />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <ContributionsSection />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <ProjectSection />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <DesignAndCodeSection />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <AboutMeWrapper />
+          </Suspense>
         </WrapperContainer>
       </div>
     )
