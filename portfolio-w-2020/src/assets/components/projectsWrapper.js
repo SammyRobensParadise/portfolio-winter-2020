@@ -44,7 +44,7 @@ const ProjectSection = () => {
               transform={'translate(9.5 6.5)'}
               fill={'#1d839c'}
               stroke={'#1f66a6'}
-              stroke-width='1'
+              strokeWidth='1'
               filter='url(#Union_4)'
             />
           </g>

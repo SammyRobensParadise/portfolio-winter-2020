@@ -39,7 +39,7 @@ const ContributionsSection = () => {
             </filter>
             <style></style>
           </defs>
-          <g class='cls-2' transform='matrix(1, 0, 0, 1, 0, 0)'>
+          <g className='cls-2' transform='matrix(1, 0, 0, 1, 0, 0)'>
             <path
               id='Exclusion_3'
               data-name='Exclusion 3'

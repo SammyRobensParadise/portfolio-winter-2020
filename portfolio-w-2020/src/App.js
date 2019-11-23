@@ -106,7 +106,7 @@ class App extends React.PureComponent {
       <div className='web-App'>
         <WrapperContainer>
           <div id='cur' className='cursor cursor--small'></div>
-          <canvas className='cursor cursor--canvas' resize></canvas>
+          <canvas className='cursor cursor--canvas' resize={'true'}></canvas>
           <Suspense fallback={<LoadingMesh />}>
             <NavigationBar />
           </Suspense>

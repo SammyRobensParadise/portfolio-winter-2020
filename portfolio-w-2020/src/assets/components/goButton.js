@@ -61,7 +61,7 @@ const GoTriangle = () => {
             <feComposite in='SourceGraphic' />
           </filter>
         </defs>
-        <g class='cls-4' transform='matrix(1, 0, 0, 1, 0, 0)'>
+        <g className='cls-4' transform='matrix(1, 0, 0, 1, 0, 0)'>
           <g
             id='Polygon_3-2'
             data-name='Polygon 3'

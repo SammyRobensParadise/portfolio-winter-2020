@@ -46,7 +46,7 @@ class LandingText extends React.PureComponent {
       <HeaderText>
         <svg
           id='Layer_1'
-          dataName='Layer 1'
+          dataname='Layer 1'
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 925 983'
         >
@@ -54,7 +54,7 @@ class LandingText extends React.PureComponent {
           <title>LandingText</title>
           <g
             id='Designer_Developer_Student_of_UX_'
-            dataName='Designer Developer Student of UX '
+            dataname='Designer Developer Student of UX '
             className='cls-1'
           >
             <g className='cls-1'>

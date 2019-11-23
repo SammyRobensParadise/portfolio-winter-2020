@@ -9,7 +9,7 @@ const landingParagraph = (
 )
 const landingParagraphTwo =
   'I have worked with companies like LEGO, Hootsuite,  Kroger, and Lululemon to create beautiful products and experiences.'
-const ParaText = styled.p`
+const ParaText = styled.div`
   &&&{
   font-family: montserrat, sans-serif;
   font-weight: 200;
