@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ProjectDetails from './projectsDetails'
+import {PROJECTS_SECTION} from  '../../App'
 const pos = window.innerHeight + 200
 const ProjectWrapper = styled.div`
   z-index: 89;
@@ -13,7 +14,7 @@ const ProjectSection = () => {
   const setHeight = setWith * (1557 / 908.001)
   return (
     <div>
-      <ProjectWrapper>
+      <ProjectWrapper id={PROJECTS_SECTION}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width={setWith}

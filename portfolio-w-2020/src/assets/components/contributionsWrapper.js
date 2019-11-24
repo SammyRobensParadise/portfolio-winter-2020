@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ContributionsText from './contributionsText'
 import ContributionDetails from './contributionDetails'
+import { CONTTRIBUTION_SECTION} from '../../App'
 const pos = window.innerHeight - 700
 const ContributionsWrapper = styled.div`
   z-index: 89;
@@ -14,7 +15,7 @@ const ContributionsSection = () => {
   const setHeight = setWith * (1557 / 908.001)
   return (
     <div>
-      <ContributionsWrapper>
+      <ContributionsWrapper id={CONTTRIBUTION_SECTION}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width={setWith}

@@ -3,7 +3,8 @@ import {
   TOGGLE_CONTRIBUTION_TEXT,
   TOGGLE_CONTRIBUTION_ANIMATION,
   TOGGLE_CODE_ANIMATION,
-  TOGGLE_DRIBBBLE_ANIMATION
+  TOGGLE_DRIBBBLE_ANIMATION,
+  SCROLL_TO_SECTION
 } from '../actions/action'
 const Actions = (
   state = {
@@ -27,8 +28,23 @@ const Actions = (
       return state
   }
 }
+const Scroller = (
+  state = {
+    currentElInScrollView: null
+  },
+  action
+) => {
+  switch (action.type) {
+    case SCROLL_TO_SECTION:
+      return Object.assign({}, state, { currentElInScrollView: action.data })
+    default:
+      return state
+  }
+}
+
 const AppReduce = combineReducers({
-  Actions
+  Actions,
+  Scroller
 })
 
 export default AppReduce

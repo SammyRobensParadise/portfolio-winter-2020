@@ -2,6 +2,7 @@ export const TOGGLE_CONTRIBUTION_TEXT = 'TOGGLE_CONTRIBUTION_TEXT'
 export const TOGGLE_CONTRIBUTION_ANIMATION = 'TOGGLE_CONTRIBUTION_ANIMATION'
 export const TOGGLE_CODE_ANIMATION = 'TOGGLE_CODE_ANIMATION'
 export const TOGGLE_DRIBBBLE_ANIMATION = 'TOGGLE_DRIBBBLE_ANIMATION'
+export const SCROLL_TO_SECTION = 'SCROLL_TO_SECTION'
 /*
  * action creators
  */
@@ -17,4 +18,7 @@ export function toggleCodeAnimation(data) {
 }
 export function toggleDribbbleAnimation(data) {
   return { type: TOGGLE_DRIBBBLE_ANIMATION, data }
+}
+export function scrollToSection(data) {
+  return { type: SCROLL_TO_SECTION, data }
 }

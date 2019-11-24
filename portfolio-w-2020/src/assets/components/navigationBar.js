@@ -1,6 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { white } from '../colors/common-colors'
+import { connect } from 'react-redux'
+import { scrollToSection } from '../../actions/action'
+import {
+  CONTTRIBUTION_SECTION,
+  PROJECTS_SECTION,
+  DESIGN_AND_CODE_SECTION,
+  ABOUT_ME_WRAPPER
+} from '../../App'
+
 const Nav = styled.div`
   height: 60px;
   width: 100%;
@@ -26,9 +35,10 @@ const NavEl = styled.div`
   border-color: ${white};
   border-style: solid;
   border-width: 0px;
-  transition border-width: 0.3 linear 1s;
+  transitionborder-width: 0.3 linear 1s;
   transition: letter-spacing 0.5s;
-  &:hover,&:active {
+  &:hover,
+  &:active {
     cursor: none;
     border-width: 2px 0px 2px 0px;
     margin-block-start: 18px;
@@ -43,16 +53,38 @@ const CODE = 'Code'
 const DESIGN = 'Design'
 const PROJECTS = 'Projects'
 const CONTRIBUTIONS = 'Contributions'
-const NavigationBar = () => {
-  return (
-    <Nav>
-      <NavEl>{ME}</NavEl>
-      <NavEl>{CODE}</NavEl>
-      <NavEl>{DESIGN}</NavEl>
-      <NavEl>{PROJECTS}</NavEl>
-      <NavEl>{CONTRIBUTIONS}</NavEl>
-    </Nav>
-  )
-}
 
-export default NavigationBar
+class NavigationBar extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      ...props
+    }
+  }
+
+  render() {
+    return (
+      <Nav>
+        <NavEl onClick={() => this.props.dispatch(scrollToSection(ABOUT_ME_WRAPPER))}>{ME}</NavEl>
+        <NavEl onClick={() => this.props.dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>
+          {CODE}
+        </NavEl>
+        <NavEl onClick={() => this.props.dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>
+          {DESIGN}
+        </NavEl>
+        <NavEl onClick={() => this.props.dispatch(scrollToSection(PROJECTS_SECTION))}>
+          {PROJECTS}
+        </NavEl>
+        <NavEl onClick={() => this.props.dispatch(scrollToSection(CONTTRIBUTION_SECTION))}>
+          {CONTRIBUTIONS}
+        </NavEl>
+      </Nav>
+    )
+  }
+}
+const mapStateToProps = state => {
+  return {
+    ...state
+  }
+}
+export default connect(mapStateToProps)(NavigationBar)

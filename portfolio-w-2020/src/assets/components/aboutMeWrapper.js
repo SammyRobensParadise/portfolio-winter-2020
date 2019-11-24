@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import AboutMeDetails from './aboutMeDetails'
+import { ABOUT_ME_WRAPPER } from '../../App'
 const pos = window.innerHeight + 2000
 const setWith = window.innerWidth - 50
 const setHeight = setWith * (1557 / 908.001)
@@ -21,7 +22,7 @@ class AboutMeWrapper extends React.PureComponent {
   render() {
     return (
       <div>
-        <AboutMeWrapperComp>
+        <AboutMeWrapperComp id={ABOUT_ME_WRAPPER}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width={setWith}
