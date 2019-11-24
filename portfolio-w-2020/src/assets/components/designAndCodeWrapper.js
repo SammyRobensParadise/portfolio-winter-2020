@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import DesignCodeAndDetails from './designAndCodeDetails'
 import { connect } from 'react-redux'
 import { white, deepBlue } from '../colors/common-colors'
+import {DESIGN_AND_CODE_SECTION} from '../../App'
 const pos = window.innerHeight + 1100
 
 const DesignAndCodeWrapper = styled.div`
@@ -44,7 +45,7 @@ class DesignAndCodeSection extends React.PureComponent {
     const { animateCode, animateDribbble } = this.props.Actions
     return (
       <div>
-        <DesignAndCodeWrapper>
+        <DesignAndCodeWrapper id={DESIGN_AND_CODE_SECTION}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width={setWith}
