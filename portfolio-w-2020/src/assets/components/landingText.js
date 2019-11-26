@@ -3,45 +3,50 @@ import styled from 'styled-components'
 import anime from 'animejs/lib/anime.es.js'
 
 const HeaderText = styled.h1`
-&{
-  font-family: impact-urw, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 180px;
-  width 600px;
-  text-align: left;
-  z-index:  99;
-  position: absolute;
-  left: 60px;
-  top: 60px;
-  color: transparent;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: #fff;
-  line-height: 185px;
-  margin-block-end: 0px !important ;
-  margin-block-start: 0px !important ;
-  margin: 0;
-}
+  & {
+    font-family: impact-urw, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 180px;
+    text-align: left;
+    z-index: 1000;
+    position: relative;
+    width: 600px;
+    margin: 0 auto;
+    float: left;
+    margin-left: 20%;
+    margin-top: 100px;
+    @media screen and (max-width: 1900px) {
+      margin-left: 10%;
+    }
+    @media screen and(max-width: 1400px) {
+      margin-left: 0%;
+      margin-top: 0px;
+    }
+  }
 `
 class LandingText extends React.PureComponent {
-    componentDidMount() {
-        anime({
-          targets: '.cls-2',
-          strokeDashoffset: [anime.setDashoffset, 0],
-          easing: 'easeInOutSine',
-          duration: 300,
-          delay: function(_e, i) {
-            return i * 200
-          },
-          direction: 'forwards'
-        })
-        setTimeout(() => {
-          this.setState({
-            fillMountainOne: true
-          })
-        }, 2000)
-      }
+  componentDidMount() {
+    anime({
+      targets: '.cls-2',
+      strokeDashoffset: [anime.setDashoffset, 0],
+      easing: 'easeInOutSine',
+      duration: 300,
+      delay: function(_e, i) {
+        return i * 200
+      },
+      direction: 'forwards'
+    })
+    setTimeout(() => {
+      this.setState({
+        fillMountainOne: true
+      })
+    }, 2000)
+  }
   render() {
+    const displayWidth = window.innerWidth >= 1400 ? 600 : 550
+    const displayHeight =
+      window.innerWidth >= 1400 ? window.innerHeight - 200 : window.innerHeight - 250
     return (
       <HeaderText>
         <svg
@@ -49,6 +54,8 @@ class LandingText extends React.PureComponent {
           dataname='Layer 1'
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 925 983'
+          width={displayWidth}
+          height={displayHeight}
         >
           <defs></defs>
           <title>LandingText</title>

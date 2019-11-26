@@ -15,7 +15,6 @@ const ParaText = styled.div`
   font-weight: 200;
   font-style: normal;
   font-size: 25px;
-  width 600px;
   text-align: left;
   letter-spacing: 0;
   z-index:  99;
@@ -23,14 +22,28 @@ const ParaText = styled.div`
   color: ${white};
   line-height: 60px;
   width: 500px;
-  right: 60px;
+  position: relative;
+  margin: 0 auto;
+  float: right;
+  padding-right: 90%;
+  margin-top: 20px;
   text-shadow: 0px 2px 6px #2b2b2a;
+  @media screen and (max-width: 2600px){
+    padding-right  60%;
+  }
+  @media screen and (max-width: 2200px){
+    padding-right: 40%;
+  }
+  @media screen and (max-width: 2100px){
+    padding-right: 20%;
+  }
   }
 `
 const TextWrapper = styled.div`
   float: right;
   position: relative;
-  top: 200px;
+  top: 180px;
+  width: 600px;
 
 `
 const LandingText = () => {
