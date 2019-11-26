@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import WrapperContainer from './assets/common/wrapper'
 import * as paper from 'paper'
 import './index.css'
-import { thisExpression } from '@babel/types'
 
 const LoadingMesh = () => {
   return (
@@ -87,7 +86,6 @@ class App extends React.PureComponent {
     polygon.smooth()
     group = new paper.Group([polygon])
     group.applyMatrix = false
-    debugger
 
     // function for linear interpolation of values
     const lerp = (a, b, n) => {
@@ -107,7 +105,6 @@ class App extends React.PureComponent {
   }
   scrollToSection = e => {
     if (e !== null) {
-      debugger
       let target = document.getElementById(e)
       target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
     }
