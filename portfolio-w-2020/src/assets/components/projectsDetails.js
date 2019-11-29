@@ -66,10 +66,10 @@ const GRAPE = 'GRAPE'
 const BC_FERRIES = 'BC FERRIES'
 const EB_WEB = 'EB WEB'
 
-const GLOBAL_WINERY_EXTERNAL_LINK = 'https://sammyrp.com/global-winery'
-const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/'
-const BC_FERRIES_EXTERNAL_LINK = 'https://sammyrp.com/bc-ferries-redesign'
-const EB_WEB_EXTERNAL_LINK = 'https://emilybandel.github.io/webpage-application/'
+const GLOBAL_WINERY_EXTERNAL_LINK = 'https://sammyrp.com/global-winery/?utm_source=portfolio_2020'
+const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/?utm_source=portfolio_2020'
+const BC_FERRIES_EXTERNAL_LINK = 'https://sammyrp.com/bc-ferries-redesign?utm_source=portfolio_2020'
+const EB_WEB_EXTERNAL_LINK = 'https://emilybandel.github.io/webpage-application/?utm_source=portfolio_2020'
 
 class ProjectDetails extends React.PureComponent {
   constructor(props) {
