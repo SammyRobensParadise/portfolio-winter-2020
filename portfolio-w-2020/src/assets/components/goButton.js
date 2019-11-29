@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { white } from '../colors/common-colors'
 
-const position = window.innerHeight - 200
-const gotrianglePosition = window.innerHeight - 120
+const position = 650
 const GoButtonText = styled.h2`
   & {
     font-family: impact-urw, sans-serif;
@@ -20,31 +19,25 @@ const GoButtonText = styled.h2`
     margin-block-start: 0px !important ;
     position: absolute;
     width: 100%;
-    top: ${position}px;
     &:hover{
         cursor: none;
   }
 `
 const GoTriangleWrapper = styled.div`
-  font-family: impact-urw, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 100px;
-  text-align: center;
-  z-index: 99;
-  color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #fff;
-  line-height: 185px;
-  margin-block-end: 0px !important ;
-  margin-block-start: 0px !important ;
   position: absolute;
-  display: inline-block;
-  width:  100%;
-  top: ${gotrianglePosition}px;
-  &:hover{
+  align-items: center;
+  top: 140px;
+  width: 100%;
+  &:hover {
     cursor: none;
-}
+  }
+`
+const GoButtonWrapper = styled.div`
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: ${position}px;
+
 `
 const GO = 'GO'
 
@@ -82,10 +75,10 @@ const GoTriangle = () => {
 }
 const GoButton = () => {
   return (
-    <div>
+    <GoButtonWrapper>
       <GoButtonText>{GO}</GoButtonText>
       <GoTriangle />
-    </div>
+    </GoButtonWrapper>
   )
 }
 
