@@ -18,7 +18,7 @@ const ContributionsList = styled.div`
     line-height: 50px;
     position: absolute;
     top: ${p => p.pos}px;
-    left: 330px;
+    left: ${p => p.hpos}px;
 
   }
 `
@@ -56,6 +56,17 @@ animation: ${p => (p.hide ? animation(p.num) : 'none')}
 &:hover{
     cursor: none;
 }
+@media screen and (min-width: 1730px){
+  font-size: 140px;
+}
+@media screen and (min-with: 2200px){
+  font-size: 190px;
+}
+@media screen and (min-width: 2500px){
+  font-size: 220px;
+}
+@media screen and (min-width: 2800px){
+}
 `
 
 export const HOOTSUITE = 'HOOTSUITE'
@@ -63,8 +74,10 @@ export const FINGER_FOOD = 'FINGER FOOD'
 export const ENV_CANADA = 'ENV. CANADA'
 export const GRAPE = 'GRAPE'
 let position = 1030
+let horizontalPosition = 330
 if (window.innerWidth >= 1550) {
   position = (window.innerWidth - 1600) * 0.2 + position
+  horizontalPosition = (window.innerWidth - 1500) * 0.2 + horizontalPosition
 }
 class ContributionsText extends React.PureComponent {
   constructor(props) {
@@ -73,13 +86,16 @@ class ContributionsText extends React.PureComponent {
       contributonList: [HOOTSUITE, FINGER_FOOD, ENV_CANADA, GRAPE],
       hideEl: null,
       currentContributionsText: HOOTSUITE,
-      position: position
+      position: position,
+      horizontalPosition: horizontalPosition
     }
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 1550) {
         this.setState({
-          position: (window.innerWidth - 1600) * 0.2 + position
+          position: (window.innerWidth - 1600) * 0.2 + position,
+          horizontalPosition: (window.innerWidth - 1900) * 0.2 + horizontalPosition
         })
+        console.log(horizontalPosition)
       }
     })
   }
@@ -114,9 +130,9 @@ class ContributionsText extends React.PureComponent {
     }
   }
   render() {
-    const { contributonList, hideEl, position } = this.state
+    const { contributonList, hideEl, position, horizontalPosition } = this.state
     return (
-      <ContributionsList hide={hideEl} pos={position}>
+      <ContributionsList hide={hideEl} hpos={horizontalPosition} pos={position}>
         <ContribListEl
           hide={hideEl}
           num={0.1}
