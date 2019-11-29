@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { toggleContributionText, toggleContributionAnimation } from '../../actions/action'
 
 import styled, { keyframes, css } from 'styled-components'
-const pos = window.innerHeight + 220
 const ContributionsList = styled.div`
 &{
     font-family: impact-urw, sans-serif;
@@ -18,7 +17,7 @@ const ContributionsList = styled.div`
     -webkit-text-stroke-color: #fff;
     line-height: 50px;
     position: absolute;
-    top: ${pos}px;
+    top: ${p => p.pos}px;
     left: 330px;
 
   }
@@ -63,14 +62,26 @@ export const HOOTSUITE = 'HOOTSUITE'
 export const FINGER_FOOD = 'FINGER FOOD'
 export const ENV_CANADA = 'ENV. CANADA'
 export const GRAPE = 'GRAPE'
+let position = 1030
+if (window.innerWidth >= 1550) {
+  position = (window.innerWidth - 1600) * 0.2 + position
+}
 class ContributionsText extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
       contributonList: [HOOTSUITE, FINGER_FOOD, ENV_CANADA, GRAPE],
       hideEl: null,
-      currentContributionsText: HOOTSUITE
+      currentContributionsText: HOOTSUITE,
+      position: position
     }
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1550) {
+        this.setState({
+          position: (window.innerWidth - 1600) * 0.2 + position
+        })
+      }
+    })
   }
   reOrderList = clickedEl => {
     if (this.state.contributonList.indexOf(clickedEl) !== 0) {
@@ -103,9 +114,9 @@ class ContributionsText extends React.PureComponent {
     }
   }
   render() {
-    const { contributonList, hideEl } = this.state
+    const { contributonList, hideEl, position } = this.state
     return (
-      <ContributionsList hide={hideEl}>
+      <ContributionsList hide={hideEl} pos={position}>
         <ContribListEl
           hide={hideEl}
           num={0.1}
