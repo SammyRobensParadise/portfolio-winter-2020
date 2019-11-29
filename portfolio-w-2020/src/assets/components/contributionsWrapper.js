@@ -2,25 +2,28 @@ import React from 'react'
 import styled from 'styled-components'
 import ContributionsText from './contributionsText'
 import ContributionDetails from './contributionDetails'
-import { CONTTRIBUTION_SECTION} from '../../App'
-const pos = window.innerHeight - 700
+import { CONTTRIBUTION_SECTION } from '../../App'
 const ContributionsWrapper = styled.div`
   z-index: 89;
-  position: absolute;
-  top: ${pos}px;
-  margin-left: 20px;
+  margin: 0 auto;
+  position: relative;
+  top: 150px;
 `
+let setWidth
+let setHeight
+window.addEventListener('resize', () => {
+  setWidth = window.innerWidth - 80
+  setHeight = setWidth * (908.001 / 1557)
+})
 const ContributionsSection = () => {
-  const setWith = window.innerWidth - 50
-  const setHeight = setWith * (1557 / 908.001)
   return (
     <div>
       <ContributionsWrapper id={CONTTRIBUTION_SECTION}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          width={setWith}
+          width={setWidth}
           height={setHeight}
-          viewBox='0 0 1567 908.001'
+          viewBox={`0 0 1570 900`}
         >
           <defs>
             <filter
