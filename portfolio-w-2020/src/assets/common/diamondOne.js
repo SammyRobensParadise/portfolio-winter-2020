@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import anime from 'animejs/lib/anime.es.js'
 const DiamondWrapper = styled.div`
   position: fixed;
+  user-select: none;
+  display: inline;
+  background-size: cover;
   z-index: 0;
 `
 

@@ -19,7 +19,6 @@ const ContributionsList = styled.div`
     position: absolute;
     top: ${p => p.pos}px;
     left: ${p => p.hpos}px;
-
   }
 `
 const move = keyframes`
@@ -58,14 +57,18 @@ animation: ${p => (p.hide ? animation(p.num) : 'none')}
 }
 @media screen and (min-width: 1730px){
   font-size: 140px;
+  width: 800px
 }
 @media screen and (min-with: 2200px){
   font-size: 190px;
+  width: 800px;
 }
 @media screen and (min-width: 2500px){
   font-size: 220px;
+  width: 800px
 }
 @media screen and (min-width: 2800px){
+  width: 1600px;
 }
 `
 

@@ -118,21 +118,26 @@ class App extends React.PureComponent {
 
     return (
       <div className='web-App'>
+        <Suspense fallback={<LoadingMesh />}>
+          <DiamondOne />
+        </Suspense>
         <WrapperContainer>
+          <Suspense fallback={<LoadingMesh />}>
+            <DiamondOne />
+          </Suspense>
           <div id='cur' className='cursor cursor--small'></div>
           <canvas className='cursor cursor--canvas' resize={'true'}></canvas>
           <Suspense fallback={<LoadingMesh />}>
             <NavigationBar />
           </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <DiamondOne />
-          </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <LandingText />
-          </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <LandingContextText />
-          </Suspense>
+          <div>
+            <Suspense fallback={<LoadingMesh />}>
+              <LandingText />
+            </Suspense>
+            <Suspense fallback={<LoadingMesh />}>
+              <LandingContextText />
+            </Suspense>
+          </div>
           <Suspense fallback={<LoadingMesh />}>
             <GoButton />
           </Suspense>

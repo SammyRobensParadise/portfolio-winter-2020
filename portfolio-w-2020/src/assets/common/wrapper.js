@@ -6,7 +6,7 @@ background: ${backgroundGreen}
 overflow-x: hidden;
 height: 100%;
 width: 100%;
-position: fixed;
+position: relative;
 cursor: none;
 `
 

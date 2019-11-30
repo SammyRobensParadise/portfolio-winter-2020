@@ -22,7 +22,6 @@ const ParaText = styled.div`
   color: ${white};
   line-height: 60px;
   width: 500px;
-  position: relative;
   margin: 0 auto;
   float: right;
   padding-right: 90%;
