@@ -7,7 +7,6 @@ const ContributionsWrapper = styled.div`
   z-index: 89;
   margin: 0 auto;
   position: relative;
-  top: 150px;
 `
 let setWidth
 let setHeight
