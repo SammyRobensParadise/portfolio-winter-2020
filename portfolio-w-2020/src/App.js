@@ -21,6 +21,7 @@ const LoadingMesh = () => {
   )
 }
 const DiamondOne = lazy(() => import('./assets/common/diamondOne'))
+const LandingWrapper = lazy(() => import('./assets/components/landingWrapper'))
 const LandingText = lazy(() => import('./assets/components/landingText'))
 const LandingContextText = lazy(() => import('./assets/components/landingContextText'))
 const NavigationBar = lazy(() => import('./assets/components/navigationBar'))
@@ -130,14 +131,9 @@ class App extends React.PureComponent {
           <Suspense fallback={<LoadingMesh />}>
             <NavigationBar />
           </Suspense>
-          <div>
-            <Suspense fallback={<LoadingMesh />}>
-              <LandingText />
-            </Suspense>
-            <Suspense fallback={<LoadingMesh />}>
-              <LandingContextText />
-            </Suspense>
-          </div>
+          <Suspense fallback={<LoadingMesh />}>
+            <LandingWrapper />
+          </Suspense>
           <Suspense fallback={<LoadingMesh />}>
             <GoButton />
           </Suspense>
