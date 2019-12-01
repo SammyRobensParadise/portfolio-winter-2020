@@ -2,42 +2,38 @@ import React from 'react'
 import styled from 'styled-components'
 import { white } from '../colors/common-colors'
 
-const position = 650
 const GoButtonText = styled.h2`
-  & {
     font-family: impact-urw, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 120px;
+    width: 100%
+    margin: 0 auto;
     text-align: center;
     z-index: 99;
     color: transparent;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    padding-bottom: 0px;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #fff;
-    line-height: 185px;
-    margin-block-end: 0px !important ;
-    margin-block-start: 0px !important ;
-    position: absolute;
-    width: 100%;
+    height: 130px;
+    position: relative;
     &:hover{
         cursor: none;
-  }
 `
 const GoTriangleWrapper = styled.div`
-  position: absolute;
-  align-items: center;
-  top: 140px;
-  width: 100%;
+  position: relative;
+  text-align: center;
+  width: 100%
   &:hover {
     cursor: none;
   }
 `
 const GoButtonWrapper = styled.div`
-  text-align: center;
-  margin: 0 auto;
   position: relative;
-  top: ${position}px;
-
+  display: inline-block;
+  width: 100%
 `
 const GO = 'GO'
 
