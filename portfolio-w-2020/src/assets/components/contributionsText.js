@@ -98,7 +98,6 @@ class ContributionsText extends React.PureComponent {
           position: (window.innerWidth - 1600) * 0.2 + position,
           horizontalPosition: (window.innerWidth - 1900) * 0.2 + horizontalPosition
         })
-        console.log(horizontalPosition)
       }
     })
   }
