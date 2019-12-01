@@ -4,13 +4,8 @@ import anime from 'animejs/lib/anime.es.js'
 
 const HeaderText = styled.h1`
   & {
-    font-family: impact-urw, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 180px;
-    text-align: left;
     z-index: 1000;
-    position: relative;
+    position: static;
     width: 600px;
     margin: 0 auto;
     float: left;
@@ -19,9 +14,14 @@ const HeaderText = styled.h1`
     @media screen and (max-width: 1900px) {
       margin-left: 10%;
     }
-    @media screen and(max-width: 1400px) {
+    @media screen and (max-width: 1400px) {
       margin-left: 0%;
       margin-top: 0px;
+    }
+    @media screen and (max-width: 1350px){
+      float: none;
+      margin: 0 auto;
+      text-align: justify;
     }
   }
 `

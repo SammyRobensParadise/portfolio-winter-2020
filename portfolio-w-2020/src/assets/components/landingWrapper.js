@@ -5,6 +5,8 @@ import LandingContextText from './landingContextText'
 
 const LandingContainer = styled.div`
   position: relative;
+  padding-top: 60px;
+  padding-bottom: 60px;
 `
 class LandingWrapper extends React.PureComponent {
   constructor(props) {
@@ -13,6 +15,7 @@ class LandingWrapper extends React.PureComponent {
       ...props
     }
   }
+  
   render() {
     return (
       <LandingContainer>

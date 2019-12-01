@@ -23,7 +23,6 @@ const ParaText = styled.div`
   line-height: 60px;
   width: 500px;
   margin: 0 auto;
-  float: right;
   padding-right: 90%;
   margin-top: 20px;
   text-shadow: 0px 2px 6px #2b2b2a;
@@ -36,13 +35,27 @@ const ParaText = styled.div`
   @media screen and (max-width: 2100px){
     padding-right: 20%;
   }
+  @media screen and (max-width: 1350px){
+    float: none;
+    margin:  0 auto;
+    text-align: justify;
+    padding-right: 0px;
+    width: 60%;
+  }
   }
 `
 const TextWrapper = styled.div`
   float: right;
   position: relative;
-  top: 180px;
+  padding-top: 100px;
   width: 600px;
+  @media screen and (max-width: 1350px){
+    float: none;
+    margin:  0 auto;
+    text-align: justify;
+    padding-top: 0px;
+    width:  100%;
+  }
 
 `
 const LandingText = () => {
