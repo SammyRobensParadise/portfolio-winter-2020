@@ -4,22 +4,21 @@ import { toggleContributionText, toggleContributionAnimation } from '../../actio
 
 import styled, { keyframes, css } from 'styled-components'
 const ContributionsList = styled.div`
-&{
     font-family: impact-urw, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 100px;
     width 600px;
     text-align: left;
-    z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
+    z-index: ${p => (p.hide || p.hide === false ? '0' : '90')};
     color: ${p => (p.active ? '#fff' : 'transparent')};
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #fff;
     line-height: 50px;
     position: absolute;
-    top: ${p => p.pos}px;
-    left: ${p => p.hpos}px;
-  }
+    padding-left: 23%;
+    padding-top: 130px;
+
 `
 const move = keyframes`
   0%{
@@ -55,20 +54,6 @@ animation: ${p => (p.hide ? animation(p.num) : 'none')}
 &:hover{
     cursor: none;
 }
-@media screen and (min-width: 1730px){
-  font-size: 140px;
-  width: 800px
-}
-@media screen and (min-with: 2200px){
-  font-size: 190px;
-  width: 800px;
-}
-@media screen and (min-width: 2500px){
-  font-size: 220px;
-  width: 800px
-}
-@media screen and (min-width: 2800px){
-  width: 1600px;
 }
 `
 
@@ -76,12 +61,7 @@ export const HOOTSUITE = 'HOOTSUITE'
 export const FINGER_FOOD = 'FINGER FOOD'
 export const ENV_CANADA = 'ENV. CANADA'
 export const GRAPE = 'GRAPE'
-let position = 1030
-let horizontalPosition = 330
-if (window.innerWidth >= 1550) {
-  position = (window.innerWidth - 1600) * 0.2 + position
-  horizontalPosition = (window.innerWidth - 1500) * 0.2 + horizontalPosition
-}
+
 class ContributionsText extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -89,17 +69,8 @@ class ContributionsText extends React.PureComponent {
       contributonList: [HOOTSUITE, FINGER_FOOD, ENV_CANADA, GRAPE],
       hideEl: null,
       currentContributionsText: HOOTSUITE,
-      position: position,
-      horizontalPosition: horizontalPosition
     }
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 1550) {
-        this.setState({
-          position: (window.innerWidth - 1600) * 0.2 + position,
-          horizontalPosition: (window.innerWidth - 1900) * 0.2 + horizontalPosition
-        })
-      }
-    })
+
   }
   reOrderList = clickedEl => {
     if (this.state.contributonList.indexOf(clickedEl) !== 0) {
@@ -132,9 +103,9 @@ class ContributionsText extends React.PureComponent {
     }
   }
   render() {
-    const { contributonList, hideEl, position, horizontalPosition } = this.state
+    const { contributonList, hideEl } = this.state
     return (
-      <ContributionsList hide={hideEl} hpos={horizontalPosition} pos={position}>
+      <ContributionsList hide={hideEl}>
         <ContribListEl
           hide={hideEl}
           num={0.1}

@@ -2,23 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import ProjectDetails from './projectsDetails'
 import {PROJECTS_SECTION} from  '../../App'
-const pos = window.innerHeight + 200
 const ProjectWrapper = styled.div`
   z-index: 89;
-  position: absolute;
-  top: ${pos}px;
-  margin-left: 20px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 100px;
 `
 const ProjectSection = () => {
-  const setWith = window.innerWidth - 50
-  const setHeight = setWith * (1557 / 908.001)
+
   return (
     <div>
       <ProjectWrapper id={PROJECTS_SECTION}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          width={setWith}
-          height={setHeight}
+          width={'100%'}
+          height={'auto'}
           viewBox='0 0 1565.999 907.002'
         >
           <defs>
