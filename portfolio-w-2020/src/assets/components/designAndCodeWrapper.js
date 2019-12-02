@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import DesignCodeAndDetails from './designAndCodeDetails'
 import { connect } from 'react-redux'
 import { white, deepBlue } from '../colors/common-colors'
-import {DESIGN_AND_CODE_SECTION} from '../../App'
+import { DESIGN_AND_CODE_SECTION } from '../../App'
 const pos = window.innerHeight + 1100
 
 const DesignAndCodeWrapper = styled.div`
   z-index: 89;
-  position: absolute;
-  top: ${pos}px;
-  margin-left: 20px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 100px;
 `
 const DesignAnimationSection = styled.div`
 width: 300px;
@@ -32,8 +32,6 @@ position: absolute;
 top: ${pos + 1250}px;
 margin-left: 20px;
 `
-const setWith = window.innerWidth - 50
-const setHeight = setWith * (1557 / 908.001)
 class DesignAndCodeSection extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -48,8 +46,8 @@ class DesignAndCodeSection extends React.PureComponent {
         <DesignAndCodeWrapper id={DESIGN_AND_CODE_SECTION}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width={setWith}
-            height={setHeight}
+            width={'100%'}
+            height={'auto'}
             viewBox='0 0 1565.999 907.001'
           >
             <defs>

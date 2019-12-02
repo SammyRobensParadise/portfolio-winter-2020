@@ -7,21 +7,19 @@ const ContributionsWrapper = styled.div`
   z-index: 89;
   margin: 0 auto;
   position: relative;
+  padding-top: 100px;
 `
-let setWidth
-let setHeight
-window.addEventListener('resize', () => {
-  setWidth = window.innerWidth - 80
-  setHeight = setWidth * (908.001 / 1557)
-})
+
 const ContributionsSection = () => {
   return (
     <div>
       <ContributionsWrapper id={CONTTRIBUTION_SECTION}>
+        <ContributionsText />
+        <ContributionDetails />
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          width={setWidth}
-          height={setHeight}
+          width={'100%'}
+          height={'auto'}
           viewBox={`0 0 1570 900`}
         >
           <defs>
@@ -55,8 +53,6 @@ const ContributionsSection = () => {
           </g>
         </svg>
       </ContributionsWrapper>
-      <ContributionsText />
-      <ContributionDetails />
     </div>
   )
 }
