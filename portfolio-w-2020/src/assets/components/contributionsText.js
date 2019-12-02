@@ -8,7 +8,7 @@ const ContributionsList = styled.div`
     font-weight: 400;
     font-style: normal;
     font-size: 100px;
-    width 600px;
+    width 30%;
     text-align: left;
     z-index: ${p => (p.hide || p.hide === false ? '0' : '90')};
     color: ${p => (p.active ? '#fff' : 'transparent')};
@@ -18,17 +18,34 @@ const ContributionsList = styled.div`
     position: absolute;
     padding-left: 23%;
     padding-top: 130px;
-
+    @media screen and (min-width: 1500px){
+      padding-top: 170px;
+    }
+    @media screen and (min-width: 1700px){
+      padding-top: 200px;
+    }
+    @media screen and (min-width: 2000px){
+      padding-top: 260px;
+    }
+    @media screen and (min-width: 2300px){
+      padding-top: 300px;
+    }
+    @media screen and (min-width: 2600px){
+      padding-top: 360px;
+    }
+    @media screen and  (min-width: 3000px){
+      padding-top: 360px;
+    }
 `
 const move = keyframes`
   0%{
    transform: translateX(0px);
   }
   33% {
-   transform: translateX(600px);
+   transform: translateX(1000px);
   }
   66% {
-    transform: translateX(600px);
+    transform: translateX(1000px);
    }
    100%{
     transform: translateX(0px);
@@ -54,6 +71,27 @@ animation: ${p => (p.hide ? animation(p.num) : 'none')}
 &:hover{
     cursor: none;
 }
+@media screen and (min-width: 1500px){
+  font-size: 100px;
+}
+@media screen and (min-width: 1700px){
+  font-size: 100px;
+}
+@media screen and (min-width: 2000px){
+  font-size: 110px;
+  width: 800px;
+}
+@media screen and (min-width: 2300px){
+  font-size: 120px;
+  width: 800px;
+}
+@media screen and (min-width: 2600px){
+  font-size: 160px;
+  width: 1000px;
+}
+@media screen and  (min-width: 3000px){
+  font-size: 200px;
+  width: 1000px;
 }
 `
 
@@ -68,9 +106,8 @@ class ContributionsText extends React.PureComponent {
     this.state = {
       contributonList: [HOOTSUITE, FINGER_FOOD, ENV_CANADA, GRAPE],
       hideEl: null,
-      currentContributionsText: HOOTSUITE,
+      currentContributionsText: HOOTSUITE
     }
-
   }
   reOrderList = clickedEl => {
     if (this.state.contributonList.indexOf(clickedEl) !== 0) {
