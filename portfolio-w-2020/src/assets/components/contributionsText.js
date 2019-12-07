@@ -7,7 +7,6 @@ const ContributionsList = styled.div`
     font-family: impact-urw, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 100px;
     width 30%;
     text-align: left;
     z-index: ${p => (p.hide || p.hide === false ? '0' : '90')};
@@ -18,6 +17,15 @@ const ContributionsList = styled.div`
     position: absolute;
     padding-left: 23%;
     padding-top: 130px;
+    @media screen and (max-width: 1300px){
+      padding-top: 100px;
+    }
+    @media screen and (max-width: 1010px){
+      padding-top: 80px;
+    }
+    @media screen and (max-width: 800px){
+      padding-top: 60px;
+    }
     @media screen and (min-width: 1500px){
       padding-top: 170px;
     }
@@ -40,15 +48,19 @@ const ContributionsList = styled.div`
 const move = keyframes`
   0%{
    transform: translateX(0px);
+   opacity:  1;
   }
   33% {
-   transform: translateX(1000px);
+   transform: translateX(2000px);
+   opacity: 0;
   }
   66% {
-    transform: translateX(1000px);
+    transform: translateX(2000px);
+    opacity:  0px;
    }
-   100%{
+   100% {
     transform: translateX(0px);
+    opacity:  1px;
    }
 `
 const animation = num =>
@@ -70,6 +82,13 @@ line-height: 30px;
 animation: ${p => (p.hide ? animation(p.num) : 'none')}
 &:hover{
     cursor: none;
+}
+
+@media screen and (max-width: 1300px){
+  font-size: 80px;
+}
+@media screen and (max-width: 1010px){
+  font-size: 60px;
 }
 @media screen and (min-width: 1500px){
   font-size: 100px;
