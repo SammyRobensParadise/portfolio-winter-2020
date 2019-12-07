@@ -10,7 +10,7 @@ const HOOTSUITE_DETAILS_TEXT =
 const FINGER_FOOD_DETAILS_TEXT =
   'I developed a system to quantify UX world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects.'
 const ENV_CANADA_DETAILS_TEXT =
-  "Worked with the transportation division to develop software engineering solutions assisting regulatory administration."
+  'Worked with the transportation division to develop software engineering solutions assisting regulatory administration.'
 const GRAPE_DETAILS_TEXT =
   'Working to build a platform that will change the way people learn code through interactive, tutorials by humans, for humans'
 const HOOTSUITE_JOB_TITLE = 'Software Developer'
@@ -23,7 +23,7 @@ const ENV_CANADA_EXTERNAL_LINK =
   'https://www.canada.ca/en/environment-climate-change/corporate/mandate.html'
 const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/'
 
-const fadeInOut  = keyframes`
+const fadeInOut = keyframes`
 0%{
     opacity: 1;
 }
@@ -38,7 +38,7 @@ const fadeInOut  = keyframes`
 }
 `
 const detailsAnim = css`
-${fadeInOut} 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s forwards;
+  ${fadeInOut} 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s forwards;
 `
 const ContributionDetailsContainer = styled.div`
 &{
@@ -51,13 +51,44 @@ const ContributionDetailsContainer = styled.div`
     color: #fff
     line-height: 50px;
     position: absolute;
-    top: ${pos}px;
     right: 180px;
-
+    padding-top: 100px;
+    @media screen and (max-width: 1400px){
+      right: 10%;
+    }
+    @media screen and (max-width: 1200px){
+      right: 7%;
+      padding-top: 70px;
+    }
+    @media screen and (max-width: 1000px){
+      transform: scale(0.8);
+      padding-top: 40px;
+    }
+    @media screen and (max-width: 880px){
+      padding-top: 0px;
+      right: 2%;
+      transform: scale(0.7);
+    }
+    @media screen and (max-width: 740px){
+      transform: scale(0.5);
+      top: 60px;
+    }
+    @media screen and (max-width: 630px){
+      right: 0px;
+    }
+    @media screen and (max-width: 590px){
+      transform: scale(0.35) translateX(40px) translateY(-30px);
+      padding-right: 0px;
+    }
+    @media screen and (max-width: 500px){
+      transform: scale(0.35) translateX(130px) translateY(-50px);
+    }
+    @media screen and (max-width: 440px){
+      transform: scale(0.35) translateX(160px) translateY(-170px);
+    }
   }
 `
 const ContributionDetailsHeader = styled.h2`
-top: 0px;
 font-family: montserrat, sans-serif;
 font-weight: 200;
 font-style: normal;
