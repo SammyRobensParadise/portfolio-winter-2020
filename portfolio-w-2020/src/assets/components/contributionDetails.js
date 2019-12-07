@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { HOOTSUITE, FINGER_FOOD, GRAPE, ENV_CANADA } from './contributionsText'
 import styled, { keyframes, css } from 'styled-components'
 
-const pos = window.innerHeight + 260
-
 const HOOTSUITE_DETAILS_TEXT =
   'I write and deploy code to 16 million users on a daily basis, driving product growth and an unparalleled tool belt  to social media gurus. '
 const FINGER_FOOD_DETAILS_TEXT =
@@ -85,6 +83,15 @@ const ContributionDetailsContainer = styled.div`
     }
     @media screen and (max-width: 440px){
       transform: scale(0.35) translateX(160px) translateY(-170px);
+    }
+    @media screen and (min-width: 1600px){
+      padding-top: 180px;
+      transform: scale(1.4);
+      padding-right: 5%;
+    }
+    @media screen and  (min-width: 2000px){
+      padding-top: 240px;
+      transform: scale(1.5);
     }
   }
 `
