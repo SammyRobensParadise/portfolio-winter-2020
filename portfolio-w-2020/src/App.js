@@ -22,8 +22,6 @@ const LoadingMesh = () => {
 }
 const DiamondOne = lazy(() => import('./assets/common/diamondOne'))
 const LandingWrapper = lazy(() => import('./assets/components/landingWrapper'))
-const LandingText = lazy(() => import('./assets/components/landingText'))
-const LandingContextText = lazy(() => import('./assets/components/landingContextText'))
 const NavigationBar = lazy(() => import('./assets/components/navigationBar'))
 const GoButton = lazy(() => import('./assets/components/goButton'))
 const ContributionsSection = lazy(() => import('./assets/components/contributionsWrapper'))
