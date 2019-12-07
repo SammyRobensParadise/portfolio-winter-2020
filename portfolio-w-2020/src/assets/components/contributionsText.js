@@ -26,6 +26,12 @@ const ContributionsList = styled.div`
     @media screen and (max-width: 800px){
       padding-top: 60px;
     }
+    @media screen and (max-width: 700px){
+      padding-top: 50px;
+    }
+    @media screen and (max-width: 450px){
+      padding-top: 30px;
+    }
     @media screen and (min-width: 1500px){
       padding-top: 170px;
     }
@@ -83,12 +89,29 @@ animation: ${p => (p.hide ? animation(p.num) : 'none')}
 &:hover{
     cursor: none;
 }
-
 @media screen and (max-width: 1300px){
   font-size: 80px;
 }
 @media screen and (max-width: 1010px){
   font-size: 60px;
+}
+@media screen and (max-width: 800px){
+  font-size: 50px;
+}
+@media screen and (max-width: 680px){
+  font-size: 40px;
+  -webkit-text-stroke-width: 1px;
+  line-height: 20px;
+}
+@media screen and (max-width: 540px){
+  font-size: 30px;
+  -webkit-text-stroke-width: 0.8px;
+  line-height: 15px;
+}
+@media screen and (max-width: 450px){
+  font-size: 25px;
+  -webkit-text-stroke-width: 0.5px;
+  line-height: 12px;
 }
 @media screen and (min-width: 1500px){
   font-size: 100px;
