@@ -23,23 +23,70 @@ const TL = css`
   padding-top: 40px;
   padding-left: 45%;
   padding-right: 50%;
+  @media screen and (max-width: 1250px) {
+    transform: scale(0.9);
+    padding-left: 42%;
+    margin-top: 50px;
+  }
+  @media screen and (max-width: 1100px){
+    padding-left: 35%;
+  }
 `
 const TR = css`
   padding-top: 40px;
   padding-left: 35%;
   padding-right: 50%;
   padding-top: 80px;
+  @media screen and (max-width: 1250px) {
+    transform: scale(0.9);
+    padding-left: 33%;
+    margin-top: 60px;
+  }
+  @media screen and (max-width: 1180px) {
+    padding-left: 30%;
+    margin-top: 50px;
+  }
 `
 const BL = css`
   padding-top: 30px;
   padding-left: 45%;
   padding-right: 50%;
+  @media screen and (max-width: 1390px) {
+    padding-top: 10px;
+    margin-top: 30px;
+  }
+  @media screen and (max-width: 1250px) {
+    transform: scale(0.9);
+    padding-left: 42%;
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 1140px) {
+    transform: scale(0.9);
+    padding-left: 40%;
+    margin-top: 0px;
+  }
+  @media screen and (max-width: 1100px){
+    padding-left: 35%;
+  }
 `
 const BR = css`
   padding-top: 30px;
   padding-left: 35%;
   padding-right: 50%;
   padding-top: 80px;
+  @media screen and (max-width: 1390px) {
+    padding-top: 20px;
+    margin-top: 40px;
+  }
+  @media screen and (max-width: 1250px) {
+    transform: scale(0.9);
+    padding-left: 33%;
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 1180px) {
+    padding-left: 30%;
+    margin-top: 20px;
+  }
 `
 
 const ProjectDetailsEl = styled.h2`
@@ -63,6 +110,9 @@ const ProjectDetailsEl = styled.h2`
       letter-spacing: 6px;
     }
     ${p => (p.local === 'tl' ? TL : p.local === 'tr' ? TR : p.local === 'bl' ? BL : BR)}
+    @media screen and (max-width: 1100px){
+      transform: scale(0.75)
+    }
   }
 `
 const GLOBAL_WINERY = 'GLOBAL WINERY'
