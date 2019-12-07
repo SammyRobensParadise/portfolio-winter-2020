@@ -1,7 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-const pos = window.innerHeight + 1000
 const ProjectDetailsContainer = styled.div`
   & {
     font-family: impact-urw, sans-serif;
@@ -9,16 +8,40 @@ const ProjectDetailsContainer = styled.div`
     font-style: normal;
     font-size: 100px;
     text-align: center;
-    z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
+    z-index: 90;
     color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #fff;
     line-height: 100px;
     position: absolute;
-    top: ${pos}px;
-    left: 330px;
+    display: inline-grid;
+    width: 100%;
+    grid-template-columns: 50% 50%;
   }
 `
+const TL = css`
+  padding-top: 40px;
+  padding-left: 45%;
+  padding-right: 50%;
+`
+const TR = css`
+  padding-top: 40px;
+  padding-left: 35%;
+  padding-right: 50%;
+  padding-top: 80px;
+`
+const BL = css`
+  padding-top: 30px;
+  padding-left: 45%;
+  padding-right: 50%;
+`
+const BR = css`
+  padding-top: 30px;
+  padding-left: 35%;
+  padding-right: 50%;
+  padding-top: 80px;
+`
+
 const ProjectDetailsEl = styled.h2`
 &{
     font-family: impact-urw, sans-serif;
@@ -27,38 +50,19 @@ const ProjectDetailsEl = styled.h2`
     font-size: 100px;
     width 300px;
     text-align: center;
-    z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
+    z-index: 90;
     color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #fff;
     line-height: 100px;
-    position: absolute;
-    top: ${p =>
-      p.local === 'tl'
-        ? '20'
-        : p.local === 'tr'
-        ? '80'
-        : p.local === 'bl'
-        ? '400'
-        : p.local === 'br'
-        ? '450'
-        : '100'}px;
-    left: ${p =>
-      p.local === 'tl'
-        ? '0'
-        : p.local === 'tr'
-        ? '600'
-        : p.local === 'bl'
-        ? '0'
-        : p.local === 'br'
-        ? '600'
-        : '0'}px;
-        transition: letter-spacing 0.5s;
-        &:hover{
-            color: #fff;
-            cursor: none;
-            letter-spacing: 6px;
-        }
+    transition: letter-spacing 0.5s;
+    align-items: center;
+    &:hover{
+      color: #fff;
+      cursor: none;
+      letter-spacing: 6px;
+    }
+    ${p => (p.local === 'tl' ? TL : p.local === 'tr' ? TR : p.local === 'bl' ? BL : BR)}
   }
 `
 const GLOBAL_WINERY = 'GLOBAL WINERY'
@@ -69,7 +73,8 @@ const EB_WEB = 'EB WEB'
 const GLOBAL_WINERY_EXTERNAL_LINK = 'https://sammyrp.com/global-winery/?utm_source=portfolio_2020'
 const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/?utm_source=portfolio_2020'
 const BC_FERRIES_EXTERNAL_LINK = 'https://sammyrp.com/bc-ferries-redesign?utm_source=portfolio_2020'
-const EB_WEB_EXTERNAL_LINK = 'https://emilybandel.github.io/webpage-application/?utm_source=portfolio_2020'
+const EB_WEB_EXTERNAL_LINK =
+  'https://emilybandel.github.io/webpage-application/?utm_source=portfolio_2020'
 
 class ProjectDetails extends React.PureComponent {
   constructor(props) {
