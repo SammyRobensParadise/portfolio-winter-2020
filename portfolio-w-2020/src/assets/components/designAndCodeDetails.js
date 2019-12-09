@@ -68,6 +68,12 @@ const DesignAndCodeDetailsEl = styled.div`
     font-size: 35px;
     line-height: 65px;
   }
+  @media screen and (max-width: 540px){
+    line-height:  50px;
+  }
+  @media screen and (max-width: 612px){
+    margin-top: ${p => (p.order === 'first' ? '5' : p.order === 'second' ? '80' : '0')}px;
+  }
 `
 const UnderlineStyle = styled.div`
   width: ${p => (p.order === 'first' ? '490' : p.order === 'second' ? '720' : '490')}px;
@@ -141,6 +147,13 @@ const TriggerText = styled.div`
     }
     @media screen and (max-width: 600px){
       width: 260px;
+    }
+    @media screen and (max-width: 540px){
+      width: 200px;
+      margin-top: 15px;
+    }
+    @media screen and (max-width: 460px){
+      font-size: 9px;
     }
 }
 `
