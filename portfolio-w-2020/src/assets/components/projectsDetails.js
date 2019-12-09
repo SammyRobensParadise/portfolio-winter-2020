@@ -17,6 +17,49 @@ const ProjectDetailsContainer = styled.div`
     display: inline-grid;
     width: 100%;
     grid-template-columns: 50% 50%;
+    @media screen and (max-width: 1000px){
+      display:  grid;
+      grid-template-rows: 350px 0px 350px;
+    }
+    @media screen and (max-width: 925px){
+      transform: translateX(-30px);
+      grid-template-rows: 320px 0px 350px;
+    }
+    @media screen and (max-width: 860px){
+      grid-template-rows: 300px 0px 350px;
+      transform: translateX(-40px);
+    }
+    @media screen and (max-width: 780px){
+      grid-template-rows: 270px 0px 350px;
+    }
+    @media screen and (max-width: 740px){
+      grid-template-rows: 250px 0px 350px;
+      transform: translateX(-55px);
+    }
+    @media screen and (max-width: 670px){
+      grid-template-rows: 220px 0px 350px;
+      transform: translateX(-60px);
+    }
+    @media screen and (max-width: 620px){
+      grid-template-rows: 200px 0px 350px;
+      transform: translateX(-70px);
+    }
+    @media screen and (max-width: 560px){
+      grid-template-rows: 180px 0px 350px;
+      transform: translateX(-80px);
+    }
+    @media screen and (max-width: 500px){
+      grid-template-rows: 160px 0px 350px;
+      transform: translateX(-90px);
+    }
+    @media screen and (max-width: 430px){
+      grid-template-rows: 140px 0px 350px;
+      transform: translateX(-100px);
+    }
+    @media screen and (max-width: 390px){
+      grid-template-rows: 118px 0px 350px;
+      transform: translateX(-100px);
+    }
   }
 `
 const TL = css`
@@ -30,6 +73,12 @@ const TL = css`
   }
   @media screen and (max-width: 1100px){
     padding-left: 35%;
+  }
+  @media screen and (max-width: 1082px){
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 880px){
+    margin-top: 10px;
   }
 `
 const TR = css`
@@ -46,6 +95,16 @@ const TR = css`
     padding-left: 30%;
     margin-top: 50px;
   }
+  @media screen and (max-width: 1082px){
+    padding-left: 20%
+  }
+  @media screen and (max-width: 880px){
+    margin-top: 20px;
+  }
+  @media screen and (max-width:  600px){
+    margin-top: 0px;
+  }
+
 `
 const BL = css`
   padding-top: 30px;
@@ -68,6 +127,10 @@ const BL = css`
   @media screen and (max-width: 1100px){
     padding-left: 35%;
   }
+  @media screen and (max-width: 1044px){
+    padding-top: 0px;
+    transform: translateY(-30px) scale(0.6);
+  }
 `
 const BR = css`
   padding-top: 30px;
@@ -86,6 +149,15 @@ const BR = css`
   @media screen and (max-width: 1180px) {
     padding-left: 30%;
     margin-top: 20px;
+  }
+  @media screen and (max-width: 1082px){
+    padding-left: 20%
+  }
+  @media screen and (max-width: 1044px){
+    margin-top: 0px;
+  }
+  @media screen and (max-width: 780px){
+    padding-top: 40px;
   }
 `
 
@@ -111,7 +183,20 @@ const ProjectDetailsEl = styled.h2`
     }
     ${p => (p.local === 'tl' ? TL : p.local === 'tr' ? TR : p.local === 'bl' ? BL : BR)}
     @media screen and (max-width: 1100px){
-      transform: scale(0.75)
+      transform: scale(0.75);
+    }
+    @media screen and  (max-width: 1044px){
+      transform: scale(0.6);
+    }
+    @media screen and (max-width: 870px){
+      transform: scale(0.5);
+    }
+    @media screen and (max-width: 620px){
+      transform: scale(0.4);
+    }
+    @media screen and (max-width: 470px){
+      transform: scale(0.3);
+
     }
   }
 `
