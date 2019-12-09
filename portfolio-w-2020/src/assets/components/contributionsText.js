@@ -9,7 +9,7 @@ const ContributionsList = styled.div`
   font-style: normal;
   width: 30%;
   text-align: left;
-  z-index: ${p => (p.hide ? '0' : '90')};
+  z-index: ${p => (p.hide ? '-3' : '90')};
   color: ${p => (p.active ? '#fff' : 'transparent')};
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #fff;
@@ -79,7 +79,7 @@ const ContribListEl = styled.h2`
   font-size: 100px;
   width: 600px;
   text-align: left;
-  z-index: ${p => (p.hide ? '0' : '90')};
+  z-index: ${p => (p.hide ? '-3' : '90')};
   color: ${p => (p.active ? '#fff' : 'transparent')};
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #fff;

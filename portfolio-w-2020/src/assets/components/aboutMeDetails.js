@@ -3,11 +3,8 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { white} from '../colors/common-colors'
 
-const pos = window.innerHeight + 2900
 const AboutMeText = styled.div`
   position: absolute;
-  top: ${pos}px;
-  left: 200px;
 `
 const AboutMeName = styled.div`
 &{

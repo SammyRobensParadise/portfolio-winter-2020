@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import AboutMeDetails from './aboutMeDetails'
 import { ABOUT_ME_WRAPPER } from '../../App'
-const pos = window.innerHeight + 2000
 const setWith = window.innerWidth - 50
 const setHeight = setWith * (1557 / 908.001)
 const AboutMeWrapperComp = styled.div`
   z-index: 89;
-  position: absolute;
-  top: ${pos}px;
-  margin-left: 20px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 100px;
+  overflow: visible;
 `
 class AboutMeWrapper extends React.PureComponent {
   constructor(props) {

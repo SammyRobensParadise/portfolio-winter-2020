@@ -45,7 +45,7 @@ const ContributionDetailsContainer = styled.div`
     font-style: normal;
     font-size: 25px;
     width: 300px;
-    z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
+    z-index: ${p => (p.hide || p.hide === false ? '-1' : '90')};
     color: #fff;
     line-height: 50px;
     position: absolute;
@@ -127,7 +127,7 @@ const ContributionDetailsButton = styled.div`
   font-size: 25px;
   width: 350px;
   height: 100px;
-  z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
+  z-index: ${p => (p.hide || p.hide === false ? '-1' : '90')};
   color: #fff;
   line-height: 100px;
   position: absolute;
