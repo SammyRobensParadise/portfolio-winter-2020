@@ -4,33 +4,29 @@ import DesignCodeAndDetails from './designAndCodeDetails'
 import { connect } from 'react-redux'
 import { white, deepBlue } from '../colors/common-colors'
 import { DESIGN_AND_CODE_SECTION } from '../../App'
-const pos = window.innerHeight + 1100
 
 const DesignAndCodeWrapper = styled.div`
   z-index: 89;
   position: relative;
   margin: 0 auto;
   padding-top: 100px;
+  overflow: visible;
 `
 const DesignAnimationSection = styled.div`
-width: 300px;
-height: 300px;
-background: ${p => (p.h ? deepBlue : white)};
-z-index; 80;
-right: 140px;
-position: absolute;
-top: ${pos + 850}px;
-margin-left: 20px;
+  width: 300px;
+  height: 300px;
+  background: ${p => (p.h ? deepBlue : white)};
+  z-index: -1;
+  position: absolute;
+  float: right;
 `
 const CodeAnimationSection = styled.div`
-width: 300px;
-height: 300px;
-background: ${p => (p.h ? deepBlue : white)};
-z-index; 80;
-right: 140px;
-position: absolute;
-top: ${pos + 1250}px;
-margin-left: 20px;
+  width: 300px;
+  height: 300px;
+  background: ${p => (p.h ? deepBlue : white)};
+  z-index: -1;
+  position: absolute;
+  float: right;
 `
 class DesignAndCodeSection extends React.PureComponent {
   constructor(props) {
@@ -44,6 +40,9 @@ class DesignAndCodeSection extends React.PureComponent {
     return (
       <div>
         <DesignAndCodeWrapper id={DESIGN_AND_CODE_SECTION}>
+          <DesignAnimationSection h={animateDribbble} />
+          <CodeAnimationSection h={animateCode} />
+          <DesignCodeAndDetails />
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width={'100%'}
@@ -80,9 +79,6 @@ class DesignAndCodeSection extends React.PureComponent {
             </g>
           </svg>
         </DesignAndCodeWrapper>
-        <DesignAnimationSection h={animateDribbble} />
-        <CodeAnimationSection h={animateCode} />
-        <DesignCodeAndDetails />
       </div>
     )
   }

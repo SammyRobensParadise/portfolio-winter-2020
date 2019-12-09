@@ -27,7 +27,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "publish-all": "npm install && npm run build && firebase deploy",
-    "nuke": "echo nuking node modules... 💥 && rm -rf node_modules && npm install && echo nuke complete 💯"
+    "nuke": "echo nuking node modules... 💥 && rm -rf node_modules && npm install && echo nuke complete 💯",
+    "deploy-scaling": "git add . && git commit -m 'auto commit' && git push origin scaling && npm install && npm run build && firebase deploy && echo yay! deployed from scaling!"
   },
   "eslintConfig": {
     "extends": "react-app"

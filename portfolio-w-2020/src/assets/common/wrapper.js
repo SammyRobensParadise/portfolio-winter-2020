@@ -8,6 +8,7 @@ height: 100%;
 width: 100%;
 position: relative;
 cursor: none;
+overflow: hidden;
 `
 
 export default WrapperContainer

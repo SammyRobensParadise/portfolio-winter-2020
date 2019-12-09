@@ -4,7 +4,6 @@ import { darkBlue } from '../colors/common-colors'
 import { connect } from 'react-redux'
 import { toggleCodeAnimation, toggleDribbbleAnimation } from '../../actions/action'
 
-const pos = window.innerHeight + 2000
 const DESIGN_WORK = 'DESIGN WORK'
 const DEVELOPMENT_WORK = 'DEVELOPMENT WORK'
 const DESIGN_TRIGGER_TEXT =
@@ -14,8 +13,8 @@ const CODE_TRRIGGER_TEXT =
 const TRIGGER_TEXT =
   'Check out my design and code — see something that peaks your interest? Let me know!'
 
-const DRIBBLE_LINK = 'https://dribbble.com/sammyrp'
-const GH_LINK = 'https://github.com/SammyRobensParadise'
+const DRIBBLE_LINK = 'https://dribbble.com/sammyrp/?utm_source=portfolio_2020'
+const GH_LINK = 'https://github.com/SammyRobensParadise/?utm_source=portfolio_2020'
 
 const DesignAndCodeDetailsText = styled.div`
   & {
@@ -30,8 +29,11 @@ const DesignAndCodeDetailsText = styled.div`
     -webkit-text-stroke-color: #fff;
     line-height: 100px;
     position: absolute;
-    top: ${pos}px;
-    left: 180px;
+    padding-top: 10%;
+    padding-left: 12%;
+    @media screen and (max-width: 840px){
+      padding-top: 7%;
+    }
   }
 `
 const DesignAndCodeDetailsEl = styled.div`
@@ -42,6 +44,30 @@ const DesignAndCodeDetailsEl = styled.div`
     cursor: none;
     letter-spacing: 4px;
   }
+  @media screen and (max-width: 1380px){
+    margin-top: ${p => (p.order === 'first' ? '25' : p.order === 'second' ? '270' : '0')}px;
+  }
+  @media screen and (max-width: 1270px){
+    margin-top: ${p => (p.order === 'first' ? '25' : p.order === 'second' ? '200' : '0')}px;
+  }
+  @media screen and (max-width: 1220px){
+   font-size: 60px; 
+   line-height: 70px;
+  }
+  @media screen and (max-width: 972px){
+    margin-top: ${p => (p.order === 'first' ? '10' : p.order === 'second' ? '160' : '0')}px;
+    -webkit-text-stroke-width: 1px;
+
+  }
+  @media screen and (max-width: 750px){
+    margin-top: ${p => (p.order === 'first' ? '10' : p.order === 'second' ? '120' : '0')}px;
+    font-size: 50px;
+  }
+  @media screen and (max-width: 612px){
+    margin-top: ${p => (p.order === 'first' ? '5' : p.order === 'second' ? '100' : '0')}px;
+    font-size: 35px;
+    line-height: 65px;
+  }
 `
 const UnderlineStyle = styled.div`
   width: ${p => (p.order === 'first' ? '490' : p.order === 'second' ? '720' : '490')}px;
@@ -49,6 +75,23 @@ const UnderlineStyle = styled.div`
   margin-top: 20px;
   left: 180px;
   background: ${darkBlue};
+  @media screen and (max-width: 1220px){
+    font-size: 60px;
+    width: ${p => (p.order === 'first' ? '300' : p.order === 'second' ? '430' : '420')}px;
+    margin-top: 10px;
+   }
+   @media screen and (max-width: 1080px){
+    margin-top: 5px;
+   }
+   @media screen and (max-width: 750px){
+    width: ${p => (p.order === 'first' ? '240' : p.order === 'second' ? '360' : '420')}px;
+    margin-top: 2px;
+    height: 10px;
+  }
+  @media screen and (max-width: 612px){
+    width: ${p => (p.order === 'first' ? '180' : p.order === 'second' ? '250' : '420')}px;
+
+  }
 `
 const TriggerText = styled.div`
 &{
@@ -65,6 +108,40 @@ const TriggerText = styled.div`
     margin-top: 80px;
     margin-left: 20px;
     text-shadow: 0px 2px 6px #2b2b2a;
+    @media screen and (max-width: 1380px){
+      width: 650px;
+      margin-top: 60px;
+    }
+    @media screen and (max-width: 1220px){
+      width: 550px;
+      margin-top: 40px;
+    }
+    @media screen and (max-width: 1080px){
+      font-size: 16px;
+      width: 500px;
+      line-height: 40px;
+    }
+    @media screen and (max-width: 972px){
+      width: 420px;
+    }
+    @media screen and (max-width: 920px){
+      line-height: 30px;
+    }
+    @media screen and (max-width: 820px){
+      line-height:  25px;
+      margin-top: 30px;
+    }
+    @media screen and (max-width: 800px){
+      width: 360px;
+    }
+    @media screen and (max-width: 700px){
+      width: 300px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+    @media screen and (max-width: 600px){
+      width: 260px;
+    }
 }
 `
 class DesignCodeAndDetails extends React.PureComponent {
