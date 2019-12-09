@@ -39,107 +39,108 @@ const detailsAnim = css`
   ${fadeInOut} 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s forwards;
 `
 const ContributionDetailsContainer = styled.div`
-&{
+  & {
     font-family: montserrat, sans-serif;
     font-weight: 200;
     font-style: normal;
     font-size: 25px;
-    width 300px;
+    width: 300px;
     z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
-    color: #fff
+    color: #fff;
     line-height: 50px;
     position: absolute;
     right: 180px;
     padding-top: 100px;
-    @media screen and (max-width: 1400px){
+    @media screen and (max-width: 1400px) {
       right: 10%;
     }
-    @media screen and (max-width: 1200px){
+    @media screen and (max-width: 1200px) {
       right: 7%;
       padding-top: 70px;
     }
-    @media screen and (max-width: 1000px){
+    @media screen and (max-width: 1000px) {
       transform: scale(0.8);
       padding-top: 40px;
     }
-    @media screen and (max-width: 880px){
+    @media screen and (max-width: 880px) {
       padding-top: 0px;
       right: 2%;
       transform: scale(0.7);
     }
-    @media screen and (max-width: 740px){
+    @media screen and (max-width: 740px) {
       transform: scale(0.5);
       top: 60px;
     }
-    @media screen and (max-width: 630px){
+    @media screen and (max-width: 630px) {
       right: 0px;
     }
-    @media screen and (max-width: 590px){
+    @media screen and (max-width: 590px) {
       transform: scale(0.35) translateX(40px) translateY(-30px);
       padding-right: 0px;
     }
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
       transform: scale(0.35) translateX(130px) translateY(-50px);
     }
-    @media screen and (max-width: 440px){
+    @media screen and (max-width: 440px) {
       transform: scale(0.35) translateX(160px) translateY(-170px);
     }
-    @media screen and (min-width: 1600px){
+    @media screen and (min-width: 1600px) {
       padding-top: 180px;
       transform: scale(1.4);
       padding-right: 5%;
     }
-    @media screen and  (min-width: 2000px){
+    @media screen and (min-width: 2000px) {
       padding-top: 240px;
       transform: scale(1.5);
     }
   }
 `
 const ContributionDetailsHeader = styled.h2`
-font-family: montserrat, sans-serif;
-font-weight: 200;
-font-style: normal;
-font-size: 25px;
-width 350px;
-text-align: left;
-letter-spacing: 0;
-text-decoration: underline;
-text-shadow: 0px 2px 6px #2b2b2a;
-animation: ${p => (p.show ? detailsAnim : 'none')}
+  font-family: montserrat, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 25px;
+  width: 350px;
+  text-align: left;
+  letter-spacing: 0;
+  text-decoration: underline;
+  text-shadow: 0px 2px 6px #2b2b2a;
+  animation: ${p => (p.show ? detailsAnim : 'none')};
 `
 const ContributionDetailsText = styled.p`
-top: 0px;
-font-family: montserrat, sans-serif;
-font-weight: 200;
-font-style: normal;
-font-size: 25px;
-width 350px;
-text-align: left;
-letter-spacing: 0;
-text-shadow: 0px 2px 6px #2b2b2a;
-animation: ${p => (p.show ? detailsAnim : 'none')}
+  top: 0px;
+  font-family: montserrat, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 25px;
+  width: 350px;
+  text-align: left;
+  letter-spacing: 0;
+  text-shadow: 0px 2px 6px #2b2b2a;
+  animation: ${p => (p.show ? detailsAnim : 'none')};
 `
 const ContributionDetailsButton = styled.div`
-text-align: center;
-font-family: montserrat, sans-serif;
-font-weight: 200;
-font-style: normal;
-font-size: 25px;
-width 350px;
-height: 100px;
-z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
-color: #fff
-line-height: 100px;
-position: absolute;
-background: #203F8F;
-transition: letter-spacing 0.5s;
-animation: ${p => (p.show ? detailsAnim : 'none')}
-&:hover,&:active {
+  text-align: center;
+  font-family: montserrat, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 25px;
+  width: 350px;
+  height: 100px;
+  z-index: ${p => (p.hide || p.hide === false ? '1' : '90')};
+  color: #fff;
+  line-height: 100px;
+  position: absolute;
+  background: #203f8f;
+  transition: letter-spacing 0.5s;
+  animation: ${p => (p.show ? detailsAnim : 'none')};
+  &:hover,
+  &:active {
     cursor: none;
     background: white;
-    color: #203F8F;
+    color: #203f8f;
     letter-spacing: 6px;
-}
+  }
 `
 class ContributionDetails extends React.PureComponent {
   constructor(props) {

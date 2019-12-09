@@ -4,52 +4,52 @@ import { toggleContributionText, toggleContributionAnimation } from '../../actio
 
 import styled, { keyframes, css } from 'styled-components'
 const ContributionsList = styled.div`
-    font-family: impact-urw, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    width 30%;
-    text-align: left;
-    z-index: ${p => (p.hide ? '0' : '90')};
-    color: ${p => (p.active ? '#fff' : 'transparent')};
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #fff;
-    line-height: 50px;
-    position: absolute;
-    padding-left: 23%;
-    padding-top: 130px;
-    @media screen and (max-width: 1300px){
-      padding-top: 100px;
-    }
-    @media screen and (max-width: 1010px){
-      padding-top: 80px;
-    }
-    @media screen and (max-width: 800px){
-      padding-top: 60px;
-    }
-    @media screen and (max-width: 700px){
-      padding-top: 50px;
-    }
-    @media screen and (max-width: 450px){
-      padding-top: 30px;
-    }
-    @media screen and (min-width: 1500px){
-      padding-top: 170px;
-    }
-    @media screen and (min-width: 1700px){
-      padding-top: 200px;
-    }
-    @media screen and (min-width: 2000px){
-      padding-top: 260px;
-    }
-    @media screen and (min-width: 2300px){
-      padding-top: 300px;
-    }
-    @media screen and (min-width: 2600px){
-      padding-top: 360px;
-    }
-    @media screen and  (min-width: 3000px){
-      padding-top: 360px;
-    }
+  font-family: impact-urw, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 30%;
+  text-align: left;
+  z-index: ${p => (p.hide ? '0' : '90')};
+  color: ${p => (p.active ? '#fff' : 'transparent')};
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #fff;
+  line-height: 50px;
+  position: absolute;
+  padding-left: 23%;
+  padding-top: 130px;
+  @media screen and (max-width: 1300px) {
+    padding-top: 100px;
+  }
+  @media screen and (max-width: 1010px) {
+    padding-top: 80px;
+  }
+  @media screen and (max-width: 800px) {
+    padding-top: 60px;
+  }
+  @media screen and (max-width: 700px) {
+    padding-top: 50px;
+  }
+  @media screen and (max-width: 450px) {
+    padding-top: 30px;
+  }
+  @media screen and (min-width: 1500px) {
+    padding-top: 170px;
+  }
+  @media screen and (min-width: 1700px) {
+    padding-top: 200px;
+  }
+  @media screen and (min-width: 2000px) {
+    padding-top: 260px;
+  }
+  @media screen and (min-width: 2300px) {
+    padding-top: 300px;
+  }
+  @media screen and (min-width: 2600px) {
+    padding-top: 360px;
+  }
+  @media screen and (min-width: 3000px) {
+    padding-top: 360px;
+  }
 `
 const move = keyframes`
   0%{
@@ -69,72 +69,71 @@ const move = keyframes`
     opacity:  1px;
    }
 `
-const animation = num =>
-  css`
-    ${move} 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) ${num}s forwards;
-  `
+const animation = num => css`
+    ${move} 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) ${num}s forwards;`
+
 const ContribListEl = styled.h2`
-font-family: impact-urw, sans-serif;
-font-weight: 400;
-font-style: normal;
-font-size: 100px;
-width 600px;
-text-align: left;
-z-index: ${p => (p.hide ? '0' : '90')};
-color: ${p => (p.active ? '#fff' : 'transparent')};
--webkit-text-stroke-width: 2px;
--webkit-text-stroke-color: #fff;
-line-height: 30px;
-animation: ${p => (p.hide ? animation(p.num) : 'none')}
-&:hover{
+  font-family: impact-urw, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100px;
+  width: 600px;
+  text-align: left;
+  z-index: ${p => (p.hide ? '0' : '90')};
+  color: ${p => (p.active ? '#fff' : 'transparent')};
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #fff;
+  line-height: 30px;
+  animation: ${p => (p.hide ? animation(p.num) : 'none')};
+  &:hover {
     cursor: none;
-}
-@media screen and (max-width: 1300px){
-  font-size: 80px;
-}
-@media screen and (max-width: 1010px){
-  font-size: 60px;
-}
-@media screen and (max-width: 800px){
-  font-size: 50px;
-}
-@media screen and (max-width: 680px){
-  font-size: 40px;
-  -webkit-text-stroke-width: 1px;
-  line-height: 20px;
-}
-@media screen and (max-width: 540px){
-  font-size: 30px;
-  -webkit-text-stroke-width: 0.8px;
-  line-height: 15px;
-}
-@media screen and (max-width: 450px){
-  font-size: 25px;
-  -webkit-text-stroke-width: 0.5px;
-  line-height: 12px;
-}
-@media screen and (min-width: 1500px){
-  font-size: 100px;
-}
-@media screen and (min-width: 1700px){
-  font-size: 100px;
-}
-@media screen and (min-width: 2000px){
-  font-size: 110px;
-  width: 800px;
-}
-@media screen and (min-width: 2300px){
-  font-size: 120px;
-  width: 800px;
-}
-@media screen and (min-width: 2600px){
-  font-size: 160px;
-  width: 1000px;
-}
-@media screen and  (min-width: 3000px){
-  font-size: 200px;
-  width: 1000px;
-}
+  }
+  @media screen and (max-width: 1300px) {
+    font-size: 80px;
+  }
+  @media screen and (max-width: 1010px) {
+    font-size: 60px;
+  }
+  @media screen and (max-width: 800px) {
+    font-size: 50px;
+  }
+  @media screen and (max-width: 680px) {
+    font-size: 40px;
+    -webkit-text-stroke-width: 1px;
+    line-height: 20px;
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 30px;
+    -webkit-text-stroke-width: 0.8px;
+    line-height: 15px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 25px;
+    -webkit-text-stroke-width: 0.5px;
+    line-height: 12px;
+  }
+  @media screen and (min-width: 1500px) {
+    font-size: 100px;
+  }
+  @media screen and (min-width: 1700px) {
+    font-size: 100px;
+  }
+  @media screen and (min-width: 2000px) {
+    font-size: 110px;
+    width: 800px;
+  }
+  @media screen and (min-width: 2300px) {
+    font-size: 120px;
+    width: 800px;
+  }
+  @media screen and (min-width: 2600px) {
+    font-size: 160px;
+    width: 1000px;
+  }
+  @media screen and (min-width: 3000px) {
+    font-size: 200px;
+    width: 1000px;
+  }
 `
 
 export const HOOTSUITE = 'HOOTSUITE'
