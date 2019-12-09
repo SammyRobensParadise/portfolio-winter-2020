@@ -60,6 +60,30 @@ const ProjectDetailsContainer = styled.div`
       grid-template-rows: 118px 0px 350px;
       transform: translateX(-100px);
     }
+    @media screen and (min-width: 1500px){
+      grid-template-rows: 420px 0px 390px;
+      transform: translateY(20px);
+    }
+    @media screen and (min-width: 1650px){
+      grid-template-rows: 460px 0px 390px;
+      transform: translateY(40px);
+    }
+    @media screen and (min-width: 1780px){
+      grid-template-rows: 500px 0px 390px;
+      transform: translateY(80px) translateX(40px);
+    }
+    @media screen and (min-width: 1980px){
+      grid-template-rows: 600px 0px 390px;
+      transform: translateY(60px) translateX(40px);
+    }
+    @media screen and (min-width: 2200px){
+      padding-top: 100px;
+      grid-template-rows: 600px 0px 390px;
+      transform: translateY(60px) translateX(60px); 
+    }
+    @media screen and (min-width: 2500px){
+      padding-top: 140px;
+    }
   }
 `
 const TL = css`
@@ -167,7 +191,7 @@ const ProjectDetailsEl = styled.h2`
     font-weight: 400;
     font-style: normal;
     font-size: 100px;
-    width 300px;
+    width: 300px;
     text-align: center;
     z-index: 90;
     color: transparent;
