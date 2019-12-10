@@ -19,6 +19,40 @@ const DesignAnimationSection = styled.div`
   z-index: -1;
   position: absolute;
   float: right;
+  right: 10%;
+  top: 20%;
+  @media screen and (max-width: 1145px){
+    width: 220px;
+    height: 240px;
+  }
+  @media screen and (max-width: 850px){
+    width: 180px;
+    height: 220px;
+  }
+  @media screen and (max-width: 755px){
+    height: 180px;
+    top: 25%;
+  }
+  @media screen and (max-width: 690px){
+    width: 135px;
+  }
+  @media screen and (max-width: 525px){
+    top: 30%;
+    width: 100px;
+  }
+  @media screen and  (max-width: 410px){
+    top: 35%;
+    width: 80px;
+  }
+  @media screen and (min-width: 1570px){
+    width: 350px;
+    height: 350px;
+  }
+  @media screen and (min-width: 1650px){
+    top: 18%;
+    height: 360px;
+    width: 380px;
+  }
 `
 const CodeAnimationSection = styled.div`
   width: 300px;
@@ -27,6 +61,41 @@ const CodeAnimationSection = styled.div`
   z-index: -1;
   position: absolute;
   float: right;
+  right: 10%;
+  bottom: 5%;
+  @media screen and (max-width: 1145px){
+    width: 220px;
+    height: 240px;
+  }
+  @media screen and (max-width: 850px){
+    width: 180px;
+    height: 220px;
+  }
+  @media screen and (max-width: 755px){
+    height: 180px;
+  }
+  @media screen and (max-width: 690px){
+    width: 135px;
+    height: 150px;
+  }
+  @media screen and (max-width: 525px){
+    height: 130px;
+    width: 100px;
+  }
+  @media screen and  (max-width: 410px){
+    width: 80px;
+  }
+  @media screen and (min-width: 1480px){
+    bottom: 8%;
+  }
+  @media screen and (min-width: 1590px){
+    right: 10%;
+    width: 350px;
+  }
+  @media screen and (min-width: 1630px){
+    bottom: 8%;
+    height: 350px;
+  }
 `
 class DesignAndCodeSection extends React.PureComponent {
   constructor(props) {
