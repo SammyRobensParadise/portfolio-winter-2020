@@ -48,8 +48,8 @@ const AboutMeName = styled.div`
       line-height: 20px;
       width: 90%;
     }
-    @media screen and (max-width: 440px){
-      font-size:  30px;
+    @media screen and (max-width: 440px) {
+      font-size: 30px;
       padding-top: 10px;
     }
   }
@@ -85,8 +85,8 @@ const AboutMeTitle = styled.div`
     line-height: 18px;
     width: 90%;
   }
-  @media screen and (max-width: 440px){
-    font-size:  9px;
+  @media screen and (max-width: 440px) {
+    font-size: 9px;
   }
 `
 const DescriptionFirst = styled.div`
@@ -157,8 +157,8 @@ const DescriptionPara = styled.p`
     line-height: 18px;
     width: 90%;
   }
-  @media screen and (max-width: 440px){
-    font-size:  9px;
+  @media screen and (max-width: 440px) {
+    font-size: 9px;
   }
 `
 const SAMMY_ROBENS_PARADISE = 'SAMMY ROBENS-PARADISE'
