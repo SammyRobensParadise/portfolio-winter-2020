@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import AboutMeDetails from './aboutMeDetails'
 import { ABOUT_ME_WRAPPER } from '../../App'
-const setWith = window.innerWidth - 50
-const setHeight = setWith * (1557 / 908.001)
+
 const AboutMeWrapperComp = styled.div`
   z-index: 89;
   position: relative;
   margin: 0 auto;
   padding-top: 100px;
-  overflow: visible;
 `
 class AboutMeWrapper extends React.PureComponent {
   constructor(props) {
@@ -23,10 +21,11 @@ class AboutMeWrapper extends React.PureComponent {
     return (
       <div>
         <AboutMeWrapperComp id={ABOUT_ME_WRAPPER}>
+          <AboutMeDetails />
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width={setWith}
-            height={setHeight}
+            width={'100%'}
+            height={'auto'}
             viewBox='0 0 1565.999 907.001'
           >
             <defs>
@@ -59,7 +58,6 @@ class AboutMeWrapper extends React.PureComponent {
             </g>
           </svg>
         </AboutMeWrapperComp>
-        <AboutMeDetails />
       </div>
     )
   }
