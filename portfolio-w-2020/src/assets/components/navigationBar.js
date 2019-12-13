@@ -25,6 +25,7 @@ const Nav = styled.div`
   text-shadow: 0px 2px 3px #2b2b2a;
   position: fixed;
   float: right;
+  z-index: 100000;
 `
 const NavEl = styled.div`
   display: inline-block;
@@ -37,15 +38,34 @@ const NavEl = styled.div`
   border-width: 0px;
   transitionborder-width: 0.3 linear 1s;
   transition: letter-spacing 0.5s;
+  z-index: 100000;
   &:hover,
   &:active {
     cursor: none;
     border-width: 2px 0px 2px 0px;
     margin-block-start: 18px;
     letter-spacing: 6px;
+    @media screen and (max-width: 780px){
+      letter-spacing: 2px;
+    }
+    @media screen and (max-width: 500px){
+      margin-block-start: 8px;
+    }
   }
   &:after {
     float: left;
+  }
+  @media screen and (max-width: 780px){
+    font-size: 16px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @media screen and (max-width: 500px){
+    margin-left: 8px;
+    margin-right: 8px;
+    line-height: 25px;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
   }
 `
 const ME = 'Me'
