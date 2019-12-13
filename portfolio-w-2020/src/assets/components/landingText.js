@@ -15,13 +15,44 @@ const HeaderText = styled.h1`
       margin-left: 10%;
     }
     @media screen and (max-width: 1400px) {
-      margin-left: 0%;
-      margin-top: 0px;
+      margin-left: 10%;
     }
-    @media screen and (max-width: 1350px){
+    @media screen and (max-width: 1350px) {
       float: none;
       margin: 0 auto;
       text-align: justify;
+    }
+    @media screen and (max-width: 600px) {
+      transform: scale(0.8);
+      float: none;
+      margin: 0 auto;
+      text-align: justify;
+      margin-left: 0;
+    }
+    @media screen and (max-width: 490px) {
+      transform: scale(0.6) translateX(-80px);
+      float: none;
+      margin: 0 auto;
+      text-align: justify;
+      margin-left: 0;
+    }
+    @media screen and (max-width: 430px) {
+      transform: scale(0.5) translateX(-160px);
+      float: none;
+      margin: 0 auto;
+      text-align: justify;
+      margin-left: 0;
+    }
+    @media screen and (max-width: 370px) {
+      transform: scale(0.45) translateX(-260px);
+      float: none;
+      margin: 0 auto;
+      text-align: justify;
+      margin-left: 0;
+    }
+    @media screen and (min-width: 1500px) {
+      padding-top: 50px;
+      transform: scale(1.2);
     }
   }
 `
@@ -44,9 +75,6 @@ class LandingText extends React.PureComponent {
     }, 2000)
   }
   render() {
-    const displayWidth = window.innerWidth >= 1400 ? 600 : 550
-    const displayHeight =
-      window.innerWidth >= 1400 ? window.innerHeight - 200 : window.innerHeight - 250
     return (
       <HeaderText>
         <svg
@@ -54,8 +82,8 @@ class LandingText extends React.PureComponent {
           dataname='Layer 1'
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 925 983'
-          width={displayWidth}
-          height={displayHeight}
+          width={'100%'}
+          height={'auto'}
         >
           <defs></defs>
           <title>LandingText</title>

@@ -42,6 +42,9 @@ const ParaText = styled.div`
     padding-right: 0px;
     width: 60%;
   }
+  @media screen and (min-width:  1500px){
+    font-size: 34px;
+  }
   }
 `
 const TextWrapper = styled.div`
