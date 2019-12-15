@@ -45,18 +45,18 @@ class App extends React.PureComponent {
     this.state = {
       hasLoaded: false,
       hasScrolled: false,
-      ...props
+      ...props,
     }
   }
   componentDidMount() {
     this.setState({
-      hasLoaded: true
+      hasLoaded: true,
     })
   }
   initCursor = () => {
     const innerCursor = document.querySelector('.cursor.cursor--small')
     // add listener to track the current mouse position
-    document.addEventListener('mousemove', e => {
+    document.addEventListener('mousemove', (e) => {
       clientX = e.clientX
       clientY = e.clientY
     })
@@ -93,7 +93,7 @@ class App extends React.PureComponent {
 
     // the draw loop of Paper.js
     // (60fps with requestAnimationFrame under the hood)
-    paper.view.onFrame = event => {
+    paper.view.onFrame = (event) => {
       // using linear interpolation, the circle will move (20%)
       // of the distance between its current position and the mouse
       // coordinates per Frame
@@ -102,7 +102,7 @@ class App extends React.PureComponent {
       group.position = new paper.Point(lastX, lastY)
     }
   }
-  scrollToSection = e => {
+  scrollToSection = (e) => {
     if (e !== null) {
       let target = document.getElementById(e)
       target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
@@ -152,9 +152,9 @@ class App extends React.PureComponent {
     )
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    ...state.Scroller
+    ...state.Scroller,
   }
 }
 export default connect(mapStateToProps)(App)
