@@ -1,32 +1,36 @@
 import React, { lazy, Suspense } from 'react'
 import { connect } from 'react-redux'
-import WrapperContainer from './assets/common/wrapper'
+import PropTypes from 'prop-types'
 import * as paper from 'paper'
+import WrapperContainer from './assets/common/wrapper'
 import './index.css'
 
-const LoadingMesh = () => {
-  return (
-    <div>
-      <div className='mesh-loader'>
-        <div className='set-one'>
-          <div className='circle' />
-          <div className='circle' />
-        </div>
-        <div className='set-two'>
-          <div className='circle' />
-          <div className='circle' />
-        </div>
+const LoadingMesh = () => (
+  <div>
+    <div className="mesh-loader">
+      <div className="set-one">
+        <div className="circle" />
+        <div className="circle" />
+      </div>
+      <div className="set-two">
+        <div className="circle" />
+        <div className="circle" />
       </div>
     </div>
-  )
-}
+  </div>
+)
 const DiamondOne = lazy(() => import('./assets/common/diamondOne'))
 const LandingWrapper = lazy(() => import('./assets/components/landingWrapper'))
+// eslint-disable-next-line import/no-cycle
 const NavigationBar = lazy(() => import('./assets/components/navigationBar'))
 const GoButton = lazy(() => import('./assets/components/goButton'))
+// eslint-disable-next-line import/no-cycle
 const ContributionsSection = lazy(() => import('./assets/components/contributionsWrapper'))
+// eslint-disable-next-line import/no-cycle
 const ProjectSection = lazy(() => import('./assets/components/projectsWrapper'))
+// eslint-disable-next-line import/no-cycle
 const DesignAndCodeSection = lazy(() => import('./assets/components/designAndCodeWrapper'))
+// eslint-disable-next-line import/no-cycle
 const AboutMeWrapper = lazy(() => import('./assets/components/aboutMeWrapper'))
 
 export const CONTTRIBUTION_SECTION = 'CONTRIBUTION_SECTION'
@@ -44,15 +48,16 @@ class App extends React.PureComponent {
     super(props)
     this.state = {
       hasLoaded: false,
-      hasScrolled: false,
       ...props,
     }
   }
+
   componentDidMount() {
     this.setState({
       hasLoaded: true,
     })
   }
+
   initCursor = () => {
     const innerCursor = document.querySelector('.cursor.cursor--small')
     // add listener to track the current mouse position
@@ -87,13 +92,11 @@ class App extends React.PureComponent {
     group.applyMatrix = false
 
     // function for linear interpolation of values
-    const lerp = (a, b, n) => {
-      return (1 - n) * a + n * b
-    }
+    const lerp = (a, b, n) => (1 - n) * a + n * b
 
     // the draw loop of Paper.js
     // (60fps with requestAnimationFrame under the hood)
-    paper.view.onFrame = (event) => {
+    paper.view.onFrame = () => {
       // using linear interpolation, the circle will move (20%)
       // of the distance between its current position and the mouse
       // coordinates per Frame
@@ -102,21 +105,25 @@ class App extends React.PureComponent {
       group.position = new paper.Point(lastX, lastY)
     }
   }
+
   scrollToSection = (e) => {
     if (e !== null) {
-      let target = document.getElementById(e)
+      const target = document.getElementById(e)
       target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
     }
   }
+
   render() {
-    if (this.state.hasLoaded) {
-      this.scrollToSection(this.props.currentElInScrollView)
+    const { hasLoaded } = this.state
+    const { currentElInScrollView } = this.props
+    if (hasLoaded) {
+      this.scrollToSection(currentElInScrollView)
       this.initCursor()
       this.initCanvas()
     }
 
     return (
-      <div className='web-App'>
+      <div className="web-App">
         <Suspense fallback={<LoadingMesh />}>
           <DiamondOne />
         </Suspense>
@@ -124,8 +131,8 @@ class App extends React.PureComponent {
           <Suspense fallback={<LoadingMesh />}>
             <DiamondOne />
           </Suspense>
-          <div id='cur' className='cursor cursor--small'></div>
-          <canvas className='cursor cursor--canvas' resize={'true'}></canvas>
+          <div id="cur" className="cursor cursor--small" />
+          <canvas className="cursor cursor--canvas" resize="true" />
           <Suspense fallback={<LoadingMesh />}>
             <NavigationBar />
           </Suspense>
@@ -152,9 +159,13 @@ class App extends React.PureComponent {
     )
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    ...state.Scroller,
-  }
+App.defaultProps = {
+  currentElInScrollView: null,
 }
+App.propTypes = {
+  currentElInScrollView: PropTypes.string,
+}
+const mapStateToProps = (state) => ({
+  ...state.Scroller,
+})
 export default connect(mapStateToProps)(App)
