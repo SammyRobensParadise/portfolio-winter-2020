@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html style="background-color: #1A839C;">
   <head>
+    <title>Sammy R. Paradise | Portfolio Winter 2020</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sammy R. Paradise</title>
+    <meta
+      name="description"
+      content="Sammy Robens-Paradis, Porfolio Winter 2020, Open to oppertunities beginning spring 2020 Product Design, Software Development, Design Engineering, Graphic Design"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="Portfolio" />
+    <meta property="og:title" content="Sammy R. Paradise | Portfolio Winter 2020" />
+    <meta property="og:url" content="https://sammy.world," />
+    <meta property="og:site_name" content="Sammy R. Paradise | Portfolio Winter 2020" />
+    <meta
+      property="og:description"
+      content="Sammy Robens-Paradis, Porfolio Winter 2020, Open to opportunities beginning spring 2020 Product Design, Software Development, Design Engineering, Graphic Design"
+    />
+    <meta name="robots" content="index, follow" />
     <style>
       .mesh-loader {
         overflow: hidden;
@@ -118,7 +132,7 @@
         try {
           let app = firebase.app()
           let features = ['auth', 'database', 'messaging', 'storage'].filter(
-            feature => typeof app[feature] === 'function'
+            (feature) => typeof app[feature] === 'function',
           )
         } catch (e) {
           console.error(e)
