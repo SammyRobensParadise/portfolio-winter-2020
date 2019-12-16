@@ -1,24 +1,22 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { connect } from 'react-redux'
-import { HOOTSUITE, FINGER_FOOD, GRAPE, ENV_CANADA } from './contributionsText'
 import styled, { keyframes, css } from 'styled-components'
+// eslint-disable-next-line object-curly-newline
+import { HOOTSUITE, FINGER_FOOD, GRAPE, ENV_CANADA } from './contributionsText'
 
-const HOOTSUITE_DETAILS_TEXT =
-  'I write and deploy code to 16 million users on a daily basis, driving product growth and an unparalleled tool belt  to social media gurus. '
-const FINGER_FOOD_DETAILS_TEXT =
-  'I developed a system to quantify UX world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects.'
-const ENV_CANADA_DETAILS_TEXT =
-  'Worked with the transportation division to develop software engineering solutions assisting regulatory administration.'
-const GRAPE_DETAILS_TEXT =
-  'Working to build a platform that will change the way people learn code through interactive, tutorials by humans, for humans'
+const HOOTSUITE_DETAILS_TEXT = `I write and deploy code to 16 million users on a daily basis, driving product growth and an unparalleled tool belt  to social media gurus. `
+const FINGER_FOOD_DETAILS_TEXT = `I developed a system to quantify UX world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects.`
+const ENV_CANADA_DETAILS_TEXT = `Worked with the transportation division to develop software engineering solutions assisting regulatory administration.`
+const GRAPE_DETAILS_TEXT = `Working to build a platform that will change the way people learn code through interactive, tutorials by humans, for humans`
 const HOOTSUITE_JOB_TITLE = 'Software Developer'
 const FINGER_FOOD_JOB_TITLE = 'QA Lead'
 const ENV_CANADA_JOB_TITLE = 'Software Engineer'
 const GRAPE_JOB_TITLE = 'Product designer & Developer'
 const HOOTSUITE_EXTERNAL_LINK = 'https://hootsuite.com/'
 const FINGER_FOOD_EXTERNAL_LINK = 'https://sammyrp.com/finger-food-atg-projects.html'
-const ENV_CANADA_EXTERNAL_LINK =
-  'https://www.canada.ca/en/environment-climate-change/corporate/mandate.html'
+const ENV_CANADA_EXTERNAL_LINK = `https://www.canada.ca/en/environment-climate-change/corporate/mandate.html`
 const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/'
 
 const fadeInOut = keyframes`
@@ -45,7 +43,7 @@ const ContributionDetailsContainer = styled.div`
     font-style: normal;
     font-size: 25px;
     width: 300px;
-    z-index: ${p => (p.hide || p.hide === false ? '-1' : '90')};
+    z-index: ${(p) => (p.hide || p.hide === false ? '-1' : '90')};
     color: #fff;
     line-height: 50px;
     position: absolute;
@@ -105,7 +103,7 @@ const ContributionDetailsHeader = styled.h2`
   letter-spacing: 0;
   text-decoration: underline;
   text-shadow: 0px 2px 6px #2b2b2a;
-  animation: ${p => (p.show ? detailsAnim : 'none')};
+  animation: ${(p) => (p.show ? detailsAnim : 'none')};
 `
 const ContributionDetailsText = styled.p`
   top: 0px;
@@ -117,7 +115,7 @@ const ContributionDetailsText = styled.p`
   text-align: left;
   letter-spacing: 0;
   text-shadow: 0px 2px 6px #2b2b2a;
-  animation: ${p => (p.show ? detailsAnim : 'none')};
+  animation: ${(p) => (p.show ? detailsAnim : 'none')};
 `
 const ContributionDetailsButton = styled.div`
   text-align: center;
@@ -127,13 +125,13 @@ const ContributionDetailsButton = styled.div`
   font-size: 25px;
   width: 350px;
   height: 100px;
-  z-index: ${p => (p.hide || p.hide === false ? '-1' : '90')};
+  z-index: ${(p) => (p.hide || p.hide === false ? '-1' : '90')};
   color: #fff;
   line-height: 100px;
   position: absolute;
   background: #203f8f;
   transition: letter-spacing 0.5s;
-  animation: ${p => (p.show ? detailsAnim : 'none')};
+  animation: ${(p) => (p.show ? detailsAnim : 'none')};
   &:hover,
   &:active {
     cursor: none;
@@ -146,10 +144,11 @@ class ContributionDetails extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      ...props
+      ...props,
     }
   }
-  getExternalJobAction = p => {
+
+  getExternalJobAction = (p) => {
     switch (p) {
       case HOOTSUITE: {
         return HOOTSUITE_EXTERNAL_LINK
@@ -169,7 +168,7 @@ class ContributionDetails extends React.PureComponent {
     }
   }
 
-  getJobTitle = p => {
+  getJobTitle = (p) => {
     switch (p) {
       case HOOTSUITE: {
         return HOOTSUITE_JOB_TITLE
@@ -188,7 +187,8 @@ class ContributionDetails extends React.PureComponent {
       }
     }
   }
-  getCurrentContributionDetails = p => {
+
+  getCurrentContributionDetails = (p) => {
     switch (p) {
       case HOOTSUITE: {
         return HOOTSUITE_DETAILS_TEXT
@@ -207,6 +207,7 @@ class ContributionDetails extends React.PureComponent {
       }
     }
   }
+
   render() {
     const { curentContributionText, currentContributionAnimationState } = this.props.Actions
     const titleText = this.getJobTitle(curentContributionText)
@@ -229,9 +230,7 @@ class ContributionDetails extends React.PureComponent {
     )
   }
 }
-const mapStateToProps = state => {
-  return {
-    ...state
-  }
-}
+const mapStateToProps = (state) => ({
+  ...state,
+})
 export default connect(mapStateToProps)(ContributionDetails)
