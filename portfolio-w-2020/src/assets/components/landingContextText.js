@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { white } from '../colors/common-colors'
+
+const NAME = 'Sammy Robens-Paradise'
 const landingParagraph = (
   <div>
-    I am <b>Sammy Robens-Paradise</b> from the University of Waterloo and I study the ways humans
-    interface with technology.
+    {`I am ${NAME} from the University of Waterloo and I study the ways humans
+    interface with technology.`}
   </div>
 )
-const landingParagraphTwo =
-  'I have worked with companies like LEGO, Hootsuite,  Kroger, and Lululemon to create beautiful products and experiences.'
+const landingParagraphTwo = `I have worked with companies like LEGO, Hootsuite,  Kroger, and Lululemon to create beautiful products and experiences.`
 const ParaText = styled.div`
   &&&{
   font-family: montserrat, sans-serif;
@@ -52,22 +53,19 @@ const TextWrapper = styled.div`
   position: relative;
   padding-top: 100px;
   width: 600px;
-  @media screen and (max-width: 1350px){
+  @media screen and (max-width: 1350px) {
     float: none;
-    margin:  0 auto;
+    margin: 0 auto;
     text-align: justify;
     padding-top: 0px;
-    width:  100%;
+    width: 100%;
   }
-
 `
-const LandingText = () => {
-  return (
-    <TextWrapper>
-      <ParaText>{landingParagraph}</ParaText>
-      <ParaText>{landingParagraphTwo}</ParaText>
-    </TextWrapper>
-  )
-}
+const LandingText = () => (
+  <TextWrapper>
+    <ParaText>{landingParagraph}</ParaText>
+    <ParaText>{landingParagraphTwo}</ParaText>
+  </TextWrapper>
+)
 
 export default LandingText

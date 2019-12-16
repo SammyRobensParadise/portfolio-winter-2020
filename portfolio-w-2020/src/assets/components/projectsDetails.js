@@ -17,71 +17,71 @@ const ProjectDetailsContainer = styled.div`
     display: inline-grid;
     width: 100%;
     grid-template-columns: 50% 50%;
-    @media screen and (max-width: 1000px){
-      display:  grid;
+    @media screen and (max-width: 1000px) {
+      display: grid;
       grid-template-rows: 350px 0px 350px;
     }
-    @media screen and (max-width: 925px){
+    @media screen and (max-width: 925px) {
       transform: translateX(-30px);
       grid-template-rows: 320px 0px 350px;
     }
-    @media screen and (max-width: 860px){
+    @media screen and (max-width: 860px) {
       grid-template-rows: 300px 0px 350px;
       transform: translateX(-40px);
     }
-    @media screen and (max-width: 780px){
+    @media screen and (max-width: 780px) {
       grid-template-rows: 270px 0px 350px;
     }
-    @media screen and (max-width: 740px){
+    @media screen and (max-width: 740px) {
       grid-template-rows: 250px 0px 350px;
       transform: translateX(-55px);
     }
-    @media screen and (max-width: 670px){
+    @media screen and (max-width: 670px) {
       grid-template-rows: 220px 0px 350px;
       transform: translateX(-60px);
     }
-    @media screen and (max-width: 620px){
+    @media screen and (max-width: 620px) {
       grid-template-rows: 200px 0px 350px;
       transform: translateX(-70px);
     }
-    @media screen and (max-width: 560px){
+    @media screen and (max-width: 560px) {
       grid-template-rows: 180px 0px 350px;
       transform: translateX(-80px);
     }
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
       grid-template-rows: 160px 0px 350px;
       transform: translateX(-90px);
     }
-    @media screen and (max-width: 430px){
+    @media screen and (max-width: 430px) {
       grid-template-rows: 140px 0px 350px;
       transform: translateX(-100px);
     }
-    @media screen and (max-width: 390px){
+    @media screen and (max-width: 390px) {
       grid-template-rows: 118px 0px 350px;
       transform: translateX(-100px);
     }
-    @media screen and (min-width: 1500px){
+    @media screen and (min-width: 1500px) {
       grid-template-rows: 420px 0px 390px;
       transform: translateY(20px);
     }
-    @media screen and (min-width: 1650px){
+    @media screen and (min-width: 1650px) {
       grid-template-rows: 460px 0px 390px;
       transform: translateY(40px);
     }
-    @media screen and (min-width: 1780px){
+    @media screen and (min-width: 1780px) {
       grid-template-rows: 500px 0px 390px;
       transform: translateY(80px) translateX(40px);
     }
-    @media screen and (min-width: 1980px){
+    @media screen and (min-width: 1980px) {
       grid-template-rows: 600px 0px 390px;
       transform: translateY(60px) translateX(40px);
     }
-    @media screen and (min-width: 2200px){
+    @media screen and (min-width: 2200px) {
       padding-top: 100px;
       grid-template-rows: 600px 0px 390px;
-      transform: translateY(60px) translateX(60px); 
+      transform: translateY(60px) translateX(60px);
     }
-    @media screen and (min-width: 2500px){
+    @media screen and (min-width: 2500px) {
       padding-top: 140px;
     }
   }
@@ -95,13 +95,13 @@ const TL = css`
     padding-left: 42%;
     margin-top: 50px;
   }
-  @media screen and (max-width: 1100px){
+  @media screen and (max-width: 1100px) {
     padding-left: 35%;
   }
-  @media screen and (max-width: 1082px){
+  @media screen and (max-width: 1082px) {
     margin-top: 20px;
   }
-  @media screen and (max-width: 880px){
+  @media screen and (max-width: 880px) {
     margin-top: 10px;
   }
 `
@@ -119,16 +119,15 @@ const TR = css`
     padding-left: 30%;
     margin-top: 50px;
   }
-  @media screen and (max-width: 1082px){
-    padding-left: 20%
+  @media screen and (max-width: 1082px) {
+    padding-left: 20%;
   }
-  @media screen and (max-width: 880px){
+  @media screen and (max-width: 880px) {
     margin-top: 20px;
   }
-  @media screen and (max-width:  600px){
+  @media screen and (max-width: 600px) {
     margin-top: 0px;
   }
-
 `
 const BL = css`
   padding-top: 30px;
@@ -148,10 +147,10 @@ const BL = css`
     padding-left: 40%;
     margin-top: 0px;
   }
-  @media screen and (max-width: 1100px){
+  @media screen and (max-width: 1100px) {
     padding-left: 35%;
   }
-  @media screen and (max-width: 1044px){
+  @media screen and (max-width: 1044px) {
     padding-top: 0px;
     transform: translateY(-30px) scale(0.6);
   }
@@ -174,19 +173,19 @@ const BR = css`
     padding-left: 30%;
     margin-top: 20px;
   }
-  @media screen and (max-width: 1082px){
-    padding-left: 20%
+  @media screen and (max-width: 1082px) {
+    padding-left: 20%;
   }
-  @media screen and (max-width: 1044px){
+  @media screen and (max-width: 1044px) {
     margin-top: 0px;
   }
-  @media screen and (max-width: 780px){
+  @media screen and (max-width: 780px) {
     padding-top: 40px;
   }
 `
 
 const ProjectDetailsEl = styled.h2`
-&{
+  & {
     font-family: impact-urw, sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -200,27 +199,26 @@ const ProjectDetailsEl = styled.h2`
     line-height: 100px;
     transition: letter-spacing 0.5s;
     align-items: center;
-    &:hover{
+    &:hover {
       color: #fff;
       cursor: none;
       letter-spacing: 6px;
     }
-    ${p => (p.local === 'tl' ? TL : p.local === 'tr' ? TR : p.local === 'bl' ? BL : BR)}
-    @media screen and (max-width: 1100px){
+    ${(p) => (p.local === 'tl' ? TL : p.local === 'tr' ? TR : p.local === 'bl' ? BL : BR)}
+    @media screen and (max-width: 1100px) {
       transform: scale(0.75);
     }
-    @media screen and  (max-width: 1044px){
+    @media screen and (max-width: 1044px) {
       transform: scale(0.6);
     }
-    @media screen and (max-width: 870px){
+    @media screen and (max-width: 870px) {
       transform: scale(0.5);
     }
-    @media screen and (max-width: 620px){
+    @media screen and (max-width: 620px) {
       transform: scale(0.4);
     }
-    @media screen and (max-width: 470px){
+    @media screen and (max-width: 470px) {
       transform: scale(0.3);
-
     }
   }
 `
@@ -232,29 +230,29 @@ const EB_WEB = 'EB WEB'
 const GLOBAL_WINERY_EXTERNAL_LINK = 'https://sammyrp.com/global-winery/?utm_source=portfolio_2020'
 const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/?utm_source=portfolio_2020'
 const BC_FERRIES_EXTERNAL_LINK = 'https://sammyrp.com/bc-ferries-redesign.html?utm_source=portfolio_2020'
-const EB_WEB_EXTERNAL_LINK =
-  'https://emilybandel.github.io/webpage-application/?utm_source=portfolio_2020'
+const EB_WEB_EXTERNAL_LINK = 'https://emilybandel.github.io/webpage-application/?utm_source=portfolio_2020'
 
 class ProjectDetails extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      ...props
+      ...props,
     }
   }
+
   render() {
     return (
       <ProjectDetailsContainer>
-        <ProjectDetailsEl onClick={() => window.open(GLOBAL_WINERY_EXTERNAL_LINK)} local={'tl'}>
+        <ProjectDetailsEl onClick={() => window.open(GLOBAL_WINERY_EXTERNAL_LINK)} local="tl">
           {GLOBAL_WINERY}
         </ProjectDetailsEl>
-        <ProjectDetailsEl onClick={() => window.open(GRAPE_EXTERNAL_LINK)} local={'tr'}>
+        <ProjectDetailsEl onClick={() => window.open(GRAPE_EXTERNAL_LINK)} local="tr">
           {GRAPE}
         </ProjectDetailsEl>
-        <ProjectDetailsEl onClick={() => window.open(BC_FERRIES_EXTERNAL_LINK)} local={'bl'}>
+        <ProjectDetailsEl onClick={() => window.open(BC_FERRIES_EXTERNAL_LINK)} local="bl">
           {BC_FERRIES}
         </ProjectDetailsEl>
-        <ProjectDetailsEl onClick={() => window.open(EB_WEB_EXTERNAL_LINK)} local={'br'}>
+        <ProjectDetailsEl onClick={() => window.open(EB_WEB_EXTERNAL_LINK)} local="br">
           {EB_WEB}
         </ProjectDetailsEl>
       </ProjectDetailsContainer>

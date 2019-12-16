@@ -164,15 +164,15 @@ const DescriptionPara = styled.p`
 const SAMMY_ROBENS_PARADISE = 'SAMMY ROBENS-PARADISE'
 const WHAT_I_DO = 'I study Systems Design Engineering'
 const DESCRIPTION_FIRST = 'In other words, I study the way humans interact with technology.'
-const DESCRIPTION_PARA =
-  'Every day we interact with dozens of different systems, from the traffic system on your commute, to your email inbox - All of these systems play a role in our every day lives. At a macro level, I study the way that all of these vastly complex systems interact with their environment, whether that is humans, animals or other systems. Systems engineering combines all aspects of modern engineering to construct, visualize and improve the way we experience the world, and beyond.'
+const DESCRIPTION_PARA = `Every day we interact with dozens of different systems, from the traffic system on your commute, to your email inbox - All of these systems play a role in our every day lives. At a macro level, I study the way that all of these vastly complex systems interact with their environment, whether that is humans, animals or other systems. Systems engineering combines all aspects of modern engineering to construct, visualize and improve the way we experience the world, and beyond.`
 class AboutMeDetails extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      ...props
+      ...props,
     }
   }
+
   render() {
     return (
       <div>
@@ -188,9 +188,7 @@ class AboutMeDetails extends React.PureComponent {
     )
   }
 }
-const mapStateToProps = state => {
-  return {
-    ...state
-  }
-}
+const mapStateToProps = (state) => ({
+  ...state,
+})
 export default connect(mapStateToProps)(AboutMeDetails)
