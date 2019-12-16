@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { white } from '../colors/common-colors'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { scrollToSection } from '../../actions/action'
 import {
   CONTTRIBUTION_SECTION,
   PROJECTS_SECTION,
   DESIGN_AND_CODE_SECTION,
-  ABOUT_ME_WRAPPER
+  ABOUT_ME_WRAPPER,
 } from '../../App'
+import { white } from '../colors/common-colors'
 
 const Nav = styled.div`
   height: 60px;
@@ -45,22 +46,22 @@ const NavEl = styled.div`
     border-width: 2px 0px 2px 0px;
     margin-block-start: 18px;
     letter-spacing: 6px;
-    @media screen and (max-width: 780px){
+    @media screen and (max-width: 780px) {
       letter-spacing: 2px;
     }
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
       margin-block-start: 8px;
     }
   }
   &:after {
     float: left;
   }
-  @media screen and (max-width: 780px){
+  @media screen and (max-width: 780px) {
     font-size: 16px;
     margin-left: 20px;
     margin-right: 20px;
   }
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 500px) {
     margin-left: 8px;
     margin-right: 8px;
     line-height: 25px;
@@ -78,33 +79,32 @@ class NavigationBar extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      ...props
+      ...props,
     }
   }
 
   render() {
+    const { dispatch } = this.props
     return (
       <Nav>
-        <NavEl onClick={() => this.props.dispatch(scrollToSection(ABOUT_ME_WRAPPER))}>{ME}</NavEl>
-        <NavEl onClick={() => this.props.dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>
-          {CODE}
-        </NavEl>
-        <NavEl onClick={() => this.props.dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>
-          {DESIGN}
-        </NavEl>
-        <NavEl onClick={() => this.props.dispatch(scrollToSection(PROJECTS_SECTION))}>
-          {PROJECTS}
-        </NavEl>
-        <NavEl onClick={() => this.props.dispatch(scrollToSection(CONTTRIBUTION_SECTION))}>
+        <NavEl onClick={() => dispatch(scrollToSection(ABOUT_ME_WRAPPER))}>{ME}</NavEl>
+        <NavEl onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>{CODE}</NavEl>
+        <NavEl onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>{DESIGN}</NavEl>
+        <NavEl onClick={() => dispatch(scrollToSection(PROJECTS_SECTION))}>{PROJECTS}</NavEl>
+        <NavEl onClick={() => dispatch(scrollToSection(CONTTRIBUTION_SECTION))}>
           {CONTRIBUTIONS}
         </NavEl>
       </Nav>
     )
   }
 }
-const mapStateToProps = state => {
-  return {
-    ...state
-  }
+NavigationBar.defaultProps = {
+  dispatch: () => {},
 }
+NavigationBar.propTypes = {
+  dispatch: PropTypes.func,
+}
+const mapStateToProps = (state) => ({
+  ...state,
+})
 export default connect(mapStateToProps)(NavigationBar)

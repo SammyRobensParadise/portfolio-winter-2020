@@ -21,7 +21,8 @@
     "rules": {
       "semi": 0,
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-      "quotes": 0
+      "quotes": 0,
+      "no-nested-ternary": 0
     }
   }
   

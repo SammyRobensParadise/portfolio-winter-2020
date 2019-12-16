@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import styled, { keyframes, css } from 'styled-components'
 import { toggleContributionText, toggleContributionAnimation } from '../../actions/action'
@@ -151,13 +152,15 @@ class ContributionsText extends React.PureComponent {
   }
 
   reOrderList = (clickedEl) => {
-    if (this.state.contributonList.indexOf(clickedEl) !== 0) {
+    const { dispatch } = this.props
+    const { contributonList } = this.state
+    if (contributonList.indexOf(clickedEl) !== 0) {
       this.setState({
         hideEl: true,
       })
-      this.props.dispatch(toggleContributionAnimation(true))
+      dispatch(toggleContributionAnimation(true))
       const slideInSlideOutPromise = new Promise((resolve) => {
-        const interm = this.state.contributonList
+        const interm = contributonList
         setTimeout(() => {
           if (interm.includes(clickedEl) && interm.indexOf(clickedEl) !== 0) {
             interm.splice(interm.indexOf(clickedEl), 1)
@@ -166,7 +169,7 @@ class ContributionsText extends React.PureComponent {
           this.setState({
             contributonList: [...interm],
           })
-          this.props.dispatch(toggleContributionText(clickedEl))
+          dispatch(toggleContributionText(clickedEl))
         }, 1000)
         setTimeout(() => {
           resolve()
@@ -176,13 +179,14 @@ class ContributionsText extends React.PureComponent {
         this.setState({
           hideEl: null,
         })
-        this.props.dispatch(toggleContributionAnimation(null))
+        dispatch(toggleContributionAnimation(null))
       })
     }
   }
 
   render() {
     const { contributonList, hideEl } = this.state
+
     return (
       <ContributionsList hide={hideEl}>
         <ContribListEl
@@ -192,7 +196,7 @@ class ContributionsText extends React.PureComponent {
           active
           onClick={() => this.reOrderList(contributonList[0])}
         >
-          {this.state.contributonList[0]}
+          {contributonList[0]}
         </ContribListEl>
         <ContribListEl
           hide={hideEl}
@@ -200,7 +204,7 @@ class ContributionsText extends React.PureComponent {
           className="el-2"
           onClick={() => this.reOrderList(contributonList[1])}
         >
-          {this.state.contributonList[1]}
+          {contributonList[1]}
         </ContribListEl>
         <ContribListEl
           hide={hideEl}
@@ -208,7 +212,7 @@ class ContributionsText extends React.PureComponent {
           className="el-3"
           onClick={() => this.reOrderList(contributonList[2])}
         >
-          {this.state.contributonList[2]}
+          {contributonList[2]}
         </ContribListEl>
         <ContribListEl
           hide={hideEl}
@@ -216,11 +220,17 @@ class ContributionsText extends React.PureComponent {
           className="el-4"
           onClick={() => this.reOrderList(contributonList[3])}
         >
-          {this.state.contributonList[3]}
+          {contributonList[3]}
         </ContribListEl>
       </ContributionsList>
     )
   }
+}
+ContributionsText.defaultProps = {
+  dispatch: () => {},
+}
+ContributionsText.propTypes = {
+  dispatch: PropTypes.func,
 }
 const mapStateToProps = (state) => ({
   ...state,
