@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+// eslint-disable-next-line import/extensions
 import anime from 'animejs/lib/anime.es.js'
 
 const DiamondWrapper = styled.div`
