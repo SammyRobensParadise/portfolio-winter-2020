@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import * as paper from 'paper'
 import WrapperContainer from './assets/common/wrapper'
 import './index.css'
+import { isInViewport, getExpectedURL, setExpectedURL } from './utils/url-handlers'
 
 const LoadingMesh = () => (
   <div>
@@ -33,10 +34,10 @@ const DesignAndCodeSection = lazy(() => import('./assets/components/designAndCod
 // eslint-disable-next-line import/no-cycle
 const AboutMeWrapper = lazy(() => import('./assets/components/aboutMeWrapper'))
 
-export const CONTTRIBUTION_SECTION = 'CONTRIBUTION_SECTION'
-export const PROJECTS_SECTION = 'PROJECTS_SECTION'
-export const DESIGN_AND_CODE_SECTION = 'DESIGN_AND_CODE_SECTION'
-export const ABOUT_ME_WRAPPER = 'ABOUT_ME_WRAPPER'
+export const CONTRIBUTION_SECTION = 'contributions'
+export const PROJECTS_SECTION = 'projects'
+export const DESIGN_AND_CODE_SECTION = 'design-and-code'
+export const ABOUT_ME_WRAPPER = 'about-me'
 
 let clientX = -100
 let clientY = -100
@@ -56,6 +57,18 @@ class App extends React.PureComponent {
     this.setState({
       hasLoaded: true,
     })
+    window.addEventListener('scroll', () => {
+      this.handleGlobalURL()
+    })
+  }
+  handleGlobalURL = () => {
+    const node = isInViewport()
+    if (node !== null) {
+      const expectedURL = getExpectedURL(node)
+      console.log(expectedURL, isInViewport())
+      setExpectedURL(expectedURL)
+    }
+
   }
 
   initCursor = () => {
@@ -123,7 +136,7 @@ class App extends React.PureComponent {
     }
 
     return (
-      <div className="web-App">
+      <div className="web-App" id="web-wrapper">
         <Suspense fallback={<LoadingMesh />}>
           <DiamondOne />
         </Suspense>

@@ -104,8 +104,8 @@ const TriggerText = styled.div`
     font-weight: 200;
     font-style: normal;
     font-size: 25px;
-    width 700px;
-    color: #fff
+    width: 700px;
+    color: #fff;
     line-height: 50px;
     -webkit-text-stroke-width: 0px;
     -webkit-text-stroke-color: none;
