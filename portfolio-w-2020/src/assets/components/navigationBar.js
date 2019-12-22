@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { scrollToSection } from '../../actions/action'
 import {
-  CONTTRIBUTION_SECTION,
+  CONTRIBUTION_SECTION,
   PROJECTS_SECTION,
   DESIGN_AND_CODE_SECTION,
   ABOUT_ME_WRAPPER,
@@ -93,7 +93,7 @@ class NavigationBar extends React.PureComponent {
         <NavEl onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>{CODE}</NavEl>
         <NavEl onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>{DESIGN}</NavEl>
         <NavEl onClick={() => dispatch(scrollToSection(PROJECTS_SECTION))}>{PROJECTS}</NavEl>
-        <NavEl onClick={() => dispatch(scrollToSection(CONTTRIBUTION_SECTION))}>
+        <NavEl onClick={() => dispatch(scrollToSection(CONTRIBUTION_SECTION))}>
           {CONTRIBUTIONS}
         </NavEl>
         <NavEl onClick={() => window.open(PORTFOLIO_2019_LINK)}>{PORTFOLIO_2019}</NavEl>

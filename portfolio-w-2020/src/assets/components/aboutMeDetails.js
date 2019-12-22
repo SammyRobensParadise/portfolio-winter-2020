@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { white } from '../colors/common-colors'
+import VisibilitySensor from 'react-visibility-sensor'
 
 const AboutMeText = styled.div`
   margin: 0 auto;
@@ -90,39 +91,39 @@ const AboutMeTitle = styled.div`
   }
 `
 const DescriptionFirst = styled.div`
-top: 80px;
-font-family: montserrat, sans-serif;
-font-weight: 200;
-font-style: normal;
-font-size: 25px;
-width 80%;
-text-align: left;
-letter-spacing: 0;
-z-index:  99;
-position: absolute;
-color: ${white};
-line-height: 60px;
-text-shadow: 0px 2px 6px #2d2d2a;
-padding-top: 20%;
-@media screen and (max-width: 1245px){
-  line-height: 40px;
-}
-@media screen and (max-width:1060px){
-  font-size: 16px;
-}
-@media screen and (max-width: 800px){
-  line-height: 25px;
-}
-@media screen and (max-width: 640px){
-  font-size: 12px;
-}
-@media screen and (max-width: 520px){
-  line-height: 18px;
-  width: 90%;
-}
-@media screen and (max-width: 440px){
-  font-size:  9px;
-}
+  top: 80px;
+  font-family: montserrat, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 25px;
+  width: 80%;
+  text-align: left;
+  letter-spacing: 0;
+  z-index: 99;
+  position: absolute;
+  color: ${white};
+  line-height: 60px;
+  text-shadow: 0px 2px 6px #2d2d2a;
+  padding-top: 20%;
+  @media screen and (max-width: 1245px) {
+    line-height: 40px;
+  }
+  @media screen and (max-width: 1060px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 800px) {
+    line-height: 25px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 520px) {
+    line-height: 18px;
+    width: 90%;
+  }
+  @media screen and (max-width: 440px) {
+    font-size: 9px;
+  }
 `
 const DescriptionPara = styled.p`
   top: 80px;

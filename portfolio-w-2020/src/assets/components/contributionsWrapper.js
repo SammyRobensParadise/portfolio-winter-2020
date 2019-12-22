@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ContributionsText from './contributionsText'
 import ContributionDetails from './contributionDetails'
-import { CONTTRIBUTION_SECTION } from '../../App'
+import { CONTRIBUTION_SECTION } from '../../App'
 
 const ContributionsWrapper = styled.div`
   z-index: 89;
@@ -13,7 +13,7 @@ const ContributionsWrapper = styled.div`
 
 const ContributionsSection = () => (
   <div>
-    <ContributionsWrapper id={CONTTRIBUTION_SECTION}>
+    <ContributionsWrapper id={CONTRIBUTION_SECTION}>
       <ContributionsText />
       <ContributionDetails />
       <svg
