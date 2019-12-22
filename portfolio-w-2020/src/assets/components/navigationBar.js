@@ -37,7 +37,7 @@ const NavEl = styled.div`
   border-color: ${white};
   border-style: solid;
   border-width: 0px;
-  transitionborder-width: 0.3 linear 1s;
+  transition: border-width 0.3 linear 1s;
   transition: letter-spacing 0.5s;
   z-index: 100000;
   &:hover,
@@ -74,6 +74,8 @@ const CODE = 'Code'
 const DESIGN = 'Design'
 const PROJECTS = 'Projects'
 const CONTRIBUTIONS = 'Contributions'
+const PORTFOLIO_2019 = 'Portfolio 2019'
+const PORTFOLIO_2019_LINK = 'https://portfolio-app-1091c.firebaseapp.com/'
 
 class NavigationBar extends React.PureComponent {
   constructor(props) {
@@ -94,6 +96,7 @@ class NavigationBar extends React.PureComponent {
         <NavEl onClick={() => dispatch(scrollToSection(CONTTRIBUTION_SECTION))}>
           {CONTRIBUTIONS}
         </NavEl>
+        <NavEl onClick={() => window.open(PORTFOLIO_2019_LINK)}>{PORTFOLIO_2019}</NavEl>
       </Nav>
     )
   }
