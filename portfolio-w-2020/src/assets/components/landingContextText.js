@@ -28,7 +28,7 @@ const ParaText = styled.div`
   margin-top: 20px;
   text-shadow: 0px 2px 6px #2b2b2a;
   @media screen and (max-width: 2600px){
-    padding-right  60%;
+    padding-right:  60%;
   }
   @media screen and (max-width: 2200px){
     padding-right: 40%;

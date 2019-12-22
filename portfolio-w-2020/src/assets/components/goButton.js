@@ -3,29 +3,30 @@ import styled from 'styled-components'
 import { white } from '../colors/common-colors'
 
 const GoButtonText = styled.h2`
-    font-family: impact-urw, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 120px;
-    width: 100%
-    margin: 0 auto;
-    text-align: center;
-    z-index: 99;
-    color: transparent;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-    padding-bottom: 0px;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #fff;
-    height: 130px;
-    position: relative;
-    &:hover{
-        cursor: none;
+  font-family: impact-urw, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 120px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 99;
+  color: transparent;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  padding-bottom: 0px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  height: 130px;
+  position: relative;
+  &:hover {
+    cursor: none;
+  }
 `
 const GoTriangleWrapper = styled.div`
   position: relative;
   text-align: center;
-  width: 100%
+  width: 100%;
   &:hover {
     cursor: none;
   }
