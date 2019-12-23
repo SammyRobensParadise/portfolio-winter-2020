@@ -73,6 +73,10 @@ class App extends React.PureComponent {
    *  handles the global URL formatting
    */
   handleGlobalURL = () => {
+    if (window.scrollY <= 10) {
+      setExpectedURL(window.location.origin)
+      return true
+    }
     const node = isInViewport()
     if (node !== null) {
       const expectedURL = getExpectedURL(node)
@@ -128,9 +132,9 @@ class App extends React.PureComponent {
     }
   }
 
-/**
- * @param {e} string
- */
+  /**
+   * @param {e} string
+   */
   scrollToSection = (e) => {
     if (e !== null) {
       const target = document.getElementById(e)
