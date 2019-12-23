@@ -148,6 +148,10 @@ class ContributionDetails extends React.PureComponent {
     }
   }
 
+/**
+ * returns the job action
+ * @param {p} string
+ */
   getExternalJobAction = (p) => {
     switch (p) {
       case HOOTSUITE: {
@@ -168,6 +172,10 @@ class ContributionDetails extends React.PureComponent {
     }
   }
 
+  /**
+   * returns the job title
+   * @param {p} string
+   */
   getJobTitle = (p) => {
     switch (p) {
       case HOOTSUITE: {
@@ -188,6 +196,11 @@ class ContributionDetails extends React.PureComponent {
     }
   }
 
+  /**
+   * determines the appropraite
+   * details for the contribution
+   * @param {p} string
+   */
   getCurrentContributionDetails = (p) => {
     switch (p) {
       case HOOTSUITE: {
