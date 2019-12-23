@@ -71,8 +71,8 @@ const move = keyframes`
    }
 `
 /**
- * 
- * @param {string} num 
+ *
+ * @param {string} num
  */
 const animation = (num) => css`
     ${move} 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) ${num}s forwards;`
@@ -154,11 +154,11 @@ class ContributionsText extends React.PureComponent {
       hideEl: null,
     }
   }
-/**
- * handles the element in the list that was clicked
- * and it's animations
- * @param {clickedEl} element
- */
+  /**
+   * handles the element in the list that was clicked
+   * and it's animations
+   * @param {clickedEl} element
+   */
   reOrderList = (clickedEl) => {
     const { dispatch } = this.props
     const { contributonList } = this.state
