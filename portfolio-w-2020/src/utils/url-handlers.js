@@ -16,6 +16,12 @@ import {
  */
 const isInViewport = () => {
   switch (true) {
+    case !hasElementBeenScrollled(CONTRIBUTION_SECTION) &&
+      !hasElementBeenScrollled(PROJECTS_SECTION) &&
+      !hasElementBeenScrollled(DESIGN_AND_CODE_SECTION) &&
+      !hasElementBeenScrollled(ABOUT_ME_WRAPPER): {
+      return ''
+    }
     case hasElementBeenScrollled(CONTRIBUTION_SECTION) &&
       !hasElementBeenScrollled(PROJECTS_SECTION) &&
       !hasElementBeenScrollled(DESIGN_AND_CODE_SECTION) &&
