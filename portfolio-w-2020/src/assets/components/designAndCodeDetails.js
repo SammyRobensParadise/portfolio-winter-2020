@@ -166,7 +166,11 @@ class DesignCodeAndDetails extends React.PureComponent {
       ...props,
     }
   }
-
+  
+/**
+ * gets the triggering text for animations
+ * @param {} none
+ */
   getTriggerText = () => {
     const { Actions } = this.props
     const { animateCode, animateDribbble } = Actions

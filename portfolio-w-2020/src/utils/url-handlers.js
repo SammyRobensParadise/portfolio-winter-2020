@@ -1,3 +1,8 @@
+/**
+ * @format
+ *
+ */
+
 import {
   CONTRIBUTION_SECTION,
   PROJECTS_SECTION,
@@ -60,21 +65,54 @@ const getExpectedURL = (scrollNode) => {
     !href.includes(CONTRIBUTION_SECTION) && scrollNode.includes(CONTRIBUTION_SECTION)
   const isCurrentProjects =
     !href.includes(PROJECTS_SECTION) && scrollNode.includes(PROJECTS_SECTION)
+  const iscCurrentDesignAndCode =
+    !href.includes(DESIGN_AND_CODE_SECTION) && scrollNode.includes(DESIGN_AND_CODE_SECTION)
+  const isCurrentAboutMe = !href.includes(ABOUT_ME_WRAPPER) && scrollNode.includes(ABOUT_ME_WRAPPER)
   if (scrollNode !== null) {
     switch (true) {
       case isCurrentContribution: {
-        return `${origin}#${CONTRIBUTION_SECTION}/`
+        return `${origin}/${CONTRIBUTION_SECTION}`
       }
       case isCurrentProjects: {
-        return `${origin}#${PROJECTS_SECTION}/`
+        return `${origin}/${PROJECTS_SECTION}`
+      }
+      case iscCurrentDesignAndCode: {
+        return `${origin}/${DESIGN_AND_CODE_SECTION}`
+      }
+      case isCurrentAboutMe: {
+        return `${origin}/${ABOUT_ME_WRAPPER}`
+      }
+      default: {
+        return `${href}`
       }
     }
   }
 }
 /**
+ * Sets the current URL for window
  * @param {string} URL
  */
 const setExpectedURL = (URL) => {
-  window.history.pushState({ url: URL }, 'Sammy Robens-Paradise', URL)
+  if (URL !== window.location.href) {
+    window.history.pushState({ url: URL }, 'Sammy Robens-Paradise', URL)
+  }
 }
-export { isInViewport, getExpectedURL, setExpectedURL }
+/**
+ * @readonly
+ * @returns {object}
+ */
+const getLoadedURL = () => {
+  const { href, origin } = window.location
+  let retrievedURL = href.replace(origin, '')
+  retrievedURL = retrievedURL.replace('#', '')
+  retrievedURL = retrievedURL.replace('/', '')
+
+  const URL = {
+    url: window.location.href,
+    origin: window.location.origin,
+    loadedSection: retrievedURL,
+  }
+
+  return URL
+}
+export { isInViewport, getExpectedURL, setExpectedURL, getLoadedURL }

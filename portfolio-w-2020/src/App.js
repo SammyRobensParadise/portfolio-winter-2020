@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import * as paper from 'paper'
 import WrapperContainer from './assets/common/wrapper'
 import './index.css'
-import { isInViewport, getExpectedURL, setExpectedURL } from './utils/url-handlers'
+import { isInViewport, getExpectedURL, setExpectedURL, getLoadedURL } from './utils/url-handlers'
 
 const LoadingMesh = () => (
   <div>
@@ -33,7 +33,11 @@ const ProjectSection = lazy(() => import('./assets/components/projectsWrapper'))
 const DesignAndCodeSection = lazy(() => import('./assets/components/designAndCodeWrapper'))
 // eslint-disable-next-line import/no-cycle
 const AboutMeWrapper = lazy(() => import('./assets/components/aboutMeWrapper'))
-
+/**
+ * @summary
+ * the following are constatns used as identifiers
+ * for the sections throughout the webpage
+ */
 export const CONTRIBUTION_SECTION = 'contributions'
 export const PROJECTS_SECTION = 'projects'
 export const DESIGN_AND_CODE_SECTION = 'design-and-code'
@@ -44,6 +48,7 @@ let clientY = -100
 let lastX = 0
 let lastY = 0
 let group
+
 class App extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -60,15 +65,19 @@ class App extends React.PureComponent {
     window.addEventListener('scroll', () => {
       this.handleGlobalURL()
     })
+    setTimeout(() => {
+      this.scrollToSectionFromURL()
+    }, 500)
   }
+  /**
+   *  handles the global URL formatting
+   */
   handleGlobalURL = () => {
     const node = isInViewport()
     if (node !== null) {
       const expectedURL = getExpectedURL(node)
-      console.log(expectedURL, isInViewport())
       setExpectedURL(expectedURL)
     }
-
   }
 
   initCursor = () => {
@@ -119,10 +128,23 @@ class App extends React.PureComponent {
     }
   }
 
+/**
+ * @param {e} string
+ */
   scrollToSection = (e) => {
     if (e !== null) {
       const target = document.getElementById(e)
       target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
+    }
+  }
+  /**
+   * @param {} none
+   */
+  scrollToSectionFromURL = () => {
+    const URL = getLoadedURL()
+    const { loadedSection } = URL
+    if (loadedSection !== (null || undefined || '')) {
+      this.scrollToSection(loadedSection)
     }
   }
 
