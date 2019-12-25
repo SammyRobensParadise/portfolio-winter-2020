@@ -33,6 +33,8 @@ const ProjectSection = lazy(() => import('./assets/components/projectsWrapper'))
 const DesignAndCodeSection = lazy(() => import('./assets/components/designAndCodeWrapper'))
 // eslint-disable-next-line import/no-cycle
 const AboutMeWrapper = lazy(() => import('./assets/components/aboutMeWrapper'))
+// eslint-disable-next-line import/no-cycle
+const SocialConnect = lazy(() => import('./assets/components/connectSocial'))
 /**
  * @summary
  * the following are constatns used as identifiers
@@ -192,6 +194,9 @@ class App extends React.PureComponent {
           </Suspense>
           <Suspense fallback={<LoadingMesh />}>
             <AboutMeWrapper />
+          </Suspense>
+          <Suspense fallback={<LoadingMesh />}>
+            <SocialConnect />
           </Suspense>
         </WrapperContainer>
       </div>
