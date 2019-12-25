@@ -58,8 +58,11 @@ const isInViewport = () => {
  */
 const hasElementBeenScrollled = (id) => {
   let el = document.getElementById(id)
-  let rect = el.getBoundingClientRect()
-  return rect.top <= 0 ? true : false
+  if (el !== null || undefined) {
+    let rect = el.getBoundingClientRect()
+    return rect.top <= 0 ? true : false
+  }
+  return false
 }
 /**
  * @param {string} scrollNode

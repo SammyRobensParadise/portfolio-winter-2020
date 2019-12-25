@@ -26,9 +26,17 @@ const SocialConnectShare = styled.div`
   z-index: 2000 !important;
 `
 const ShareIcon = styled.div`
-  @import url(${(p) => p.ref});
+  @import url(${(p) => p.param});
   transform: scale(1.3);
-  padding-left: 13px;
+  padding-left: ${(p) => (p.centerAdjust ? p.centerAdjust : '18px')};
+  bottom: ${(p) => p.height};
+  position: absolute;
+  z-index: 2000 !important;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.6);
+    padding-left: ${(p) => (p.centerAdjust ? '14px' : '16px')};
+  }
 `
 const ShareIconListContainer = styled.div`
   background: ${navGreen};
@@ -44,9 +52,24 @@ const ShareIconListContainer = styled.div`
 `
 const ICON_NAMES = {
   shareIcon: 'gg-share',
+  mailIcon: 'gg-mail',
+  profileIcon: 'gg-profile',
 }
+/**
+ * @param {boolean} showingShareIconbar
+ * @returns {JSX} JSX
+ */
 const ShareIconList = ({ showingShareIconbar }) => {
-  return <ShareIconListContainer showingShareIconbar={showingShareIconbar} />
+  return (
+    <ShareIconListContainer showingShareIconbar={showingShareIconbar}>
+      <ShareIcon param={'https://css.gg/mail.css'} height={'100px'}>
+        <i className={ICON_NAMES.mailIcon} />
+      </ShareIcon>
+      <ShareIcon param={'https://css.gg/profile.css'} height={'180px'} centerAdjust={'16px'}>
+        <i className={ICON_NAMES.profileIcon} />
+      </ShareIcon>
+    </ShareIconListContainer>
+  )
 }
 
 class ConnectSocial extends React.PureComponent {
@@ -78,7 +101,6 @@ class ConnectSocial extends React.PureComponent {
     const { showingShareIconbar } = this.state
     let exception = document.getElementById('social-connect-container')
     const isException = this.isDecendant(exception, e.target) || e.target === exception
-    debugger
     if (showingShareIconbar && !isException) {
       this.setState({
         showingShareIconbar: false,
