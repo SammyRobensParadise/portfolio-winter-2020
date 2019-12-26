@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import {white} from '../colors/common-colors'
+import { generateUtm } from '../../utils/analytics'
+import { white } from '../colors/common-colors'
 const ProjectDetailsContainer = styled.div`
   & {
     font-family: impact-urw, sans-serif;
@@ -227,10 +228,30 @@ const GRAPE = 'GRAPE'
 const BC_FERRIES = 'BC FERRIES'
 const EB_WEB = 'EB WEB'
 
-const GLOBAL_WINERY_EXTERNAL_LINK = 'https://sammyrp.com/global-winery/?utm_source=portfolio_2020'
-const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/?utm_source=portfolio_2020'
-const BC_FERRIES_EXTERNAL_LINK = 'https://sammyrp.com/bc-ferries-redesign.html?utm_source=portfolio_2020'
-const EB_WEB_EXTERNAL_LINK = 'https://emilybandel.github.io/webpage-application/?utm_source=portfolio_2020'
+const GLOBAL_WINERY_EXTERNAL_LINK = `https://sammyrp.com/global-winery/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+const GRAPE_EXTERNAL_LINK = `https://grape-promo.firebaseapp.com/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+const BC_FERRIES_EXTERNAL_LINK = `https://sammyrp.com/bc-ferries-redesign.html?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+const EB_WEB_EXTERNAL_LINK = `https://emilybandel.github.io/webpage-application/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
 
 class ProjectDetails extends React.PureComponent {
   constructor(props) {
