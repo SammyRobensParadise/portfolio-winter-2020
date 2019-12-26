@@ -117,8 +117,8 @@ const ICON_NAMES = {
   dribbble: 'gg-dribbble',
 }
 const IconStyleOverride = {
-  color: '#fff',
-  stroke: '#fff',
+  color: white,
+  stroke: white,
 }
 /**
  * @param {boolean} showingShareIconbar

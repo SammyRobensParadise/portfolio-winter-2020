@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import styled, { keyframes, css } from 'styled-components'
+import {white} from '../colors/common-colors'
 import { toggleContributionText, toggleContributionAnimation } from '../../actions/action'
 
 const ContributionsList = styled.div`
@@ -11,9 +12,9 @@ const ContributionsList = styled.div`
   width: 30%;
   text-align: left;
   z-index: ${(p) => (p.hide ? '-3' : '90')};
-  color: ${(p) => (p.active ? '#fff' : 'transparent')};
+  color: ${(p) => (p.active ? white : 'transparent')};
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-color: ${white};
   line-height: 50px;
   position: absolute;
   padding-left: 23%;
@@ -85,9 +86,9 @@ const ContribListEl = styled.h2`
   width: 600px;
   text-align: left;
   z-index: ${(p) => (p.hide ? '-3' : '90')};
-  color: ${(p) => (p.active ? '#fff' : 'transparent')};
+  color: ${(p) => (p.active ? white : 'transparent')};
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-color: ${white};
   line-height: 30px;
   animation: ${(p) => (p.hide ? animation(p.num) : 'none')};
   &:hover {

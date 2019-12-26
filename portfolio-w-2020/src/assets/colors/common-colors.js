@@ -1,3 +1,5 @@
+/** @format */
+
 const backgroundGreen = '#1A839C'
 const white = '#ffffff'
 const darkBlue = '#1C67A6'

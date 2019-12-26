@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import styled, { keyframes, css } from 'styled-components'
 // eslint-disable-next-line object-curly-newline
 import { HOOTSUITE, FINGER_FOOD, GRAPE, ENV_CANADA } from './contributionsText'
-
+import { white } from '../colors/common-colors'
 const HOOTSUITE_DETAILS_TEXT = `I write and deploy code to 16 million users on a daily basis, driving product growth and an unparalleled tool belt  to social media gurus. `
 const FINGER_FOOD_DETAILS_TEXT = `I developed a system to quantify UX world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects.`
 const ENV_CANADA_DETAILS_TEXT = `Worked with the transportation division to develop software engineering solutions assisting regulatory administration.`
@@ -44,7 +44,7 @@ const ContributionDetailsContainer = styled.div`
     font-size: 25px;
     width: 300px;
     z-index: ${(p) => (p.hide || p.hide === false ? '-1' : '90')};
-    color: #fff;
+    color: ${white};
     line-height: 50px;
     position: absolute;
     right: 180px;
@@ -126,7 +126,7 @@ const ContributionDetailsButton = styled.div`
   width: 350px;
   height: 100px;
   z-index: ${(p) => (p.hide || p.hide === false ? '-1' : '90')};
-  color: #fff;
+  color: ${white};
   line-height: 100px;
   position: absolute;
   background: #203f8f;
@@ -148,10 +148,10 @@ class ContributionDetails extends React.PureComponent {
     }
   }
 
-/**
- * returns the job action
- * @param {p} string
- */
+  /**
+   * returns the job action
+   * @param {p} string
+   */
   getExternalJobAction = (p) => {
     switch (p) {
       case HOOTSUITE: {

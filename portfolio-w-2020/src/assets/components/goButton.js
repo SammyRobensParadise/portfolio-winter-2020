@@ -16,7 +16,7 @@ const GoButtonText = styled.h2`
   margin-block-end: 0px;
   padding-bottom: 0px;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-color: ${white};
   height: 130px;
   position: relative;
   &:hover {

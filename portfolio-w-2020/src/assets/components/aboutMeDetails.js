@@ -26,7 +26,7 @@ const AboutMeName = styled.div`
     margin: 0 auto;
     color: transparent;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-color: ${white};
     @media screen and (max-width: 1245px) {
       line-height: 40px;
     }
