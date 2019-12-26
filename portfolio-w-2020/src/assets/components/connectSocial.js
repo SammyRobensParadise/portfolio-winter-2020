@@ -71,7 +71,7 @@ const SocialConnectShare = styled.div`
   padding-left: 13px;
   z-index: 2000 !important;
 `
-const ShareIcon = styled.div`
+const ShareIcon = styled.a`
   @import url(${(p) => p.param});
   transform: scale(1.3);
   padding-left: ${(p) => (p.centerAdjust ? p.centerAdjust : '18px')};
@@ -120,6 +120,7 @@ const IconStyleOverride = {
   color: white,
   stroke: white,
 }
+
 /**
  * @param {boolean} showingShareIconbar
  * @returns {JSX} JSX
