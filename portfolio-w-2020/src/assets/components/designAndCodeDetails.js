@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { darkBlue } from '../colors/common-colors'
+import { darkBlue,white } from '../colors/common-colors'
 import { toggleCodeAnimation, toggleDribbbleAnimation } from '../../actions/action'
 
 const DESIGN_WORK = 'DESIGN WORK'
@@ -24,7 +24,7 @@ const DesignAndCodeDetailsText = styled.div`
     z-index: ${(p) => (p.hide || p.hide === false ? '1' : '90')};
     color: transparent;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-color: ${white};
     line-height: 100px;
     position: absolute;
     padding-top: 10%;
@@ -38,7 +38,7 @@ const DesignAndCodeDetailsEl = styled.div`
   margin-top: ${(p) => (p.order === 'first' ? '25' : p.order === 'second' ? '315' : '0')}px;
   transition: letter-spacing 0.5s;
   &:hover {
-    color: #fff;
+    color: ${white};
     cursor: none;
     letter-spacing: 4px;
   }
@@ -105,7 +105,7 @@ const TriggerText = styled.div`
     font-style: normal;
     font-size: 25px;
     width: 700px;
-    color: #fff;
+    color: ${white};
     line-height: 50px;
     -webkit-text-stroke-width: 0px;
     -webkit-text-stroke-color: none;

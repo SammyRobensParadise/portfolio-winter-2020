@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-
+import {white} from '../colors/common-colors'
 const ProjectDetailsContainer = styled.div`
   & {
     font-family: impact-urw, sans-serif;
@@ -11,7 +11,7 @@ const ProjectDetailsContainer = styled.div`
     z-index: 90;
     color: transparent;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-color: ${white};
     line-height: 100px;
     position: absolute;
     display: inline-grid;
@@ -195,12 +195,12 @@ const ProjectDetailsEl = styled.h2`
     z-index: 90;
     color: transparent;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-color: ${white};
     line-height: 100px;
     transition: letter-spacing 0.5s;
     align-items: center;
     &:hover {
-      color: #fff;
+      color: ${white};
       cursor: none;
       letter-spacing: 6px;
     }
