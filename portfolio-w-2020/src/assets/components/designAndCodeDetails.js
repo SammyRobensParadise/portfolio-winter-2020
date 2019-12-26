@@ -2,17 +2,27 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { darkBlue,white } from '../colors/common-colors'
+import { darkBlue, white } from '../colors/common-colors'
 import { toggleCodeAnimation, toggleDribbbleAnimation } from '../../actions/action'
-
+import { generateUtm } from '../../utils/analytics'
 const DESIGN_WORK = 'DESIGN WORK'
 const DEVELOPMENT_WORK = 'DEVELOPMENT WORK'
 const DESIGN_TRIGGER_TEXT = `I design from the standpoint of both a passionate artist and a developer — mixing beauty with functionality and accessibility.`
 const CODE_TRRIGGER_TEXT = `I code with UX and scalability at the center of my effort. I am constantly exploring new tech to bring the most game-changing experiences.`
 const TRIGGER_TEXT = `Check out my design and code — see something that peaks your interest? Let me know!`
 
-const DRIBBLE_LINK = `https://dribbble.com/sammyrp/?utm_source=portfolio_2020`
-const GH_LINK = `https://github.com/SammyRobensParadise/?utm_source=portfolio_2020`
+const DRIBBLE_LINK = `https://dribbble.com/sammyrp/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+const GH_LINK = `https://github.com/SammyRobensParadise/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
 
 const DesignAndCodeDetailsText = styled.div`
   & {
@@ -99,7 +109,7 @@ const UnderlineStyle = styled.div`
   }
 `
 const TriggerText = styled.div`
-&{
+  & {
     font-family: montserrat, sans-serif;
     font-weight: 200;
     font-style: normal;
@@ -113,51 +123,51 @@ const TriggerText = styled.div`
     margin-top: 80px;
     margin-left: 20px;
     text-shadow: 0px 2px 6px #2b2b2a;
-    @media screen and (max-width: 1380px){
+    @media screen and (max-width: 1380px) {
       width: 650px;
       margin-top: 60px;
     }
-    @media screen and (max-width: 1220px){
+    @media screen and (max-width: 1220px) {
       width: 550px;
       margin-top: 40px;
     }
-    @media screen and (max-width: 1080px){
+    @media screen and (max-width: 1080px) {
       font-size: 16px;
       width: 500px;
       line-height: 40px;
     }
-    @media screen and (max-width: 972px){
+    @media screen and (max-width: 972px) {
       width: 420px;
     }
-    @media screen and (max-width: 920px){
+    @media screen and (max-width: 920px) {
       line-height: 30px;
     }
-    @media screen and (max-width: 820px){
-      line-height:  25px;
+    @media screen and (max-width: 820px) {
+      line-height: 25px;
       margin-top: 30px;
     }
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 800px) {
       width: 360px;
     }
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 700px) {
       width: 300px;
       font-size: 12px;
       line-height: 18px;
     }
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 600px) {
       width: 260px;
     }
-    @media screen and (max-width: 540px){
+    @media screen and (max-width: 540px) {
       width: 200px;
       margin-top: 15px;
     }
-    @media screen and (max-width: 460px){
+    @media screen and (max-width: 460px) {
       font-size: 9px;
     }
-    @media screen and (min-width: 1600px){
+    @media screen and (min-width: 1600px) {
       margin-top: 120px;
     }
-}
+  }
 `
 class DesignCodeAndDetails extends React.PureComponent {
   constructor(props) {
@@ -166,11 +176,11 @@ class DesignCodeAndDetails extends React.PureComponent {
       ...props,
     }
   }
-  
-/**
- * gets the triggering text for animations
- * @param {} none
- */
+
+  /**
+   * gets the triggering text for animations
+   * @param {} none
+   */
   getTriggerText = () => {
     const { Actions } = this.props
     const { animateCode, animateDribbble } = Actions

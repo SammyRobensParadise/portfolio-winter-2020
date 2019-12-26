@@ -9,6 +9,7 @@ import {
   DESIGN_AND_CODE_SECTION,
   ABOUT_ME_WRAPPER,
 } from '../../App'
+import { generateUtm } from '../../utils/analytics'
 import { white } from '../colors/common-colors'
 
 const Nav = styled.div`
@@ -75,7 +76,6 @@ const DESIGN = 'Design'
 const PROJECTS = 'Projects'
 const CONTRIBUTIONS = 'Contributions'
 const PORTFOLIO_2019 = 'Portfolio 2019'
-const PORTFOLIO_2019_UTM_SRC = 'portfolio-2020-ref'
 const PORTFOLIO_2019_LINK = 'https://portfolio-app-1091c.firebaseapp.com'
 
 class NavigationBar extends React.PureComponent {
@@ -99,7 +99,14 @@ class NavigationBar extends React.PureComponent {
         </NavEl>
         <NavEl
           onClick={() =>
-            window.open(`${PORTFOLIO_2019_LINK}/?utm_source=${PORTFOLIO_2019_UTM_SRC}`)
+            window.open(
+              `${PORTFOLIO_2019_LINK}/?${generateUtm(
+                'portfolio_winter_2020',
+                'website',
+                'winter_2020',
+                'link',
+              )}`,
+            )
           }
         >
           {PORTFOLIO_2019}
