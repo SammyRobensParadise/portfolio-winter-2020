@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import styled, { keyframes, css } from 'styled-components'
-import {white} from '../colors/common-colors'
+import { white } from '../colors/common-colors'
 import { toggleContributionText, toggleContributionAnimation } from '../../actions/action'
 
 const ContributionsList = styled.div`
@@ -155,6 +155,7 @@ class ContributionsText extends React.PureComponent {
       hideEl: null,
     }
   }
+
   /**
    * handles the element in the list that was clicked
    * and it's animations

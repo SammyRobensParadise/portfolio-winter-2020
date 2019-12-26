@@ -1,7 +1,10 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable no-confusing-arrow */
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { keyframes, css } from 'styled-components'
 import { white, navGreen } from '../colors/common-colors'
-
+import { AUTHOR_DETAILS } from '../common/constants'
 // time in miliseconds
 const OPEN_CLOSE_ANIM_TIME = 500
 
@@ -79,11 +82,12 @@ const ShareIcon = styled.a`
   position: absolute;
   z-index: 2000 !important;
   transition: all 0.2s ease-in-out;
-  animation: ${(p) =>
-    p.showingShareIconbar && !p.isClosingShareIconBar
-      ? animConnect(fadeIn, (p) => p.animTime, `0s`)
-      : !p.showingShareIconbar && p.isClosingShareIconBar
-      ? animConnect(fadeOut, (p) => p.animTime, `0s`)
+  animation: ${(p) => p.showingShareIconbar && !p.isClosingShareIconBar
+    ? // eslint-disable-next-line no-shadow
+    animConnect(fadeIn, (p) => p.animTime, `0s`)
+    : !p.showingShareIconbar && p.isClosingShareIconBar
+      ? // eslint-disable-next-line no-shadow
+      animConnect(fadeOut, (p) => p.animTime, `0s`)
       : 'none'};
   &:hover {
     transform: scale(1.6);
@@ -102,10 +106,9 @@ const ShareIconListContainer = styled.div`
   z-index: 100;
   box-shadow: 2px 10px 50px -8px rgba(0, 0, 0, 0.1);
   display: ${(p) => (p.showingShareIconbar || p.isClosingShareIconBar ? 'flex' : 'none')};
-  animation: ${(p) =>
-    p.showingShareIconbar && !p.isClosingShareIconBar
-      ? animConnect(moveOpen, '0.5s', '0s')
-      : !p.showingShareIconbar && p.isClosingShareIconBar
+  animation: ${(p) => p.showingShareIconbar && !p.isClosingShareIconBar
+    ? animConnect(moveOpen, '0.5s', '0s')
+    : !p.showingShareIconbar && p.isClosingShareIconBar
       ? animConnect(moveClose, '0.5s', '0s')
       : 'none'};
 `
@@ -120,63 +123,75 @@ const IconStyleOverride = {
   color: white,
   stroke: white,
 }
-
+const Sp = '%20'
+const mailToString = `mailto:${
+  AUTHOR_DETAILS.email
+}?Subject=Portfolio 2020 Website${Sp}Inquiry- ${new Date().toDateString()}`
 /**
  * @param {boolean} showingShareIconbar
  * @returns {JSX} JSX
  */
-const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => {
-  return (
-    <ShareIconListContainer
+const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
+  <ShareIconListContainer
+    showingShareIconbar={showingShareIconbar}
+    isClosingShareIconBar={isClosingShareIconBar}
+  >
+    <ShareIcon
+      param="https://css.gg/mail.css"
+      height="100px"
       showingShareIconbar={showingShareIconbar}
       isClosingShareIconBar={isClosingShareIconBar}
+      animTime="0.4s"
+      href={mailToString}
+      target="_top"
     >
-      <ShareIcon
-        param={'https://css.gg/mail.css'}
-        height={'100px'}
-        showingShareIconbar={showingShareIconbar}
-        isClosingShareIconBar={isClosingShareIconBar}
-        animTime={'0.4s'}
-      >
-        <i className={ICON_NAMES.mailIcon} style={IconStyleOverride} />
-      </ShareIcon>
-      <ShareIcon
-        param={'https://css.gg/profile.css'}
-        height={'180px'}
-        centerAdjust={'16px'}
-        animAdjust={'14px'}
-        showingShareIconbar={showingShareIconbar}
-        isClosingShareIconBar={isClosingShareIconBar}
-        animTime={'0.3s'}
-      >
-        <i className={ICON_NAMES.profileIcon} style={IconStyleOverride} />
-      </ShareIcon>
-      <ShareIcon
-        param={'https://css.gg/code-slash.css'}
-        height={'260px'}
-        centerAdjust={'24px'}
-        animAdjust={'20px'}
-        showingShareIconbar={showingShareIconbar}
-        isClosingShareIconBar={isClosingShareIconBar}
-        animTime={'0.2s'}
-      >
-        <i className={ICON_NAMES.codeSlash} style={IconStyleOverride} />
-      </ShareIcon>
-      <ShareIcon
-        param={'https://css.gg/dribbble.css'}
-        height={'320px'}
-        centerAdjust={'16px'}
-        animAdjust={'14px'}
-        showingShareIconbar={showingShareIconbar}
-        isClosingShareIconBar={isClosingShareIconBar}
-        animTime={'0.2s'}
-      >
-        <i className={ICON_NAMES.dribbble} style={IconStyleOverride} />
-      </ShareIcon>
-    </ShareIconListContainer>
-  )
+      <i className={ICON_NAMES.mailIcon} style={IconStyleOverride} />
+    </ShareIcon>
+    <ShareIcon
+      param="https://css.gg/profile.css"
+      height="180px"
+      centerAdjust="16px"
+      animAdjust="14px"
+      showingShareIconbar={showingShareIconbar}
+      isClosingShareIconBar={isClosingShareIconBar}
+      animTime="0.3s"
+    >
+      <i className={ICON_NAMES.profileIcon} style={IconStyleOverride} />
+    </ShareIcon>
+    <ShareIcon
+      param="https://css.gg/code-slash.css"
+      height="260px"
+      centerAdjust="24px"
+      animAdjust="20px"
+      showingShareIconbar={showingShareIconbar}
+      isClosingShareIconBar={isClosingShareIconBar}
+      animTime="0.2s"
+    >
+      <i className={ICON_NAMES.codeSlash} style={IconStyleOverride} />
+    </ShareIcon>
+    <ShareIcon
+      param="https://css.gg/dribbble.css"
+      height="330px"
+      centerAdjust="16px"
+      animAdjust="14px"
+      showingShareIconbar={showingShareIconbar}
+      isClosingShareIconBar={isClosingShareIconBar}
+      animTime="0.2s"
+    >
+      <i className={ICON_NAMES.dribbble} style={IconStyleOverride} />
+    </ShareIcon>
+  </ShareIconListContainer>
+)
+// Props Validation default props
+ShareIconList.defaultProps = {
+  showingShareIconbar: false,
+  isClosingShareIconBar: false,
 }
-
+// Props Valdiation proptypes
+ShareIconList.propTypes = {
+  showingShareIconbar: PropTypes.bool,
+  isClosingShareIconBar: PropTypes.bool,
+}
 class ConnectSocial extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -189,6 +204,7 @@ class ConnectSocial extends React.PureComponent {
       this.closeShareIconBar(e)
     })
   }
+
   /**
    * shows the share Icon bar
    * @param {null} null
@@ -206,7 +222,7 @@ class ConnectSocial extends React.PureComponent {
    */
   closeShareIconBar = (e) => {
     const { showingShareIconbar } = this.state
-    let exception = document.getElementById('social-connect-container')
+    const exception = document.getElementById('social-connect-container')
     const isException = this.isDecendant(exception, e.target) || e.target === exception
     if (showingShareIconbar && !isException) {
       this.setState({
@@ -220,6 +236,7 @@ class ConnectSocial extends React.PureComponent {
       })
     }, OPEN_CLOSE_ANIM_TIME)
   }
+
   /**
    * detects if a node is a decendant of
    * another node
@@ -227,7 +244,7 @@ class ConnectSocial extends React.PureComponent {
    * @param {child} node
    */
   isDecendant = (parent, child) => {
-    var node = child.parentNode
+    let node = child.parentNode
     while (node !== null) {
       if (node === parent) {
         return true
@@ -239,9 +256,10 @@ class ConnectSocial extends React.PureComponent {
 
   render() {
     const { showingShareIconbar, isClosingShareIconBar } = this.state
+    const CONTAINER_ID = 'social-connect-container'
     return (
       <div>
-        <SocialConnectContainer id={`social-connect-container`} onClick={this.ShowShareIconBar}>
+        <SocialConnectContainer id={CONTAINER_ID} onClick={this.ShowShareIconBar}>
           <ShareIconList
             showingShareIconbar={showingShareIconbar}
             isClosingShareIconBar={isClosingShareIconBar}

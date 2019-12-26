@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { darkBlue, white } from '../colors/common-colors'
 import { toggleCodeAnimation, toggleDribbbleAnimation } from '../../actions/action'
 import { generateUtm } from '../../utils/analytics'
+
 const DESIGN_WORK = 'DESIGN WORK'
 const DEVELOPMENT_WORK = 'DEVELOPMENT WORK'
 const DESIGN_TRIGGER_TEXT = `I design from the standpoint of both a passionate artist and a developer — mixing beauty with functionality and accessibility.`
