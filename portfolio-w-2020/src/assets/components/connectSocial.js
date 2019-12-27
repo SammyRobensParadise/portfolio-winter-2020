@@ -298,7 +298,11 @@ class ConnectSocial extends React.PureComponent {
             showingShareIconbar={showingShareIconbar}
             isClosingShareIconBar={isClosingShareIconBar}
           />
-          <SocialConnectCircle showingShareIconbar={showingShareIconbar}>
+          <SocialConnectCircle
+            showingShareIconbar={showingShareIconbar}
+            role="option"
+            aria-label="Share"
+          >
             <SocialConnectShare>
               <i
                 className={ICON_NAMES.shareIcon}

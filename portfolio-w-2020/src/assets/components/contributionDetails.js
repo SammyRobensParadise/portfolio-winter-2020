@@ -139,7 +139,8 @@ const ContributionDetailsText = styled.p`
   text-shadow: 0px 2px 6px #2b2b2a;
   animation: ${(p) => (p.show ? detailsAnim : 'none')};
 `
-const ContributionDetailsButton = styled.div`
+const ContributionDetailsButton = styled.button`
+  border: none;
   text-align: center;
   font-family: montserrat, sans-serif;
   font-weight: 200;
@@ -160,6 +161,9 @@ const ContributionDetailsButton = styled.div`
     background: white;
     color: #203f8f;
     letter-spacing: 6px;
+  }
+  &:focus {
+    outline: none;
   }
 `
 class ContributionDetails extends React.PureComponent {
