@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker'
 import App from './App'
 import AppReduce from './reducers/reducers'
 
-window.env = window.location.href.includes('localhost') ? 'development' : 'production'
+window.env = process.env.NODE_ENV
 
 const store = createStore(AppReduce)
 render(
