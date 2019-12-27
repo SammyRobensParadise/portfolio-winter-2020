@@ -5,7 +5,9 @@ import { connect } from 'react-redux'
 import styled, { keyframes, css } from 'styled-components'
 // eslint-disable-next-line object-curly-newline
 import { HOOTSUITE, FINGER_FOOD, GRAPE, ENV_CANADA } from './contributionsText'
+import { generateUtm } from '../../utils/analytics'
 import { white } from '../colors/common-colors'
+
 const HOOTSUITE_DETAILS_TEXT = `I write and deploy code to 16 million users on a daily basis, driving product growth and an unparalleled tool belt  to social media gurus. `
 const FINGER_FOOD_DETAILS_TEXT = `I developed a system to quantify UX world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects.`
 const ENV_CANADA_DETAILS_TEXT = `Worked with the transportation division to develop software engineering solutions assisting regulatory administration.`
@@ -14,10 +16,30 @@ const HOOTSUITE_JOB_TITLE = 'Software Developer'
 const FINGER_FOOD_JOB_TITLE = 'QA Lead'
 const ENV_CANADA_JOB_TITLE = 'Software Engineer'
 const GRAPE_JOB_TITLE = 'Product designer & Developer'
-const HOOTSUITE_EXTERNAL_LINK = 'https://hootsuite.com/'
-const FINGER_FOOD_EXTERNAL_LINK = 'https://sammyrp.com/finger-food-atg-projects.html'
-const ENV_CANADA_EXTERNAL_LINK = `https://www.canada.ca/en/environment-climate-change/corporate/mandate.html`
-const GRAPE_EXTERNAL_LINK = 'https://grape-promo.firebaseapp.com/'
+const HOOTSUITE_EXTERNAL_LINK = `https://hootsuite.com/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+const FINGER_FOOD_EXTERNAL_LINK = `https://sammyrp.com/finger-food-atg-projects.html?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+const ENV_CANADA_EXTERNAL_LINK = `https://www.canada.ca/en/environment-climate-change/corporate/mandate.html?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+const GRAPE_EXTERNAL_LINK = `https://grape-promo.firebaseapp.com/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
 
 const fadeInOut = keyframes`
 0%{
