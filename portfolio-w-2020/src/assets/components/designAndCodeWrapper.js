@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import DesignCodeAndDetails from './designAndCodeDetails'
 import { white, deepBlue } from '../colors/common-colors'
 import { DESIGN_AND_CODE_SECTION } from '../../App'
-import { isInViewport } from '../../utils/url-handlers'
 
 const DesignAndCodeWrapper = styled.div`
   z-index: 89;
@@ -107,6 +106,7 @@ class DesignAndCodeSection extends React.PureComponent {
       ...props,
     }
   }
+
   render() {
     const { animateCode, animateDribbble } = this.props.Actions
     return (

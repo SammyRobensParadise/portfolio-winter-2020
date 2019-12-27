@@ -225,11 +225,12 @@ class DesignCodeAndDetails extends React.PureComponent {
   }
 }
 DesignCodeAndDetails.defaultProps = {
-  Actions: () => {},
+  Actions: {},
   dispatch: () => {},
 }
 DesignCodeAndDetails.propTypes = {
-  Actions: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  Actions: PropTypes.object,
   dispatch: PropTypes.func,
 }
 const mapStateToProps = (state) => ({
