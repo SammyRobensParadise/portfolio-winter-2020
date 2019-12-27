@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import styled, { keyframes, css } from 'styled-components'
 import { white, navGreen } from '../colors/common-colors'
 import { AUTHOR_DETAILS } from '../common/constants'
+import { generateUtm } from '../../utils/analytics'
 // time in miliseconds
 const OPEN_CLOSE_ANIM_TIME = 500
 
@@ -43,6 +44,7 @@ const fadeOut = keyframes`
  *
  * @param {Object} anim
  * @param {string} time
+ * @param {string} delay
  */
 const animConnect = (anim, time, delay) => css`
   ${anim} ${time} cubic-bezier(0.645, 0.045, 0.355, 1) ${delay} forwards;
@@ -119,14 +121,37 @@ const ICON_NAMES = {
   codeSlash: 'gg-code-slash',
   dribbble: 'gg-dribbble',
 }
+
 const IconStyleOverride = {
   color: white,
   stroke: white,
 }
-const Sp = '%20'
+
 const mailToString = `mailto:${
   AUTHOR_DETAILS.email
-}?Subject=Portfolio 2020 Website${Sp}Inquiry- ${new Date().toDateString()}`
+}?Subject=Portfolio 2020 Website%20Inquiry- ${new Date().toDateString()}`
+
+const personalWebsiteLink = `https://sammyrp.com/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+
+const githubWebsiteLink = `https://github.com/SammyRobensParadise/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+
+const dribbbleWebsiteLink = `https://dribbble.com/sammyrp/?${generateUtm(
+  'portfolio_winter_2020',
+  'website',
+  'winter_2020',
+  'link',
+)}`
+
 /**
  * @param {boolean} showingShareIconbar
  * @returns {JSX} JSX
@@ -155,6 +180,8 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       showingShareIconbar={showingShareIconbar}
       isClosingShareIconBar={isClosingShareIconBar}
       animTime="0.3s"
+      href={personalWebsiteLink}
+      target="_blank"
     >
       <i className={ICON_NAMES.profileIcon} style={IconStyleOverride} />
     </ShareIcon>
@@ -166,6 +193,8 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       showingShareIconbar={showingShareIconbar}
       isClosingShareIconBar={isClosingShareIconBar}
       animTime="0.2s"
+      href={githubWebsiteLink}
+      target="_blank"
     >
       <i className={ICON_NAMES.codeSlash} style={IconStyleOverride} />
     </ShareIcon>
@@ -177,11 +206,14 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       showingShareIconbar={showingShareIconbar}
       isClosingShareIconBar={isClosingShareIconBar}
       animTime="0.2s"
+      href={dribbbleWebsiteLink}
+      target="_blank"
     >
       <i className={ICON_NAMES.dribbble} style={IconStyleOverride} />
     </ShareIcon>
   </ShareIconListContainer>
 )
+
 // Props Validation default props
 ShareIconList.defaultProps = {
   showingShareIconbar: false,
@@ -192,6 +224,7 @@ ShareIconList.propTypes = {
   showingShareIconbar: PropTypes.bool,
   isClosingShareIconBar: PropTypes.bool,
 }
+
 class ConnectSocial extends React.PureComponent {
   constructor(props) {
     super(props)
