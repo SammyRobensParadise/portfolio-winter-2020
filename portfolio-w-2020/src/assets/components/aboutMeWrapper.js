@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import AboutMeDetails from './aboutMeDetails'
 import { ABOUT_ME_WRAPPER } from '../../App'
-import { isInViewport } from '../../utils/url-handlers'
+
 const AboutMeWrapperComp = styled.div`
   z-index: 89;
   position: relative;
@@ -17,6 +17,7 @@ class AboutMeWrapper extends React.PureComponent {
       ...props,
     }
   }
+
   render() {
     return (
       <div>

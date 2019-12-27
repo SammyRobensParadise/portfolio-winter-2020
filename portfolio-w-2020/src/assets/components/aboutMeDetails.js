@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { white } from '../colors/common-colors'
-import VisibilitySensor from 'react-visibility-sensor'
 
 const AboutMeText = styled.div`
   margin: 0 auto;

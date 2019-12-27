@@ -6,6 +6,7 @@ import styled, { keyframes, css } from 'styled-components'
 import { white, navGreen } from '../colors/common-colors'
 import { AUTHOR_DETAILS } from '../common/constants'
 import { generateUtm } from '../../utils/analytics'
+
 // time in miliseconds
 const OPEN_CLOSE_ANIM_TIME = 500
 
