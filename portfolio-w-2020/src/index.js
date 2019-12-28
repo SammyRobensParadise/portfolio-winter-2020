@@ -22,6 +22,8 @@ if (process.env.NODE_ENV !== 'production') {
     )
   })
 } else {
+  // eslint-disable-next-line no-console
+  console.error = () => {}
   ReactDOM.render(
     <Provider store={store}>
       <App />

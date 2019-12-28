@@ -89,7 +89,7 @@ class NavigationBar extends React.PureComponent {
   render() {
     const { dispatch } = this.props
     return (
-      <Nav>
+      <Nav role="navigation">
         <NavEl onClick={() => dispatch(scrollToSection(ABOUT_ME_WRAPPER))}>{ME}</NavEl>
         <NavEl onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>{CODE}</NavEl>
         <NavEl onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>{DESIGN}</NavEl>
@@ -98,16 +98,14 @@ class NavigationBar extends React.PureComponent {
           {CONTRIBUTIONS}
         </NavEl>
         <NavEl
-          onClick={() =>
-            window.open(
-              `${PORTFOLIO_2019_LINK}/?${generateUtm(
-                'portfolio_winter_2020',
-                'website',
-                'winter_2020',
-                'link',
-              )}`,
-            )
-          }
+          onClick={() => window.open(
+            `${PORTFOLIO_2019_LINK}/?${generateUtm(
+              'portfolio_winter_2020',
+              'website',
+              'winter_2020',
+              'link',
+            )}`,
+          )}
         >
           {PORTFOLIO_2019}
         </NavEl>
