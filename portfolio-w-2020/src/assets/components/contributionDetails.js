@@ -156,7 +156,8 @@ const ContributionDetailsButton = styled.button`
   transition: letter-spacing 0.5s;
   animation: ${(p) => (p.show ? detailsAnim : 'none')};
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     cursor: none;
     background: white;
     color: #203f8f;
@@ -260,7 +261,14 @@ class ContributionDetails extends React.PureComponent {
           {detailsText}
         </ContributionDetailsText>
         <ContributionDetailsButton
+          tabIndex="0"
+          aria-label="contributon-details-link"
           show={currentContributionAnimationState}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              window.open(this.getExternalJobAction(curentContributionText))
+            }
+          }}
           onClick={() => window.open(this.getExternalJobAction(curentContributionText))}
         >
           More —
