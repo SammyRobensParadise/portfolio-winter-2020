@@ -42,7 +42,9 @@ const NavEl = styled.div`
   transition: letter-spacing 0.5s;
   z-index: 100000;
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     cursor: none;
     border-width: 2px 0px 2px 0px;
     margin-block-start: 18px;
@@ -86,18 +88,79 @@ class NavigationBar extends React.PureComponent {
     }
   }
 
+  handleKeyboardEvent = (event, reference) => {
+    const { dispatch } = this.props
+    const { key } = event
+    if (key === 'Enter') {
+      dispatch(scrollToSection(reference))
+      return true
+    }
+    return false
+  }
+
   render() {
     const { dispatch } = this.props
     return (
       <Nav role="navigation">
-        <NavEl onClick={() => dispatch(scrollToSection(ABOUT_ME_WRAPPER))}>{ME}</NavEl>
-        <NavEl onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>{CODE}</NavEl>
-        <NavEl onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}>{DESIGN}</NavEl>
-        <NavEl onClick={() => dispatch(scrollToSection(PROJECTS_SECTION))}>{PROJECTS}</NavEl>
-        <NavEl onClick={() => dispatch(scrollToSection(CONTRIBUTION_SECTION))}>
+        <NavEl
+          tabIndex="0"
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, ABOUT_ME_WRAPPER)
+          }}
+          onClick={() => dispatch(scrollToSection(ABOUT_ME_WRAPPER))}
+        >
+          {ME}
+        </NavEl>
+        <NavEl
+          tabIndex="0"
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, DESIGN_AND_CODE_SECTION)
+          }}
+          onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}
+        >
+          {CODE}
+        </NavEl>
+        <NavEl
+          tabIndex="0"
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, DESIGN_AND_CODE_SECTION)
+          }}
+          onClick={() => dispatch(scrollToSection(DESIGN_AND_CODE_SECTION))}
+        >
+          {DESIGN}
+        </NavEl>
+        <NavEl
+          tabIndex="0"
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, PROJECTS_SECTION)
+          }}
+          onClick={() => dispatch(scrollToSection(PROJECTS_SECTION))}
+        >
+          {PROJECTS}
+        </NavEl>
+        <NavEl
+          tabIndex="0"
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, CONTRIBUTION_SECTION)
+          }}
+          onClick={() => dispatch(scrollToSection(CONTRIBUTION_SECTION))}
+        >
           {CONTRIBUTIONS}
         </NavEl>
         <NavEl
+          tabIndex="0"
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              window.open(
+                `${PORTFOLIO_2019_LINK}/?${generateUtm(
+                  'portfolio_winter_2020',
+                  'website',
+                  'winter_2020',
+                  'link',
+                )}`,
+              )
+            }
+          }}
           onClick={() => window.open(
             `${PORTFOLIO_2019_LINK}/?${generateUtm(
               'portfolio_winter_2020',

@@ -22,6 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
     )
   })
 } else {
+  // disable console errors in production
   // eslint-disable-next-line no-console
   console.error = () => {}
   ReactDOM.render(
@@ -31,5 +32,5 @@ if (process.env.NODE_ENV !== 'production') {
     document.getElementById('root'),
   )
 }
-
+// register sw for offline
 serviceWorker.register()
