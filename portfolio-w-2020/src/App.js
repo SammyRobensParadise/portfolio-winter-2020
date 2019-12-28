@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 import * as paper from 'paper'
 import WrapperContainer from './assets/common/wrapper'
 import './index.css'
-import { isInViewport, getExpectedURL, setExpectedURL, getLoadedURL } from './utils/url-handlers'
+// eslint-disable-next-line import/no-cycle
+import {
+  isInViewport, getExpectedURL, setExpectedURL, getLoadedURL,
+} from './utils/url-handlers'
 
 const LoadingMesh = () => (
   <div>
@@ -71,6 +74,7 @@ class App extends React.PureComponent {
       this.scrollToSectionFromURL()
     }, 500)
   }
+
   /**
    *  handles the global URL formatting
    */
@@ -84,6 +88,7 @@ class App extends React.PureComponent {
       const expectedURL = getExpectedURL(node)
       setExpectedURL(expectedURL)
     }
+    return null
   }
 
   initCursor = () => {
@@ -143,6 +148,7 @@ class App extends React.PureComponent {
       target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
     }
   }
+
   /**
    * @param {} none
    */
@@ -165,38 +171,38 @@ class App extends React.PureComponent {
 
     return (
       <div className="web-App" id="web-wrapper">
-        <Suspense fallback={<LoadingMesh />}>
+        <Suspense fallback={<LoadingMesh role="img" />}>
           <DiamondOne />
         </Suspense>
-        <WrapperContainer>
-          <Suspense fallback={<LoadingMesh />}>
+        <WrapperContainer role="main">
+          <Suspense fallback={<LoadingMesh role="img" />}>
             <DiamondOne />
           </Suspense>
           <div id="cur" className="cursor cursor--small" />
           <canvas className="cursor cursor--canvas" resize="true" />
-          <Suspense fallback={<LoadingMesh />}>
-            <NavigationBar />
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <NavigationBar role="region" />
           </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <LandingWrapper />
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <LandingWrapper role="region" />
           </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <GoButton />
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <GoButton role="region" />
           </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <ContributionsSection />
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <ContributionsSection role="region" />
           </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <ProjectSection />
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <ProjectSection role="region" />
           </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <DesignAndCodeSection />
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <DesignAndCodeSection role="region" />
           </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <AboutMeWrapper />
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <AboutMeWrapper role="region" />
           </Suspense>
-          <Suspense fallback={<LoadingMesh />}>
-            <SocialConnect />
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <SocialConnect role="region" />
           </Suspense>
         </WrapperContainer>
       </div>

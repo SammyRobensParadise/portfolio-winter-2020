@@ -293,7 +293,7 @@ class ConnectSocial extends React.PureComponent {
     const CONTAINER_ID = 'social-connect-container'
     return (
       <div>
-        <SocialConnectContainer id={CONTAINER_ID} onClick={this.ShowShareIconBar}>
+        <SocialConnectContainer id={CONTAINER_ID} onClick={this.ShowShareIconBar} aria-label="Share-Container" title="Share" role="listbox">
           <ShareIconList
             showingShareIconbar={showingShareIconbar}
             isClosingShareIconBar={isClosingShareIconBar}
