@@ -176,7 +176,7 @@ class AboutMeDetails extends React.PureComponent {
   render() {
     return (
       <div>
-        <AboutMeText>
+        <AboutMeText tabIndex="0">
           <AboutMeName>{SAMMY_ROBENS_PARADISE}</AboutMeName>
           <AboutMeTitle>
             <b>{WHAT_I_DO}</b>

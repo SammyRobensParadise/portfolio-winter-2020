@@ -3,13 +3,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes, css } from 'styled-components'
-import { white, navGreen } from '../colors/common-colors'
+import { white, navGreen, deepBlue } from '../colors/common-colors'
 import { AUTHOR_DETAILS } from '../common/constants'
 import { generateUtm } from '../../utils/analytics'
 
 // time in miliseconds
 const OPEN_CLOSE_ANIM_TIME = 500
-
+// container ID
+const CONTAINER_ID = 'social-connect-container'
 const moveOpen = keyframes`
 0%{
 height: 60px;
@@ -56,6 +57,9 @@ const SocialConnectContainer = styled.div`
   bottom: 30px;
   right: 60px;
   z-index: 2000;
+  &:focus {
+    outline: none;
+  }
 `
 
 const SocialConnectCircle = styled.button`
@@ -69,6 +73,8 @@ const SocialConnectCircle = styled.button`
   box-shadow: 2px 10px 70px -8px rgba(0, 0, 0, 0.88);
   &:focus {
     outline: none;
+    border-color: ${deepBlue};
+    background-color: ${deepBlue};
   }
 `
 const SocialConnectShare = styled.div`
@@ -92,9 +98,11 @@ const ShareIcon = styled.a`
       ? // eslint-disable-next-line no-shadow
       animConnect(fadeOut, (p) => p.animTime, `0s`)
       : 'none'};
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.6);
     padding-left: ${(p) => (p.centerAdjust ? p.animAdjust : '16px')};
+    outline: none;
   }
 `
 const ShareIconListContainer = styled.div`
@@ -163,6 +171,7 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
     isClosingShareIconBar={isClosingShareIconBar}
   >
     <ShareIcon
+      tabIndex="0"
       param="https://css.gg/mail.css"
       height="100px"
       showingShareIconbar={showingShareIconbar}
@@ -174,6 +183,7 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       <i className={ICON_NAMES.mailIcon} style={IconStyleOverride} />
     </ShareIcon>
     <ShareIcon
+      tabIndex="0"
       param="https://css.gg/profile.css"
       height="180px"
       centerAdjust="16px"
@@ -187,6 +197,7 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       <i className={ICON_NAMES.profileIcon} style={IconStyleOverride} />
     </ShareIcon>
     <ShareIcon
+      tabIndex="0"
       param="https://css.gg/code-slash.css"
       height="260px"
       centerAdjust="24px"
@@ -200,6 +211,7 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       <i className={ICON_NAMES.codeSlash} style={IconStyleOverride} />
     </ShareIcon>
     <ShareIcon
+      tabIndex="0"
       param="https://css.gg/dribbble.css"
       height="330px"
       centerAdjust="16px"
@@ -237,6 +249,14 @@ class ConnectSocial extends React.PureComponent {
     document.addEventListener('click', (e) => {
       this.closeShareIconBar(e)
     })
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        const Socialelement = document.getElementById(CONTAINER_ID)
+        Socialelement.focus()
+      } else {
+        this.closeShareIconBar(e)
+      }
+    })
   }
 
   /**
@@ -258,7 +278,7 @@ class ConnectSocial extends React.PureComponent {
     const { showingShareIconbar } = this.state
     const exception = document.getElementById('social-connect-container')
     const isException = this.isDecendant(exception, e.target) || e.target === exception
-    if (showingShareIconbar && !isException) {
+    if (showingShareIconbar && (!isException || e.key === 'Escape')) {
       this.setState({
         showingShareIconbar: false,
         isClosingShareIconBar: true,
@@ -290,10 +310,21 @@ class ConnectSocial extends React.PureComponent {
 
   render() {
     const { showingShareIconbar, isClosingShareIconBar } = this.state
-    const CONTAINER_ID = 'social-connect-container'
     return (
       <div>
-        <SocialConnectContainer id={CONTAINER_ID} onClick={this.ShowShareIconBar} aria-label="Share-Container" title="Share" role="listbox">
+        <SocialConnectContainer
+          tabIndex="-1"
+          id={CONTAINER_ID}
+          onClick={this.ShowShareIconBar}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              this.ShowShareIconBar()
+            }
+          }}
+          aria-label="Share-Container"
+          title="Share"
+          role="listbox"
+        >
           <ShareIconList
             showingShareIconbar={showingShareIconbar}
             isClosingShareIconBar={isClosingShareIconBar}
