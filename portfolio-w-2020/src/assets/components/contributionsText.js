@@ -94,6 +94,10 @@ const ContribListEl = styled.h2`
   &:hover {
     cursor: none;
   }
+  &:focus {
+    text-decoration: underline;
+    outline: none;
+  }
   @media screen and (max-width: 1300px) {
     font-size: 80px;
   }
@@ -194,40 +198,73 @@ class ContributionsText extends React.PureComponent {
     }
   }
 
+  handleKeyboardEvent = (event, listElement) => {
+    const { key } = event
+    if (key === 'Enter') {
+      this.reOrderList(listElement)
+      return true
+    }
+    return false
+  }
+
   render() {
     const { contributonList, hideEl } = this.state
 
     return (
       <ContributionsList hide={hideEl}>
         <ContribListEl
+          role="button"
+          aria-label={contributonList[0]}
+          tabIndex="0"
           hide={hideEl}
           num={0.1}
           className="el-1"
           active
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, contributonList[0])
+          }}
           onClick={() => this.reOrderList(contributonList[0])}
         >
           {contributonList[0]}
         </ContribListEl>
         <ContribListEl
+          role="button"
+          aria-label={contributonList[1]}
+          tabIndex="0"
           hide={hideEl}
           num={0.2}
           className="el-2"
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, contributonList[1])
+          }}
           onClick={() => this.reOrderList(contributonList[1])}
         >
           {contributonList[1]}
         </ContribListEl>
         <ContribListEl
+          role="button"
+          aria-label={contributonList[2]}
+          tabIndex="0"
           hide={hideEl}
           num={0.3}
           className="el-3"
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, contributonList[2])
+          }}
           onClick={() => this.reOrderList(contributonList[2])}
         >
           {contributonList[2]}
         </ContribListEl>
         <ContribListEl
+          role="button"
+          aria-label={contributonList[3]}
+          tabIndex="0"
           hide={hideEl}
           num={0.4}
           className="el-4"
+          onKeyPress={(e) => {
+            this.handleKeyboardEvent(e, contributonList[3])
+          }}
           onClick={() => this.reOrderList(contributonList[3])}
         >
           {contributonList[3]}
