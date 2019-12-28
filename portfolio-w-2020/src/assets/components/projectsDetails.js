@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { generateUtm } from '../../utils/analytics'
 import { white } from '../colors/common-colors'
+
 const ProjectDetailsContainer = styled.div`
   & {
     font-family: impact-urw, sans-serif;
@@ -200,10 +201,12 @@ const ProjectDetailsEl = styled.h2`
     line-height: 100px;
     transition: letter-spacing 0.5s;
     align-items: center;
-    &:hover {
+    &:hover,
+    &:focus {
       color: ${white};
       cursor: none;
       letter-spacing: 6px;
+      outline: none;
     }
     ${(p) => (p.local === 'tl' ? TL : p.local === 'tr' ? TR : p.local === 'bl' ? BL : BR)}
     @media screen and (max-width: 1100px) {
@@ -264,16 +267,56 @@ class ProjectDetails extends React.PureComponent {
   render() {
     return (
       <ProjectDetailsContainer>
-        <ProjectDetailsEl onClick={() => window.open(GLOBAL_WINERY_EXTERNAL_LINK)} local="tl">
+        <ProjectDetailsEl
+          tabIndex="0"
+          role="link"
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              window.open(GLOBAL_WINERY_EXTERNAL_LINK)
+            }
+          }}
+          onClick={() => window.open(GLOBAL_WINERY_EXTERNAL_LINK)}
+          local="tl"
+        >
           {GLOBAL_WINERY}
         </ProjectDetailsEl>
-        <ProjectDetailsEl onClick={() => window.open(GRAPE_EXTERNAL_LINK)} local="tr">
+        <ProjectDetailsEl
+          tabIndex="0"
+          role="link"
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              window.open(GRAPE_EXTERNAL_LINK)
+            }
+          }}
+          onClick={() => window.open(GRAPE_EXTERNAL_LINK)}
+          local="tr"
+        >
           {GRAPE}
         </ProjectDetailsEl>
-        <ProjectDetailsEl onClick={() => window.open(BC_FERRIES_EXTERNAL_LINK)} local="bl">
+        <ProjectDetailsEl
+          tabIndex="0"
+          role="link"
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              window.open(BC_FERRIES_EXTERNAL_LINK)
+            }
+          }}
+          onClick={() => window.open(BC_FERRIES_EXTERNAL_LINK)}
+          local="bl"
+        >
           {BC_FERRIES}
         </ProjectDetailsEl>
-        <ProjectDetailsEl onClick={() => window.open(EB_WEB_EXTERNAL_LINK)} local="br">
+        <ProjectDetailsEl
+          tabIndex="0"
+          role="link"
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              window.open(EB_WEB_EXTERNAL_LINK)
+            }
+          }}
+          onClick={() => window.open(EB_WEB_EXTERNAL_LINK)}
+          local="br"
+        >
           {EB_WEB}
         </ProjectDetailsEl>
       </ProjectDetailsContainer>

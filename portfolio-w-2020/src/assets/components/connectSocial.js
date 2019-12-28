@@ -9,7 +9,8 @@ import { generateUtm } from '../../utils/analytics'
 
 // time in miliseconds
 const OPEN_CLOSE_ANIM_TIME = 500
-
+// container ID
+const CONTAINER_ID = 'social-connect-container'
 const moveOpen = keyframes`
 0%{
 height: 60px;
@@ -249,7 +250,12 @@ class ConnectSocial extends React.PureComponent {
       this.closeShareIconBar(e)
     })
     document.addEventListener('keydown', (e) => {
-      this.closeShareIconBar(e)
+      if (e.key === 'ArrowRight') {
+        const Socialelement = document.getElementById(CONTAINER_ID)
+        Socialelement.focus()
+      } else {
+        this.closeShareIconBar(e)
+      }
     })
   }
 
@@ -304,11 +310,10 @@ class ConnectSocial extends React.PureComponent {
 
   render() {
     const { showingShareIconbar, isClosingShareIconBar } = this.state
-    const CONTAINER_ID = 'social-connect-container'
     return (
       <div>
         <SocialConnectContainer
-          tabIndex="0"
+          tabIndex="-1"
           id={CONTAINER_ID}
           onClick={this.ShowShareIconBar}
           onKeyPress={(e) => {

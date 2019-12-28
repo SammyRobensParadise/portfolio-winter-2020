@@ -48,10 +48,12 @@ const DesignAndCodeDetailsText = styled.div`
 const DesignAndCodeDetailsEl = styled.div`
   margin-top: ${(p) => (p.order === 'first' ? '25' : p.order === 'second' ? '315' : '0')}px;
   transition: letter-spacing 0.5s;
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${white};
     cursor: none;
     letter-spacing: 4px;
+    outline: none;
   }
   @media screen and (max-width: 1380px) {
     margin-top: ${(p) => (p.order === 'first' ? '25' : p.order === 'second' ? '270' : '0')}px;
@@ -200,6 +202,7 @@ class DesignCodeAndDetails extends React.PureComponent {
     return (
       <DesignAndCodeDetailsText>
         <DesignAndCodeDetailsEl
+          tabIndex="0"
           onMouseOver={() => dispatch(toggleDribbbleAnimation(true))}
           onFocus={() => dispatch(toggleDribbbleAnimation(true))}
           onMouseLeave={() => dispatch(toggleDribbbleAnimation(false))}
@@ -211,6 +214,7 @@ class DesignCodeAndDetails extends React.PureComponent {
         <UnderlineStyle order="first" />
         <TriggerText>{triggerText}</TriggerText>
         <DesignAndCodeDetailsEl
+          tabIndex="0"
           onMouseOver={() => dispatch(toggleCodeAnimation(true))}
           onFocus={() => dispatch(toggleCodeAnimation(true))}
           onMouseLeave={() => dispatch(toggleCodeAnimation(false))}
