@@ -12,6 +12,7 @@ window.env = process.env.NODE_ENV
 const store = createStore(AppReduce)
 
 if (process.env.NODE_ENV !== 'production') {
+  // if dev or staging
   import('react-axe').then((axe) => {
     axe.default(React, ReactDOM, 1000)
     ReactDOM.render(
@@ -25,6 +26,8 @@ if (process.env.NODE_ENV !== 'production') {
   // disable console errors in production
   // eslint-disable-next-line no-console
   console.error = () => {}
+  // eslint-disable-next-line no-console
+  console.warn = () => {}
   ReactDOM.render(
     <Provider store={store}>
       <App />
