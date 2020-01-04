@@ -9,6 +9,7 @@ import './index.css'
 import { isInViewport, getExpectedURL, setExpectedURL, getLoadedURL } from './utils/url-handlers'
 import { CookieHandler } from './utils/analytics'
 import { COOKIES } from './assets/common/constants'
+
 const LoadingMesh = () => (
   <div>
     <div className="mesh-loader">
@@ -38,6 +39,8 @@ const DesignAndCodeSection = lazy(() => import('./assets/components/designAndCod
 const AboutMeWrapper = lazy(() => import('./assets/components/aboutMeWrapper'))
 // eslint-disable-next-line import/no-cycle
 const SocialConnect = lazy(() => import('./assets/components/connectSocial'))
+
+const PromoteBanner = lazy(() => import('./assets/components/promoteBanner'))
 /**
  * @summary
  * the following are constatns used as identifiers
@@ -57,6 +60,14 @@ let lastX = 0
 let lastY = 0
 let group
 
+const GetCookiePromoteBanner = ({ shoudShowCookieBanner }) => {
+  return shoudShowCookieBanner ? (
+    <Suspense fallback={<LoadingMesh role="img" />}>
+      <PromoteBanner role="region" shoudShowCookieBanner={shoudShowCookieBanner} />
+    </Suspense>
+  ) : null
+}
+
 class App extends React.PureComponent {
   static propTypes = {
     cookies: PropTypes.instanceOf(Cookies).isRequired,
@@ -65,7 +76,8 @@ class App extends React.PureComponent {
     super(props)
     this.state = {
       hasLoaded: false,
-      shoudShowCookieBadder: false,
+      hasRenderedCursor: false,
+      shoudShowCookieBanner: false,
       ...props,
     }
   }
@@ -85,9 +97,9 @@ class App extends React.PureComponent {
 
   HandleCookiesOnComponentMount = () => {
     const { cookies } = this.props
-    const hasSetPrevVisitCookie =
+    const hasNotSetPrevVisitCookie =
       CookieHandler.getCookie(cookies, COOKIES.hasPrevVisit.name, null, false) === null
-    if (hasSetPrevVisitCookie) {
+    if (hasNotSetPrevVisitCookie) {
       let dateViewed = new Date()
       let ExpireDate = new Date()
       ExpireDate.setMonth(ExpireDate.getMonth() + 3)
@@ -100,7 +112,7 @@ class App extends React.PureComponent {
     }
     setTimeout(() => {
       this.setState({
-        shoudShowCookieBadder: true,
+        shoudShowCookieBanner: true,
       })
     }, WAIT_TIME_UNTIL_SHOW_COOKIE_BANNER)
   }
@@ -135,6 +147,9 @@ class App extends React.PureComponent {
       requestAnimationFrame(render)
     }
     requestAnimationFrame(render)
+    this.setState({
+      hasRenderedCursor: true,
+    })
   }
 
   initCanvas = () => {
@@ -188,16 +203,16 @@ class App extends React.PureComponent {
       this.scrollToSection(loadedSection)
     }
   }
-
   render() {
-    const { hasLoaded, shoudShowCookieBadder } = this.state
+    const { hasLoaded, hasRenderedCursor, shoudShowCookieBanner } = this.state
     const { currentElInScrollView } = this.props
-    if (hasLoaded) {
-      this.scrollToSection(currentElInScrollView)
+    if (hasLoaded && !hasRenderedCursor) {
       this.initCursor()
       this.initCanvas()
     }
-
+    if (hasLoaded) {
+      this.scrollToSection(currentElInScrollView)
+    }
     return (
       <div className="web-App" id="web-wrapper">
         <Suspense fallback={<LoadingMesh role="img" />}>
@@ -233,6 +248,7 @@ class App extends React.PureComponent {
           <Suspense fallback={<LoadingMesh role="img" />}>
             <SocialConnect role="region" />
           </Suspense>
+          <GetCookiePromoteBanner shoudShowCookieBanner={shoudShowCookieBanner} />
         </WrapperContainer>
       </div>
     )
