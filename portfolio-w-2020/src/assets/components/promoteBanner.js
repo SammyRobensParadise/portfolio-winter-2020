@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes, css } from 'styled-components'
-import { white, navGreen, deepBlue } from '../colors/common-colors'
+import { white, deepBlue, backgroundGreen } from '../colors/common-colors'
 import { AUTHOR_DETAILS } from '../common/constants'
 
 const moveReveal = keyframes`
@@ -24,7 +24,7 @@ const animRevealHide = (anim, time, delay) => css`
 ${anim} ${time} cubic-bezier(0.645, 0.045, 0.355, 1) ${delay} forwards;
 
 `
-const PromoteSection = styled.button`
+const PromoteSection = styled.div`
 font-family: montserrat, sans-serif;
 font-weight: 200;
 font-style: normal;
@@ -60,6 +60,8 @@ const PromoteSectionClose = styled.button`
   position: relative;
   bottom: 18px;
   border: none;
+  margin: 0 auto;
+  display: block;
   box-shadow: 0px 4px 20px 9px rgba(0, 0, 0, 0.2);
 
   &:focus,
@@ -97,9 +99,9 @@ padding: 5px;
 width: auto;
 height: 30px;
 font-size: 20px;
-border-radius: 6px;
+border-radius: 8px;
 color: ${white}
-background: ${navGreen}
+background: ${backgroundGreen}
 border: none;
 transition: background 0.2s;
 &:focus,&:hover{
@@ -120,17 +122,17 @@ const BannerText = () => {
         {`  🍪's `}
       </span>
       show that you've been here before,{' '}
-      <ReachOutButton tabIndex="0" href={mailToString}>
+      <ReachOutButton role="link" tabIndex="0" href={mailToString} aria-label="link to email">
         React Out
       </ReachOutButton>
     </p>
   )
 }
 class PromoteBanner extends React.PureComponent {
-  propTypes = {
+  static propTypes = {
     shouldShowCookieBanner: PropTypes.bool.isRequired,
   }
-  defaultProps = {
+  static defaultProps = {
     shouldShowCookieBanner: false,
   }
   constructor(props) {
@@ -148,7 +150,11 @@ class PromoteBanner extends React.PureComponent {
     const { hideBanner } = this.state
     return (
       <div>
-        <PromoteSection shouldShowCookieBanner={shouldShowCookieBanner} hideBanner={hideBanner}>
+        <PromoteSection
+          shouldShowCookieBanner={shouldShowCookieBanner}
+          hideBanner={hideBanner}
+          role="section"
+        >
           <PromoteSectionClose
             aria-label="close promote banner"
             tabIndex="0"
@@ -163,12 +169,6 @@ class PromoteBanner extends React.PureComponent {
       </div>
     )
   }
-}
-PromoteBanner.defaultProps = {
-  shouldShowCookieBanner: false,
-}
-PromoteBanner.propTypes = {
-  shouldShowCookieBanner: PropTypes.bool,
 }
 
 export default PromoteBanner
