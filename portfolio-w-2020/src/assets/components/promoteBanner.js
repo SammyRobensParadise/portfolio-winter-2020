@@ -68,7 +68,7 @@ const PromoteSectionClose = styled.button`
     background: ${deepBlue};
   }
 `
-const PromoteSectionText = styled.p`
+const PromoteSectionText = styled.div`
   font-family: montserrat, sans-serif;
   font-weight: 200;
   font-style: normal;
@@ -114,14 +114,16 @@ const mailToString = `mailto:${
 
 const BannerText = () => {
   return (
-    <text>
+    <p>
       Some
       <span role="img" aria-label="cookie">
         {`  🍪's `}
       </span>
       show that you've been here before,{' '}
-      <ReachOutButton href={mailToString}>React Out</ReachOutButton>
-    </text>
+      <ReachOutButton tabIndex="0" href={mailToString}>
+        React Out
+      </ReachOutButton>
+    </p>
   )
 }
 class PromoteBanner extends React.PureComponent {
@@ -147,7 +149,11 @@ class PromoteBanner extends React.PureComponent {
     return (
       <div>
         <PromoteSection shouldShowCookieBanner={shouldShowCookieBanner} hideBanner={hideBanner}>
-          <PromoteSectionClose tabIndex="0" onClick={this.closePromoteSection}>
+          <PromoteSectionClose
+            aria-label="close promote banner"
+            tabIndex="0"
+            onClick={this.closePromoteSection}
+          >
             <i className={ICON_NAMES.closeIcon} style={IconStyleOverride}></i>
           </PromoteSectionClose>
           <PromoteSectionText>
@@ -158,4 +164,11 @@ class PromoteBanner extends React.PureComponent {
     )
   }
 }
+PromoteBanner.defaultProps = {
+  shouldShowCookieBanner: false,
+}
+PromoteBanner.propTypes = {
+  shouldShowCookieBanner: PropTypes.bool,
+}
+
 export default PromoteBanner
