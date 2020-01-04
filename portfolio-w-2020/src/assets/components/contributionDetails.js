@@ -8,8 +8,8 @@ import { HOOTSUITE, FINGER_FOOD, GRAPE, ENV_CANADA } from './contributionsText'
 import { generateUtm } from '../../utils/analytics'
 import { white } from '../colors/common-colors'
 
-const HOOTSUITE_DETAILS_TEXT = `I write and deploy code to 16 million users on a daily basis, driving product growth and an unparalleled tool belt  to social media gurus. `
-const FINGER_FOOD_DETAILS_TEXT = `I developed a system to quantify UX world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects.`
+const HOOTSUITE_DETAILS_TEXT = `I write and deploy code to 18 million users on a daily basis, driving product growth and an unparalleled tool belt to social media gurus. `
+const FINGER_FOOD_DETAILS_TEXT = `I developed a system to quantify UX for world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects.`
 const ENV_CANADA_DETAILS_TEXT = `Worked with the transportation division to develop software engineering solutions assisting regulatory administration.`
 const GRAPE_DETAILS_TEXT = `Working to build a platform that will change the way people learn code through interactive, tutorials by humans, for humans`
 const HOOTSUITE_JOB_TITLE = 'Software Developer'
