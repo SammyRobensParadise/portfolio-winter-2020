@@ -1,6 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import { CookiesProvider } from 'react-cookie'
 import './index.css'
 import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
@@ -17,7 +18,9 @@ if (process.env.NODE_ENV !== 'production') {
     axe.default(React, ReactDOM, 1000)
     ReactDOM.render(
       <Provider store={store}>
-        <App />
+        <CookiesProvider>
+          <App />
+        </CookiesProvider>
       </Provider>,
       document.getElementById('root'),
     )
@@ -30,7 +33,9 @@ if (process.env.NODE_ENV !== 'production') {
   console.warn = () => {}
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <CookiesProvider>
+        <App />
+      </CookiesProvider>
     </Provider>,
     document.getElementById('root'),
   )
