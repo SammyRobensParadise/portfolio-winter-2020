@@ -16,4 +16,9 @@ const WEBSITE_DETAILS = {
   owner: AUTHOR_DETAILS.fullName,
   authorContact: AUTHOR_DETAILS.email,
 }
-export { AUTHOR_DETAILS, WEBSITE_DETAILS }
+const COOKIES = {
+  hasPrevVisit: {
+    name: 'has_prev_visit',
+  }
+}
+export { AUTHOR_DETAILS, WEBSITE_DETAILS,COOKIES }

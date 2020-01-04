@@ -2,13 +2,13 @@ import React, { lazy, Suspense } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import * as paper from 'paper'
+import { withCookies, Cookies } from 'react-cookie'
 import WrapperContainer from './assets/common/wrapper'
 import './index.css'
 // eslint-disable-next-line import/no-cycle
-import {
-  isInViewport, getExpectedURL, setExpectedURL, getLoadedURL,
-} from './utils/url-handlers'
-
+import { isInViewport, getExpectedURL, setExpectedURL, getLoadedURL } from './utils/url-handlers'
+import { CookieHandler } from './utils/analytics'
+import { COOKIES } from './assets/common/constants'
 const LoadingMesh = () => (
   <div>
     <div className="mesh-loader">
@@ -48,6 +48,9 @@ export const PROJECTS_SECTION = 'projects'
 export const DESIGN_AND_CODE_SECTION = 'design-and-code'
 export const ABOUT_ME_WRAPPER = 'about-me'
 
+const WAIT_TIME_UNTIL_ELEMENT_SCROLL = 500 //ms
+const WAIT_TIME_UNTIL_SHOW_COOKIE_BANNER = 1000 // ms
+
 let clientX = -100
 let clientY = -100
 let lastX = 0
@@ -55,10 +58,14 @@ let lastY = 0
 let group
 
 class App extends React.PureComponent {
+  static propTypes = {
+    cookies: PropTypes.instanceOf(Cookies).isRequired,
+  }
   constructor(props) {
     super(props)
     this.state = {
       hasLoaded: false,
+      shoudShowCookieBadder: false,
       ...props,
     }
   }
@@ -72,9 +79,31 @@ class App extends React.PureComponent {
     })
     setTimeout(() => {
       this.scrollToSectionFromURL()
-    }, 500)
+    }, WAIT_TIME_UNTIL_ELEMENT_SCROLL)
+    this.HandleCookiesOnComponentMount()
   }
 
+  HandleCookiesOnComponentMount = () => {
+    const { cookies } = this.props
+    const hasSetPrevVisitCookie =
+      CookieHandler.getCookie(cookies, COOKIES.hasPrevVisit.name, null, false) === null
+    if (hasSetPrevVisitCookie) {
+      let dateViewed = new Date()
+      let ExpireDate = new Date()
+      ExpireDate.setMonth(ExpireDate.getMonth() + 3)
+      CookieHandler.setCookie(cookies, COOKIES.hasPrevVisit.name, dateViewed.getTime().toString(), {
+        path: '/',
+        expires: ExpireDate,
+        sameSite: 'lax',
+      })
+      return false
+    }
+    setTimeout(() => {
+      this.setState({
+        shoudShowCookieBadder: true,
+      })
+    }, WAIT_TIME_UNTIL_SHOW_COOKIE_BANNER)
+  }
   /**
    *  handles the global URL formatting
    */
@@ -161,7 +190,7 @@ class App extends React.PureComponent {
   }
 
   render() {
-    const { hasLoaded } = this.state
+    const { hasLoaded, shoudShowCookieBadder } = this.state
     const { currentElInScrollView } = this.props
     if (hasLoaded) {
       this.scrollToSection(currentElInScrollView)
@@ -218,4 +247,4 @@ App.propTypes = {
 const mapStateToProps = (state) => ({
   ...state.Scroller,
 })
-export default connect(mapStateToProps)(App)
+export default withCookies(connect(mapStateToProps)(App))
