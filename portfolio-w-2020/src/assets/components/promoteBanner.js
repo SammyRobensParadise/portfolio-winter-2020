@@ -17,7 +17,8 @@ const moveHide = keyframes`
     transform: translateY(0px);
 }
 100%{
-    transform: translateY(120px);
+    transform: translateY(130px);
+    display: none;
 }
 `
 const animRevealHide = (anim, time, delay) => css`
