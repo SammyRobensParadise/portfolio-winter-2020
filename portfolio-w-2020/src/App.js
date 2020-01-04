@@ -52,7 +52,7 @@ export const DESIGN_AND_CODE_SECTION = 'design-and-code'
 export const ABOUT_ME_WRAPPER = 'about-me'
 
 const WAIT_TIME_UNTIL_ELEMENT_SCROLL = 500 //ms
-const WAIT_TIME_UNTIL_SHOW_COOKIE_BANNER = 1000 // ms
+const WAIT_TIME_UNTIL_SHOW_COOKIE_BANNER = 2000 // ms
 
 let clientX = -100
 let clientY = -100
