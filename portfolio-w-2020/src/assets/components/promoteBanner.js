@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes, css } from 'styled-components'
-import { white, navGreen, deepBlue, darkBlue } from '../colors/common-colors'
+import { white, navGreen, deepBlue } from '../colors/common-colors'
 import { AUTHOR_DETAILS } from '../common/constants'
-import { generateUtm } from '../../utils/analytics'
 
 const moveReveal = keyframes`
 0%{
@@ -17,7 +16,8 @@ const moveHide = keyframes`
     transform: translateY(0px);
 }
 100%{
-    transform: translateY(120px);
+    transform: translateY(130px);
+    display: none;
 }
 `
 const animRevealHide = (anim, time, delay) => css`
@@ -56,7 +56,7 @@ const PromoteSectionClose = styled.button`
   z-index: 3001;
   height: 30px;
   border-radius: 15px;
-  background: ${navGreen};
+  background: #272727;
   position: relative;
   bottom: 18px;
   border: none;
