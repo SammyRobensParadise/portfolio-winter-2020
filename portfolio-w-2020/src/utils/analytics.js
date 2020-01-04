@@ -46,7 +46,8 @@ const CookieHandler = {
    * @param {Object} path
    */
   setCookie: (cookies, name, value, options) => {
-    if (!isObject(cookies)) {
+    debugger
+    if (!!!(typeof cookies === 'object')) {
       return false
     }
     let ExpireDate = new Date()
@@ -77,7 +78,7 @@ const CookieHandler = {
    * @param {Object} options
    */
   removeCookie: (cookies, name, options) => {
-    if (!isObject(cookies) || !isString(name)) {
+    if (!!!(typeof cookies === 'object') || !isString(name)) {
       return false
     }
     if (name && (options === null || undefined || '' || {} || [])) {
