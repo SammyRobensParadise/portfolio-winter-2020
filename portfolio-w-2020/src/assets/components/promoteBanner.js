@@ -129,7 +129,7 @@ const BannerText = () => {
         href={mailToString}
         aria-label="link to email"
       >
-        React Out
+        Reach Out
       </ReachOutButton>
     </p>
   )
