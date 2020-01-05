@@ -206,7 +206,7 @@ class DesignCodeAndDetails extends React.PureComponent {
           onMouseOver={() => dispatch(toggleDribbbleAnimation(true))}
           onFocus={() => dispatch(toggleDribbbleAnimation(true))}
           onMouseLeave={() => dispatch(toggleDribbbleAnimation(false))}
-          onClick={() => window.open(DRIBBLE_LINK)}
+          onClick={() => window.open(DRIBBLE_LINK, '_blank', 'noopener')}
           order="first"
         >
           {DESIGN_WORK}
@@ -218,7 +218,7 @@ class DesignCodeAndDetails extends React.PureComponent {
           onMouseOver={() => dispatch(toggleCodeAnimation(true))}
           onFocus={() => dispatch(toggleCodeAnimation(true))}
           onMouseLeave={() => dispatch(toggleCodeAnimation(false))}
-          onClick={() => window.open(GH_LINK)}
+          onClick={() => window.open(GH_LINK, '_blank', 'noopener')}
           order="second"
         >
           {DEVELOPMENT_WORK}

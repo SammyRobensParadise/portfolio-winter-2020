@@ -266,10 +266,12 @@ class ContributionDetails extends React.PureComponent {
           show={currentContributionAnimationState}
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
-              window.open(this.getExternalJobAction(curentContributionText))
+              window.open(this.getExternalJobAction(curentContributionText), '_blank', 'noopener')
             }
           }}
-          onClick={() => window.open(this.getExternalJobAction(curentContributionText))}
+          onClick={() =>
+            window.open(this.getExternalJobAction(curentContributionText), '_blank', 'noopener')
+          }
         >
           More —
         </ContributionDetailsButton>
