@@ -91,12 +91,13 @@ const ShareIcon = styled.a`
   position: absolute;
   z-index: 2000 !important;
   transition: all 0.2s ease-in-out;
-  animation: ${(p) => p.showingShareIconbar && !p.isClosingShareIconBar
-    ? // eslint-disable-next-line no-shadow
-    animConnect(fadeIn, (p) => p.animTime, `0s`)
-    : !p.showingShareIconbar && p.isClosingShareIconBar
+  animation: ${(p) =>
+    p.showingShareIconbar && !p.isClosingShareIconBar
       ? // eslint-disable-next-line no-shadow
-      animConnect(fadeOut, (p) => p.animTime, `0s`)
+        animConnect(fadeIn, (p) => p.animTime, `0s`)
+      : !p.showingShareIconbar && p.isClosingShareIconBar
+      ? // eslint-disable-next-line no-shadow
+        animConnect(fadeOut, (p) => p.animTime, `0s`)
       : 'none'};
   &:hover,
   &:focus {
@@ -117,9 +118,10 @@ const ShareIconListContainer = styled.div`
   z-index: 100;
   box-shadow: 2px 10px 50px -8px rgba(0, 0, 0, 0.1);
   display: ${(p) => (p.showingShareIconbar || p.isClosingShareIconBar ? 'flex' : 'none')};
-  animation: ${(p) => p.showingShareIconbar && !p.isClosingShareIconBar
-    ? animConnect(moveOpen, '0.5s', '0s')
-    : !p.showingShareIconbar && p.isClosingShareIconBar
+  animation: ${(p) =>
+    p.showingShareIconbar && !p.isClosingShareIconBar
+      ? animConnect(moveOpen, '0.5s', '0s')
+      : !p.showingShareIconbar && p.isClosingShareIconBar
       ? animConnect(moveClose, '0.5s', '0s')
       : 'none'};
 `
@@ -191,6 +193,7 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       showingShareIconbar={showingShareIconbar}
       isClosingShareIconBar={isClosingShareIconBar}
       animTime="0.3s"
+      rel="noreferrer"
       href={personalWebsiteLink}
       target="_blank"
     >
@@ -205,6 +208,7 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       showingShareIconbar={showingShareIconbar}
       isClosingShareIconBar={isClosingShareIconBar}
       animTime="0.2s"
+      rel="noreferrer"
       href={githubWebsiteLink}
       target="_blank"
     >
@@ -219,6 +223,7 @@ const ShareIconList = ({ showingShareIconbar, isClosingShareIconBar }) => (
       showingShareIconbar={showingShareIconbar}
       isClosingShareIconBar={isClosingShareIconBar}
       animTime="0.2s"
+      rel="noreferrer"
       href={dribbbleWebsiteLink}
       target="_blank"
     >

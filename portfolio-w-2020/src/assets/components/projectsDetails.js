@@ -275,7 +275,7 @@ class ProjectDetails extends React.PureComponent {
               window.open(GLOBAL_WINERY_EXTERNAL_LINK)
             }
           }}
-          onClick={() => window.open(GLOBAL_WINERY_EXTERNAL_LINK)}
+          onClick={() => window.open(GLOBAL_WINERY_EXTERNAL_LINK, '_blank', 'noopener')}
           local="tl"
         >
           {GLOBAL_WINERY}
@@ -285,10 +285,10 @@ class ProjectDetails extends React.PureComponent {
           role="link"
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
-              window.open(GRAPE_EXTERNAL_LINK)
+              window.open(GRAPE_EXTERNAL_LINK, '_blank', 'noopener')
             }
           }}
-          onClick={() => window.open(GRAPE_EXTERNAL_LINK)}
+          onClick={() => window.open(GRAPE_EXTERNAL_LINK, '_blank', 'noopener')}
           local="tr"
         >
           {GRAPE}
@@ -298,10 +298,10 @@ class ProjectDetails extends React.PureComponent {
           role="link"
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
-              window.open(BC_FERRIES_EXTERNAL_LINK)
+              window.open(BC_FERRIES_EXTERNAL_LINK, '_blank', 'noopener')
             }
           }}
-          onClick={() => window.open(BC_FERRIES_EXTERNAL_LINK)}
+          onClick={() => window.open(BC_FERRIES_EXTERNAL_LINK, '_blank', 'noopener')}
           local="bl"
         >
           {BC_FERRIES}
@@ -314,7 +314,7 @@ class ProjectDetails extends React.PureComponent {
               window.open(EB_WEB_EXTERNAL_LINK)
             }
           }}
-          onClick={() => window.open(EB_WEB_EXTERNAL_LINK)}
+          onClick={() => window.open(EB_WEB_EXTERNAL_LINK,'_blank','noopener')}
           local="br"
         >
           {EB_WEB}

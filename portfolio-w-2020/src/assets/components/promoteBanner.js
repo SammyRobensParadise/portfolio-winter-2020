@@ -122,7 +122,13 @@ const BannerText = () => {
         {`  🍪's `}
       </span>
       show that you've been here before,{' '}
-      <ReachOutButton role="link" tabIndex="0" href={mailToString} aria-label="link to email">
+      <ReachOutButton
+        role="link"
+        tabIndex="0"
+        rel="noreferrer"
+        href={mailToString}
+        aria-label="link to email"
+      >
         React Out
       </ReachOutButton>
     </p>

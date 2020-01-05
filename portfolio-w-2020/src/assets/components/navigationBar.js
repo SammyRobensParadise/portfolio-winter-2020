@@ -158,17 +158,23 @@ class NavigationBar extends React.PureComponent {
                   'winter_2020',
                   'link',
                 )}`,
+                '_blank',
+                'noopener',
               )
             }
           }}
-          onClick={() => window.open(
-            `${PORTFOLIO_2019_LINK}/?${generateUtm(
-              'portfolio_winter_2020',
-              'website',
-              'winter_2020',
-              'link',
-            )}`,
-          )}
+          onClick={() =>
+            window.open(
+              `${PORTFOLIO_2019_LINK}/?${generateUtm(
+                'portfolio_winter_2020',
+                'website',
+                'winter_2020',
+                'link',
+              )}`,
+              '_blank',
+              'noopener',
+            )
+          }
         >
           {PORTFOLIO_2019}
         </NavEl>
