@@ -9,6 +9,7 @@ const AUTHOR_DETAILS = {
   phoneNumber: 7788879189,
   phoneNumberString: '778-887-9189',
   location: 'Waterloo, Ontario',
+  websiteLink: 'https://sammyrp.com',
 }
 const WEBSITE_DETAILS = {
   created: new Date('12-26-2019'),
@@ -19,6 +20,9 @@ const WEBSITE_DETAILS = {
 const COOKIES = {
   hasPrevVisit: {
     name: 'has_prev_visit',
-  }
+  },
+  doesNotWantMobileWarn: {
+    name: 'does_not_want_mobile_warn',
+  },
 }
-export { AUTHOR_DETAILS, WEBSITE_DETAILS,COOKIES }
+export { AUTHOR_DETAILS, WEBSITE_DETAILS, COOKIES }

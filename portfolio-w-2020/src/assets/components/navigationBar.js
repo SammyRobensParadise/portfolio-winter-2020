@@ -40,7 +40,7 @@ const NavEl = styled.div`
   border-width: 0px;
   transition: border-width 0.3 linear 1s;
   transition: letter-spacing 0.5s;
-  z-index: 100000;
+  z-index: 9000;
   &:hover,
   &:active,
   &:focus {
