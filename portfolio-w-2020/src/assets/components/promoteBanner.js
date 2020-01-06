@@ -80,6 +80,14 @@ const PromoteSectionText = styled.div`
   text-align: center;
   bottom: 15px;
   position: relative;
+  @media screen and (max-width: 830px){
+    font-size: 16px;
+  }
+  @media screen and (max-width: 710px){
+    width: 60%;
+    margin: 0 auto;
+    line-height: 24px;
+  }
 `
 const IconStyleOverride = {
   color: white,
@@ -108,6 +116,9 @@ transition: background 0.2s;
     outline: none;
     background: ${deepBlue};
     cursor: none;
+}
+@media screen and (max-width: 830px){
+  font-size: 16px;
 }
 `
 const mailToString = `mailto:${

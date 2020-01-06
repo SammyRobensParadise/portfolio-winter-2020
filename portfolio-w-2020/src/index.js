@@ -11,7 +11,6 @@ import AppReduce from './reducers/reducers'
 window.env = process.env.NODE_ENV
 
 const store = createStore(AppReduce)
-
 if (process.env.NODE_ENV !== 'production') {
   // if dev or staging
   import('react-axe').then((axe) => {

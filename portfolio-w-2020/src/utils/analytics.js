@@ -46,7 +46,6 @@ const CookieHandler = {
    * @param {Object} path
    */
   setCookie: (cookies, name, value, options) => {
-    debugger
     if (!!!(typeof cookies === 'object')) {
       return false
     }

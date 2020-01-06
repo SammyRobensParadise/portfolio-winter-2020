@@ -24,6 +24,9 @@ const LoadingMesh = () => (
     </div>
   </div>
 )
+// eslint-disable-next-line import/no-cycle
+const MobileWarning = lazy(() => import('./assets/components/mobileWarning'))
+
 const DiamondOne = lazy(() => import('./assets/common/diamondOne'))
 const LandingWrapper = lazy(() => import('./assets/components/landingWrapper'))
 // eslint-disable-next-line import/no-cycle
@@ -53,6 +56,8 @@ export const ABOUT_ME_WRAPPER = 'about-me'
 
 const WAIT_TIME_UNTIL_ELEMENT_SCROLL = 500 //ms
 const WAIT_TIME_UNTIL_SHOW_COOKIE_BANNER = 2000 // ms
+
+const shouldShowMobileScreenWarning = window.innerWidth <= 500
 
 let clientX = -100
 let clientY = -100
@@ -215,6 +220,11 @@ class App extends React.PureComponent {
     }
     return (
       <div className="web-App" id="web-wrapper">
+        {shouldShowMobileScreenWarning ? (
+          <Suspense fallback={<LoadingMesh role="img" />}>
+            <MobileWarning />
+          </Suspense>
+        ) : null}
         <Suspense fallback={<LoadingMesh role="img" />}>
           <DiamondOne />
         </Suspense>
