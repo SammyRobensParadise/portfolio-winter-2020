@@ -51,6 +51,7 @@ const Projects = (
   },
   action,
 ) => {
+  debugger
   switch (action.type) {
     case INDEX_PROJECT_FORWARD:
       if (action.data.currentIndex === action.data.listLength - 1) {

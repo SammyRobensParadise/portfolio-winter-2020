@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import styled, { css, keyframes } from 'styled-components'
 import { generateUtm } from '../../utils/analytics'
 import { white, backgroundGreen } from '../colors/common-colors'
+import { indexProjectBackward } from '../../actions/action'
 
 const Background = styled.div`
   left: 15%;
@@ -102,20 +103,21 @@ const buttonOverride = css`
   border: none;
   background: none;
   color: #fff;
-  &:focus{
+  &:focus {
     outline: none;
   }
 `
 const RightButton = styled.button`
   @import url('https://css.gg/arrow-right.css');
   position: absolute;
-  right: 40px;
+  right: 50px;
   top: 250px;
   transform: scale(4);
   cursor: pointer;
   ${buttonOverride};
-  transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  &:hover{
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:hover,
+  &:focus {
     transform: scale(5);
   }
 `
@@ -123,12 +125,12 @@ const LeftButton = styled.button`
   @import url('https://css.gg/arrow-left.css');
   position: absolute;
   top 250px;
-  left: 40px;
+  left: 50px;
   transform: scale(4);
   cursor: pointer;
   ${buttonOverride}
   transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  &:hover{
+  &:hover,&:focus {
     transform: scale(5);
   }
 
@@ -162,7 +164,7 @@ Container.defaultProps = {
   order: 1,
 }
 
-const projectsList = [<Container />]
+const projectsList = [<Container title="sample1" />, <Container title="sample2" />]
 const initialProject = 0
 class ProjectContainers extends React.PureComponent {
   constructor(props) {
@@ -172,7 +174,16 @@ class ProjectContainers extends React.PureComponent {
     }
   }
 
-  LeftIndexButtonAction = () => {}
+  LeftIndexButtonAction = () => {
+    const { dispatch } = this.props
+    const { projectToDisplay } = this.state
+    dispatch(
+      indexProjectBackward({
+        listLength: projectsList.length,
+        currentIndex: projectToDisplay,
+      }),
+    )
+  }
 
   RightIndexButtonAction = () => {}
 
@@ -183,10 +194,10 @@ class ProjectContainers extends React.PureComponent {
         <Background>
           <DetailsContainer>
             {projectsList[projectToDisplay]}
-            <LeftButton>
+            <LeftButton role="button" tabIndex="0" onClick={this.LeftIndexButtonAction}>
               <i className="gg-arrow-left" />
             </LeftButton>
-            <RightButton>
+            <RightButton role="button" tabIndex="0" onClick={this.RightIndexButtonAction}>
               <i className="gg-arrow-right" />
             </RightButton>
           </DetailsContainer>
@@ -194,6 +205,9 @@ class ProjectContainers extends React.PureComponent {
       </div>
     )
   }
+}
+ProjectContainers.propTypes = {
+  dispatch: PropTypes.func.isRequired,
 }
 const mapStateToProps = (state) => ({
   ...state,
