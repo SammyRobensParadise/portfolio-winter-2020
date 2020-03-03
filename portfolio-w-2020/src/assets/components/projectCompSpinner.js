@@ -98,6 +98,41 @@ const DetailsContainer = styled.div`
     text-align: center;
     width: 100%;
     `
+const buttonOverride = css`
+  border: none;
+  background: none;
+  color: #fff;
+  &:focus{
+    outline: none;
+  }
+`
+const RightButton = styled.button`
+  @import url('https://css.gg/arrow-right.css');
+  position: absolute;
+  right: 40px;
+  top: 250px;
+  transform: scale(4);
+  cursor: pointer;
+  ${buttonOverride};
+  transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:hover{
+    transform: scale(5);
+  }
+`
+const LeftButton = styled.button`
+  @import url('https://css.gg/arrow-left.css');
+  position: absolute;
+  top 250px;
+  left: 40px;
+  transform: scale(4);
+  cursor: pointer;
+  ${buttonOverride}
+  transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:hover{
+    transform: scale(5);
+  }
+
+`
 const Container = ({
   id, title, subtext, image, /* routerPath, isExternal, */ order,
 }) => (
@@ -126,11 +161,8 @@ Container.defaultProps = {
   // isExternal: false,
   order: 1,
 }
-const LeftIndexButton = () => {}
-const RightIndexButton = () => {}
 
 const projectsList = [<Container />]
-const projectListSize = projectsList.length
 const initialProject = 0
 class ProjectContainers extends React.PureComponent {
   constructor(props) {
@@ -140,12 +172,24 @@ class ProjectContainers extends React.PureComponent {
     }
   }
 
+  LeftIndexButtonAction = () => {}
+
+  RightIndexButtonAction = () => {}
+
   render() {
     const { projectToDisplay } = this.state
     return (
       <div className="project-comp-wrapper">
         <Background>
-          <DetailsContainer>{projectsList[projectToDisplay]}</DetailsContainer>
+          <DetailsContainer>
+            {projectsList[projectToDisplay]}
+            <LeftButton>
+              <i className="gg-arrow-left" />
+            </LeftButton>
+            <RightButton>
+              <i className="gg-arrow-right" />
+            </RightButton>
+          </DetailsContainer>
         </Background>
       </div>
     )
