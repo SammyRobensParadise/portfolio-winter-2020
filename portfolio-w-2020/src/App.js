@@ -6,7 +6,9 @@ import { withCookies, Cookies } from 'react-cookie'
 import WrapperContainer from './assets/common/wrapper'
 import './index.css'
 // eslint-disable-next-line import/no-cycle
-import { isInViewport, getExpectedURL, setExpectedURL, getLoadedURL } from './utils/url-handlers'
+import {
+  isInViewport, getExpectedURL, setExpectedURL, getLoadedURL,
+} from './utils/url-handlers'
 import { CookieHandler } from './utils/analytics'
 import { COOKIES } from './assets/common/constants'
 
@@ -54,7 +56,7 @@ export const PROJECTS_SECTION = 'projects'
 export const DESIGN_AND_CODE_SECTION = 'design-and-code'
 export const ABOUT_ME_WRAPPER = 'about-me'
 
-const WAIT_TIME_UNTIL_ELEMENT_SCROLL = 500 //ms
+const WAIT_TIME_UNTIL_ELEMENT_SCROLL = 500 // ms
 const WAIT_TIME_UNTIL_SHOW_COOKIE_BANNER = 2000 // ms
 
 const shouldShowMobileScreenWarning = window.innerWidth <= 500
@@ -65,18 +67,21 @@ let lastX = 0
 let lastY = 0
 let group
 
-const GetCookiePromoteBanner = ({ shoudShowCookieBanner }) => {
-  return shoudShowCookieBanner ? (
-    <Suspense fallback={<LoadingMesh role="img" />}>
-      <PromoteBanner role="region" shoudShowCookieBanner={shoudShowCookieBanner} />
-    </Suspense>
-  ) : null
-}
+const GetCookiePromoteBanner = ({ shoudShowCookieBanner }) => (shoudShowCookieBanner ? (
+  <Suspense fallback={<LoadingMesh role="img" />}>
+    <PromoteBanner role="region" shoudShowCookieBanner={shoudShowCookieBanner} />
+  </Suspense>
+) : null)
 
+GetCookiePromoteBanner.propTypes = {
+  shoudShowCookieBanner: PropTypes.bool.isRequired,
+}
 class App extends React.PureComponent {
+  // eslint-disable-next-line react/static-property-placement
   static propTypes = {
     cookies: PropTypes.instanceOf(Cookies).isRequired,
   }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -102,11 +107,11 @@ class App extends React.PureComponent {
 
   HandleCookiesOnComponentMount = () => {
     const { cookies } = this.props
-    const hasNotSetPrevVisitCookie =
-      CookieHandler.getCookie(cookies, COOKIES.hasPrevVisit.name, null, false) === null
+    // eslint-disable-next-line max-len
+    const hasNotSetPrevVisitCookie = CookieHandler.getCookie(cookies, COOKIES.hasPrevVisit.name, null, false) === null
     if (hasNotSetPrevVisitCookie) {
-      let dateViewed = new Date()
-      let ExpireDate = new Date()
+      const dateViewed = new Date()
+      const ExpireDate = new Date()
       ExpireDate.setMonth(ExpireDate.getMonth() + 3)
       CookieHandler.setCookie(cookies, COOKIES.hasPrevVisit.name, dateViewed.getTime().toString(), {
         path: '/',
@@ -120,7 +125,9 @@ class App extends React.PureComponent {
         shoudShowCookieBanner: true,
       })
     }, WAIT_TIME_UNTIL_SHOW_COOKIE_BANNER)
+    return true
   }
+
   /**
    *  handles the global URL formatting
    */
@@ -208,6 +215,7 @@ class App extends React.PureComponent {
       this.scrollToSection(loadedSection)
     }
   }
+
   render() {
     const { hasLoaded, hasRenderedCursor, shoudShowCookieBanner } = this.state
     const { currentElInScrollView } = this.props
