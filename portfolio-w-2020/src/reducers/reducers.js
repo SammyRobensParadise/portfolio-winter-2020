@@ -4,39 +4,64 @@ import {
   TOGGLE_CONTRIBUTION_ANIMATION,
   TOGGLE_CODE_ANIMATION,
   TOGGLE_DRIBBBLE_ANIMATION,
-  SCROLL_TO_SECTION
+  SCROLL_TO_SECTION,
+  INDEX_PROJECT_BACKWARD,
+  INDEX_PROJECT_FORWARD,
 } from '../actions/action'
+
 const Actions = (
   state = {
     curentContributionText: 'HOOTSUITE',
     currentContributionAnimationState: null,
     animateCode: false,
-    animateDribbble: false
+    animateDribbble: false,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case TOGGLE_CONTRIBUTION_TEXT:
-      return Object.assign({}, state, { curentContributionText: action.data })
+      return { ...state, curentContributionText: action.data }
     case TOGGLE_CONTRIBUTION_ANIMATION:
-      return Object.assign({}, state, { currentContributionAnimationState: action.data })
+      return { ...state, currentContributionAnimationState: action.data }
     case TOGGLE_CODE_ANIMATION:
-      return Object.assign({}, state, { animateCode: action.data })
+      return { ...state, animateCode: action.data }
     case TOGGLE_DRIBBBLE_ANIMATION:
-      return Object.assign({}, state, { animateDribbble: action.data })
+      return { ...state, animateDribbble: action.data }
     default:
       return state
   }
 }
 const Scroller = (
   state = {
-    currentElInScrollView: null
+    currentElInScrollView: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case SCROLL_TO_SECTION:
-      return Object.assign({}, state, { currentElInScrollView: action.data })
+      return { ...state, currentElInScrollView: action.data }
+    default:
+      return state
+  }
+}
+
+const Projects = (
+  state = {
+    projectToDisplay: 0,
+  },
+  action,
+) => {
+  switch (action.type) {
+    case INDEX_PROJECT_FORWARD:
+      if (action.data.currentIndex === action.data.listLength - 1) {
+        return { ...state, projectToDisplay: 0 }
+      }
+      return { ...state, projectToDisplay: action.data.currentIndex + 1 }
+    case INDEX_PROJECT_BACKWARD:
+      if (action.data.currentIndex === 0) {
+        return { ...state, projectToDisplay: action.data.listLength - 1 }
+      }
+      return { ...state, projectToDisplay: action.data.currentIndex - 1 }
     default:
       return state
   }
@@ -44,7 +69,8 @@ const Scroller = (
 
 const AppReduce = combineReducers({
   Actions,
-  Scroller
+  Scroller,
+  Projects,
 })
 
 export default AppReduce

@@ -1,5 +1,6 @@
 import React from 'react'
-import PropTypes, { string } from 'prop-types'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import styled, { css, keyframes } from 'styled-components'
 import { generateUtm } from '../../utils/analytics'
 import { white, backgroundGreen } from '../colors/common-colors'
@@ -150,4 +151,7 @@ class ProjectContainers extends React.PureComponent {
     )
   }
 }
-export default ProjectContainers
+const mapStateToProps = (state) => ({
+  ...state,
+})
+export default connect(mapStateToProps)(ProjectContainers)
