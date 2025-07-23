@@ -10,7 +10,7 @@
     "paper": "^0.12.3",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
-    "react-cookie": "^4.0.1",
+    "react-cookie": "^8.0.1",
     "react-dom": "^16.11.0",
     "react-paper-bindings": "^2.0.0",
     "react-particles-js": "^2.7.0",
